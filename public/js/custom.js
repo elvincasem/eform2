@@ -33,8 +33,10 @@ function saveproject(){
                     data: {action: "saveproject", projectname: projectname, projectnumber: projectnumber,projecttype:projecttype,projectdate:projectdate,signoff:signoff},
                     success: function(response) {
 						console.log(response);
-						var lastid = parseInt(response);
-						//window.location.href = "projectdetails/"+lastid;
+						convertresponse = JSON.parse(response);
+						var lastid = parseInt(convertresponse.lastid);
+						//console.log(last);
+						window.location.href = "projects/details/"+lastid;
 
 						
                     }
@@ -181,6 +183,12 @@ function saveincomplete(){
 	
 }
 
+function addincompletebutton(){
+	
+	document.getElementById("partnumber").value="";
+	document.getElementById("notes").value="";
+}
+
 function deleteincomplete(id){
 	
 	var r = confirm("Are your sure you want to delete this detail?");
@@ -206,9 +214,9 @@ function deleteincomplete(id){
 }
 
 
-function saveexceptions(projectid){
+function saveexceptions(){
 	
-					
+					var projectid = document.getElementById("projectid").value;
 					if(document.getElementById("authyes").checked==true){
 						var authshipment = "YES";
 					}else{
@@ -247,9 +255,9 @@ function saveexceptions(projectid){
 					//alert (authshipment);
 					
 					$.ajax({
-                    url: 'include/functions.php',
+                    url: '../../functions/saveexceptions',
                     type: 'post',
-                    data: {action: "saveexceptions",projectid: projectid, authshipment:authshipment,authsolution:authsolution,authdate:authdate,hardwarebox:hardwarebox,authpackaged:authpackaged,pmsee:pmsee,pmsolution:pmsolution,pmdate:pmdate,pmexception:pmexception,pmexsolution:pmexsolution,pmexdate:pmexdate},
+                    data: {projectid: projectid, authshipment:authshipment,authsolution:authsolution,authdate:authdate,hardwarebox:hardwarebox,authpackaged:authpackaged,pmsee:pmsee,pmsolution:pmsolution,pmdate:pmdate,pmexception:pmexception,pmexsolution:pmexsolution,pmexdate:pmexdate},
                     success: function(response) {
 						console.log(response);
 						//var growlType = $(this).data('growl');
@@ -271,8 +279,9 @@ function saveexceptions(projectid){
 	
 }
 
-function saveassembly(projectid){
+function saveassembly(){
 	
+					var projectid = document.getElementById("projectid").value;
 					var faintegration = document.getElementById("faintegration").value;
 					if(document.getElementById("q101yes").checked==true){
 						var q101 = "YES";
@@ -383,13 +392,13 @@ function saveassembly(projectid){
 					}if(document.getElementById("q113na").checked==true){
 						var q113 = "NA";
 					}
-					
+					var positionnos = document.getElementById("positionnos").value;
 					var assemblynotes = document.getElementById("assemblynotes").value;
 					
 					$.ajax({
-                    url: 'include/functions.php',
+                     url: '../../functions/saveassembly',
                     type: 'post',
-                    data: {action: "saveassembly",projectid: projectid,faintegration:faintegration,assemblynotes:assemblynotes,q101:q101,q102:q102,q103:q103,q104:q104,q105:q105,q106:q106,q107:q107,q108:q108,q109:q109,q110:q110,q112:q112,q113:q113},
+                    data: {projectid: projectid,faintegration:faintegration,assemblynotes:assemblynotes,q101:q101,q102:q102,q103:q103,q104:q104,q105:q105,q106:q106,q107:q107,q108:q108,q109:q109,q110:q110,q112:q112,q113:q113,positionnos:positionnos},
                     success: function(response) {
 						console.log(response);
 						//var growlType = $(this).data('growl');

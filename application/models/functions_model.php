@@ -40,29 +40,7 @@ class Functions_model extends CI_Model
 			return $progs->result_array();
 		
 	}
-	public function getdeans($icode)
-	{
-			/*
-			$this->db->select('*');
-			$this->db->from('b_program');
-			$this->db->where('instcode',$icode);
-			$progs = $this->db->get(); */
-			$deans = $this->db->query("SELECT * FROM a_deans where instcode='$icode'");
-			return $deans->result_array();
-		
-	}
 	
-	public function getformernames($icode)
-	{
-			/*
-			$this->db->select('*');
-			$this->db->from('b_program');
-			$this->db->where('instcode',$icode);
-			$progs = $this->db->get(); */
-			$formernames = $this->db->query("SELECT * FROM a_formernames where instcode='$icode'");
-			return $formernames->result_array();
-		
-	}
 
 	public function insert()
 	{

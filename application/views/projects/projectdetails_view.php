@@ -177,7 +177,7 @@
 								&nbsp;
 								
 								<h2>INCOMPLETES</h2>
-								<div style="padding-left:10px;padding-bottom:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addincompletes">
+								<div style="padding-left:10px;padding-bottom:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addincompletes" onclick="addincompletebutton();">
 								<i class="fa fa-plus-circle"></i> Add Item
 							</button></div>
 							</div>
@@ -243,7 +243,7 @@
                             <div class="block-title themed-background-dark text-light-op">
 							
                               <!--  <h2>REGULAR PROJECT or EVANS F.A.T SIGN-OFF EXCEPTIONS</h2> -->
-								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="saveexceptions(<?php ////echo$projectid;?>);">
+								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="saveexceptions(<?php //echo $projectid;?>);">
 								<i class="fa fa-save"></i> Save Exceptions
 							</button></div>
 								<div class="pull-right"></div>
@@ -259,10 +259,10 @@
 											<span class="widget-heading text-dark">
 												<div class="form-group">
 													<label class="radio-inline" for="example-inline-radio1">
-													<input type="radio" id="authyes" name="example-inline-radios" value="YES" <?php ////echo$authshipyes;?>> YES
+													<input type="radio" id="authyes" name="example-inline-radios" value="YES" <?php echo$authshipyes;?>> YES
 												</label>
 												<label class="radio-inline" for="example-inline-radio2">
-													<input type="radio" id="authno" name="example-inline-radios" value="NO" <?php ////echo$authshipno;?>> NO
+													<input type="radio" id="authno" name="example-inline-radios" value="NO" <?php echo$authshipno;?>> NO
 												</label>
 												</div>
 											</span>
@@ -271,11 +271,11 @@
 											
 											<div class="widget-heading text-dark">
 												<div class="text-black">Solutions/ CS Rep:</div>
-												<span class="text-muted"><input type="text" id="authsolution" name="example-input-small" class="form-control" placeholder="" value="<?php ////echo$authsolution;?>"></span>
+												<span class="text-muted"><input type="text" id="authsolution" name="example-input-small" class="form-control" placeholder="" value="<?php echo$authsolution;?>"></span>
 											</div>
 											<div class="widget-heading text-dark">
 												<div class="text-black">Date:</div>
-												<span class="text-muted"><input type="text" id="authdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php ////echo$authdate;?>"></span>
+												<span class="text-muted"><input type="text" id="authdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $authdate;?>"></span>
 											</div>
 										</div>
 									</div>
@@ -293,12 +293,12 @@
 												<div class="form-group">
 													<div class="radio-inline">
 														<label for="secondradio-yes">
-															<input type="radio" id="hardwareyes" name="second-radios" value="YES"  <?php ////echo$hardwareboxyes;?>>YES
+															<input type="radio" id="hardwareyes" name="second-radios" value="YES"  <?php echo $hardwareboxyes;?>>YES
 														</label>
 													</div>
 													<div class="radio-inline">
 														<label for="secondradio-no">
-															<input type="radio" id="hardwareno" name="second-radios" value="NO"  <?php ////echo$hardwareboxno;?>>NO
+															<input type="radio" id="hardwareno" name="second-radios" value="NO"  <?php echo $hardwareboxno;?>>NO
 														</label>
 													</div>
 												</div>
@@ -315,12 +315,12 @@
 												<div class="form-group">
 												<div class="radio-inline">
                                                     <label for="thirdradio-yes">
-                                                        <input type="radio" id="authpackyes" name="third-radios" value="YES" <?php ////echo$authpackagedyes;?>><strong>YES</strong>
+                                                        <input type="radio" id="authpackyes" name="third-radios" value="YES" <?php echo $authpackagedyes;?>><strong>YES</strong>
                                                     </label>
                                                 </div>
                                                 <div class="radio-inline">
                                                     <label for="thirdradio-no">
-                                                        <input type="radio" id="authpackno" name="third-radios" value="NO" <?php ////echo$authpackagedno;?>><strong>NO</strong>
+                                                        <input type="radio" id="authpackno" name="third-radios" value="NO" <?php echo $authpackagedno;?>><strong>NO</strong>
                                                     </label>
                                                 </div>
                                                 </div>
@@ -341,13 +341,13 @@
 												<div class="form-group">
 													<div class="radio-inline">
                                                     <label for="fourthradio-yes">
-                                                        <input type="radio" id="pmseeyes" name="fourth-radios" value="YES" <?php ////echo$pmseeyes;?>><strong>YES</strong>
+                                                        <input type="radio" id="pmseeyes" name="fourth-radios" value="YES" <?php echo $pmseeyes;?>><strong>YES</strong>
                                                     </label>
 													</div>
 													
 													<div class="radio-inline">
                                                     <label for="fourthradio-no">
-                                                        <input type="radio" id="pmseeno" name="fourth-radios" value="NO" <?php ////echo$pmseeno;?>><strong>NO</strong>
+                                                        <input type="radio" id="pmseeno" name="fourth-radios" value="NO" <?php echo $pmseeno;?>><strong>NO</strong>
                                                     </label>
 													</div>
 												</div>
@@ -356,11 +356,11 @@
 											<br>
 											<div class="widget-heading text-dark">
 												<div class="text-black">Solutions/ CS Rep:</div>
-												<span class="text-muted"><input type="text" name="example-input-small" class="form-control" placeholder="" id="pmsolution" value="<?php ////echo$pmsolution;?>"></span>
+												<span class="text-muted"><input type="text" name="example-input-small" class="form-control" placeholder="" id="pmsolution" value="<?php echo $pmsolution;?>"></span>
 											</div>
 											<div class="widget-heading text-dark">
 												<div class="text-black">Date:</div>
-												<span class="text-muted"><input type="text" id="pmdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php ////echo$pmdate;?>"></span>
+												<span class="text-muted"><input type="text" id="pmdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $pmdate;?>"></span>
 											</div>
 										</div>
 									</div>
@@ -377,13 +377,13 @@
 												<div class="form-group">
 													<div class="radio-inline">
                                                     <label for="fifthradio-yes">
-                                                        <input type="radio" id="pmexceptionyes" name="fifth-radios" value="YES" <?php ////echo$pmexceptionyes;?>><strong>YES</strong>
+                                                        <input type="radio" id="pmexceptionyes" name="fifth-radios" value="YES" <?php echo $pmexceptionyes;?>><strong>YES</strong>
                                                     </label>
 													</div>
 													
 													<div class="radio-inline">
                                                     <label for="fifthradio-no">
-                                                        <input type="radio" id="pmexceptionno" name="fifth-radios" value="NO" <?php ////echo$pmexceptionno;?>><strong>NO</strong>
+                                                        <input type="radio" id="pmexceptionno" name="fifth-radios" value="NO" <?php echo $pmexceptionno;?>><strong>NO</strong>
                                                     </label>
 													</div>
 												</div>
@@ -392,11 +392,11 @@
 											<br>
 											<div class="widget-heading text-dark">
 												<div class="text-black">Solutions/ CS Rep:</div>
-												<span class="text-muted"><input type="text" name="example-input-small" class="form-control" placeholder="" id="pmexsolution" value="<?php ////echo$pmexsolution;?>"></span>
+												<span class="text-muted"><input type="text" name="example-input-small" class="form-control" placeholder="" id="pmexsolution" value="<?php echo $pmexsolution;?>"></span>
 											</div>
 											<div class="widget-heading text-dark">
 												<div class="text-black">Date:</div>
-												<span class="text-muted"><input type="text" id="pmexdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php ////echo$pmexdate;?>"></span>
+												<span class="text-muted"><input type="text" id="pmexdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $pmexdate;?>"></span>
 											</div>
 										</div>
 									</div>
@@ -496,7 +496,7 @@
 							<div class="col-lg-6">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input type="text" id="faintegration" name="example-input1-group1" class="form-control" placeholder="Name" value="<?php ////echo$faintegration;?>">
+								<input type="text" id="faintegration" name="example-input1-group1" class="form-control" placeholder="Name" value="<?php echo $faintegration;?>">
 							</div>
 							</div>
 							</div>
@@ -526,17 +526,17 @@
 												<td><div class="text-black">1.01 Components Match the BoM?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q101yes">
-														<input type="radio" id="q101yes" name="q101" value="YES" <?php ////echo$q101yes; ?>>
+														<input type="radio" id="q101yes" name="q101" value="YES" <?php echo $q101yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q101no">
-														<input type="radio" id="q101no" name="q101" value="NO" <?php ////echo$q101no; ?>>
+														<input type="radio" id="q101no" name="q101" value="NO" <?php echo $q101no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q101na">
-														<input type="radio" id="q101na" name="q101" value="NA" <?php ////echo$q101na; ?>>
+														<input type="radio" id="q101na" name="q101" value="NA" <?php echo $q101na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -545,17 +545,17 @@
 												<td><div class="text-black">1.02 Hardware Box completed?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q102yes">
-														<input type="radio" id="q102yes" name="q102" value="YES" <?php ////echo$q102yes; ?>>
+														<input type="radio" id="q102yes" name="q102" value="YES" <?php echo $q102yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q102no">
-														<input type="radio" id="q102no" name="q102" value="NO" <?php ////echo$q102no; ?>>
+														<input type="radio" id="q102no" name="q102" value="NO" <?php echo $q102no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q102na">
-														<input type="radio" id="q102na" name="q102" value="NA" <?php ////echo$q102na; ?>>
+														<input type="radio" id="q102na" name="q102" value="NA" <?php echo $q102na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -564,17 +564,17 @@
 												<td><div class="text-black">1.03 Electrical Assembly checklist received?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q103yes">
-														<input type="radio" id="q103yes" name="q103" <?php ////echo$q103yes; ?>>
+														<input type="radio" id="q103yes" name="q103" <?php echo $q103yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q103no">
-														<input type="radio" id="q103no" name="q103" <?php //echo$q103na; ?>>
+														<input type="radio" id="q103no" name="q103" <?php echo $q103no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q103na">
-														<input type="radio" id="q103na" name="q103" <?php //////////////echo$q103na; ?>>
+														<input type="radio" id="q103na" name="q103" <?php echo $q103na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -583,17 +583,17 @@
 												<td><div class="text-black">1.04 Metal Assembly checklist and BoM received?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q104yes">
-														<input type="radio" id="q104yes" name="q104" <?php //echo$q104yes; ?>>
+														<input type="radio" id="q104yes" name="q104" <?php echo $q104yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q104no">
-														<input type="radio" id="q104no" name="q104" <?php //echo$q104no; ?>>
+														<input type="radio" id="q104no" name="q104" <?php  echo $q104no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q104na">
-														<input type="radio" id="q104na" name="q104" <?php //echo$q104na; ?>>
+														<input type="radio" id="q104na" name="q104" <?php  echo $q104na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -602,17 +602,17 @@
 												<td><div class="text-black">1.05 Cladding Assembly checklist and BoM received?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q105yes">
-														<input type="radio" id="q105yes" name="q105" <?php //echo$q105yes; ?>>
+														<input type="radio" id="q105yes" name="q105" <?php  echo $q105yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q105no">
-														<input type="radio" id="q105no" name="q105"<?php //echo$q105no; ?>>
+														<input type="radio" id="q105no" name="q105"<?php  echo $q105no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q105na">
-														<input type="radio" id="q105na" name="q105" <?php //echo$q105na; ?>>
+														<input type="radio" id="q105na" name="q105" <?php  echo $q105na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -621,17 +621,17 @@
 												<td><div class="text-black">1.06 Product specific checklist completed?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q106yes">
-														<input type="radio" id="q106yes" name="q106" <?php //echo$q106yes; ?>>
+														<input type="radio" id="q106yes" name="q106" <?php  echo $q106yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q106no">
-														<input type="radio" id="q106no" name="q106" <?php //echo$q106na; ?>>
+														<input type="radio" id="q106no" name="q106" <?php echo $q106no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q106na">
-														<input type="radio" id="q106na" name="q106"<?php //echo$q106na; ?>>
+														<input type="radio" id="q106na" name="q106"<?php echo $q106na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -640,17 +640,17 @@
 												<td><div class="text-black">1.07 Exceptions as per manufacturing checklists noted on the exceptions?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q107yes">
-														<input type="radio" id="q107yes" name="q107" <?php //echo$q107yes; ?>>
+														<input type="radio" id="q107yes" name="q107" <?php  echo $q107yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q107no">
-														<input type="radio" id="q107no" name="q107" <?php //echo$q107no; ?>>
+														<input type="radio" id="q107no" name="q107" <?php  echo $q107no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q107na">
-														<input type="radio" id="q107na" name="q107" <?php //echo$q107na; ?>>
+														<input type="radio" id="q107na" name="q107" <?php  echo $q107na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -659,17 +659,17 @@
 												<td><div class="text-black">1.08 Any Changes to the BoM at Sign Off?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q108yes">
-														<input type="radio" id="q108yes" name="q108" <?php //echo$q108yes; ?>>
+														<input type="radio" id="q108yes" name="q108" <?php echo $q108yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q108no">
-														<input type="radio" id="q108no" name="q108" <?php //echo$q108no; ?>>
+														<input type="radio" id="q108no" name="q108" <?php  echo $q108no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q108na">
-														<input type="radio" id="q108na" name="q108" <?php //echo$q108na; ?>>
+														<input type="radio" id="q108na" name="q108" <?php  echo $q108na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -678,17 +678,17 @@
 												<td><div class="text-black">1.09 Shipping Packet included on door at module 1?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q109yes">
-														<input type="radio" id="q109yes" name="q109" <?php //echo$q109yes; ?>>
+														<input type="radio" id="q109yes" name="q109" <?php  echo $q109yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q109no">
-														<input type="radio" id="q109no" name="q109" <?php //echo$q109no; ?>>
+														<input type="radio" id="q109no" name="q109" <?php  echo $q109no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q109na">
-														<input type="radio" id="q109na" name="q109" <?php //echo$q109na; ?>>
+														<input type="radio" id="q109na" name="q109" <?php  echo $q109na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -697,17 +697,17 @@
 												<td><div class="text-black">1.10 All Specials on Finish Schedule Completed?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q110yes">
-														<input type="radio" id="q110yes" name="q110" <?php //echo$q110yes; ?>>
+														<input type="radio" id="q110yes" name="q110" <?php  echo $q110yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q110no">
-														<input type="radio" id="q110no" name="q110" <?php //echo$q110no; ?>>
+														<input type="radio" id="q110no" name="q110" <?php  echo $q110no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q110na">
-														<input type="radio" id="q110na" name="q110" <?php //echo$q110na; ?>>
+														<input type="radio" id="q110na" name="q110" <?php  echo $q110na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -731,36 +731,36 @@
 												<td><div class="text-black">1.12 Product fully staged?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q112yes">
-														<input type="radio" id="q112yes" name="q112" <?php //echo$q112yes; ?>>
+														<input type="radio" id="q112yes" name="q112" <?php  echo $q112yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q112no">
-														<input type="radio" id="q112no" name="q112" <?php //echo$q112no; ?>>
+														<input type="radio" id="q112no" name="q112" <?php  echo $q112no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q112na">
-														<input type="radio" id="q112na" name="q112" <?php //echo$q112na; ?>>
+														<input type="radio" id="q112na" name="q112" <?php  echo $q112na; ?>>
 													</label>
 												</td>
 											</tr>
 											
 											<tr>
-												<td><div class="text-black">1.13 Product partially staged?<br>Position nos.:<input type="text" id="" name="" class="form-control" placeholder=""></div></td>
+												<td><div class="text-black">1.13 Product partially staged?<br>Position nos.:<input type="text" id="positionnos" name="" class="form-control" placeholder="" value="<?php echo $positionnos;?>"></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q113yes">
-														<input type="radio" id="q113yes" name="q113" <?php //echo$q113yes; ?>>
+														<input type="radio" id="q113yes" name="q113" <?php  echo $q113yes; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q113no">
-														<input type="radio" id="q113no" name="q113" <?php //echo$q113no; ?>>
+														<input type="radio" id="q113no" name="q113" <?php  echo $q113no; ?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q113na">
-														<input type="radio" id="q113na" name="q113" <?php //echo$q113na; ?>>
+														<input type="radio" id="q113na" name="q113" <?php  echo $q113na; ?>>
 													</label>
 												</td>
 											</tr>
@@ -772,7 +772,7 @@
 								<div class="col-xs-12">
 									<h2 class="h5 text-uppercase push text-center"><strong>Final Assembly Notes:</strong></h2>
 									<div class="col-lg-12">
-										<textarea id="assemblynotes" name="example-textarea-input" rows="2" class="form-control" placeholder=""><?php //echo$faintegration;?></textarea>
+										<textarea id="assemblynotes" name="example-textarea-input" rows="2" class="form-control" placeholder=""><?php echo $assemblynotes;?></textarea>
 									</div>
 								</div>
 								</div>

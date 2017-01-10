@@ -107,7 +107,60 @@ class Functions extends CI_Controller
 		echo $currentid;
 		
 	}
+	
+	public function saveexceptions(){
+		
+		$projectid = $this->input->post('projectid');
+		$authshipment = $this->input->post('authshipment');
+		$authsolution = $this->input->post('authsolution');
+		$authdate = $this->input->post('authdate');
+		$hardwarebox = $this->input->post('hardwarebox');
+		$authpackaged = $this->input->post('authpackaged');
+		$pmsee = $this->input->post('pmsee');
+		$pmsolution = $this->input->post('pmsolution');
+		$pmdate = $this->input->post('pmdate');
+		$pmexception = $this->input->post('pmexception');
+		$pmexsolution = $this->input->post('pmexsolution');
+		$pmexdate = $this->input->post('pmexdate');
+		
+		$sql = "update project_incompletes_q set authshipment=".$this->db->escape($authshipment)." ,authsolution=".$this->db->escape($authsolution)." ,authdate=".$this->db->escape($authdate)." ,hardwarebox=".$this->db->escape($hardwarebox)." ,authpackaged=".$this->db->escape($authpackaged)." ,pmsee=".$this->db->escape($pmsee)." ,pmsolution=".$this->db->escape($pmsolution)." ,pmdate=".$this->db->escape($pmdate)." ,pmexception=".$this->db->escape($pmexception)." ,pmexsolution=".$this->db->escape($pmexsolution)." ,pmexdate=".$this->db->escape($pmexdate)." where projectid=".$this->db->escape($projectid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
 
+	
+	public function saveassembly(){
+		
+		$projectid = $this->input->post('projectid');
+		$faintegration = $this->input->post('faintegration');
+		$assemblynotes = $this->input->post('assemblynotes');
+		$q101 = $this->input->post('q101');
+		$q102 = $this->input->post('q102');
+		$q103 = $this->input->post('q103');
+		$q104 = $this->input->post('q104');
+		$q105 = $this->input->post('q105');
+		$q106 = $this->input->post('q106');
+		$q107 = $this->input->post('q107');
+		$q108 = $this->input->post('q108');
+		$q109 = $this->input->post('q109');
+		$q110 = $this->input->post('q110');
+		$q112 = $this->input->post('q112');
+		$q113 = $this->input->post('q113');
+		$positionnos = $this->input->post('positionnos');
+		
+		
+		$sql = "update project_assembly set faintegration=".$this->db->escape($faintegration)." ,assemblynotes=".$this->db->escape($assemblynotes)." ,q101=".$this->db->escape($q101)." ,q102=".$this->db->escape($q102)." ,q103=".$this->db->escape($q103)." ,q104=".$this->db->escape($q104)." ,q105=".$this->db->escape($q105)." ,q106=".$this->db->escape($q106)." ,q107=".$this->db->escape($q107)." ,q108=".$this->db->escape($q108)." ,q109=".$this->db->escape($q109)." ,q110=".$this->db->escape($q110)." ,q112=".$this->db->escape($q112)." ,q113=".$this->db->escape($q113)." ,positionnos=".$this->db->escape($positionnos)." where projectid=".$this->db->escape($projectid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
 
 
 
