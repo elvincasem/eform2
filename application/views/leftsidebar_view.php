@@ -3,7 +3,7 @@
                     <!-- Sidebar Brand -->
                     <div id="sidebar-brand" class="themed-background">
                         <a href="<?=base_url()?>home" class="sidebar-title">
-                            <i class="fa fa-cube"></i> <span class="sidebar-nav-mini-hide">CHED RO1<strong>SOS</strong></span>
+                            <i class="fa fa-cube"></i> <span class="sidebar-nav-mini-hide">eForm</span>
                         </a>
                     </div>
                     <!-- END Sidebar Brand -->
@@ -56,7 +56,7 @@
                         
                         <div class="text-center">
                             
-                            <small>&copy; CHED RO1 HEMIS</small>
+                            <small>&copy; Evans Online</small>
                         </div>
                     </div>
                     <!-- END Sidebar Extra Info -->

@@ -17,7 +17,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>CHED HEMIS</title>
+        <title>Evans Online</title>
 
         <meta name="description" content="CHED HEMIS">
         <meta name="author" content="Elvin Casem">

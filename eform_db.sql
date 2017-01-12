@@ -70,7 +70,7 @@ CREATE TABLE `project_incompletes` (
   `description` varchar(300) DEFAULT NULL,
   `notes` text,
   PRIMARY KEY (`pdetailsid`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_incompletes` */
 
