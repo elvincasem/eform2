@@ -515,6 +515,7 @@ function saveservices(projectid){
 }
 
 
+
 $('.btn-growl').on('click', function(){
                 var growlType = $(this).data('growl');
 
@@ -589,3 +590,51 @@ function savedesign(projectid){
 	
 	
 }			
+
+function addregularprojectbutton(){
+	
+	//document.getElementById("partnumber").value="";
+	//document.getElementById("notes").value="";
+}
+
+function saveregular(){
+	
+					var projectid = document.getElementById("projectid").value;
+					var rp_issuetype = document.getElementById("rp_issuetype").value;
+					var rp_partdescription = document.getElementById("rp_partdescription").value;
+					var rp_qty = document.getElementById("rp_qty").value;
+					var rp_posno = document.getElementById("rp_posno").value;
+					var rp_issuedetails = document.getElementById("rp_issuedetails").value;
+					var rp_correction = document.getElementById("rp_correction").value;
+					var rp_groupresponsible = document.getElementById("rp_groupresponsible").value;
+					var rp_cause = document.getElementById("rp_cause").value;
+					var rp_ship = document.getElementById("rp_ship").value;
+					var rp_level0 = document.getElementById("rp_level0").value;
+					var rp_level1 = document.getElementById("rp_level1").value;
+					var rp_level2 = document.getElementById("rp_level2").value;
+					var rp_level3 = document.getElementById("rp_level3").value;
+					var rp_approvedby = document.getElementById("rp_approvedby").value;
+					var rp_date = document.getElementById("rp_date").value;
+					
+					
+					$.ajax({
+                    url: '../../functions/saveregular',
+                    type: 'post',
+                    data: {projectid: projectid, rp_issuetype: rp_issuetype,rp_partdescription:rp_partdescription,rp_qty:rp_qty,rp_issuedetails:rp_issuedetails,rp_correction:rp_correction,rp_groupresponsible:rp_groupresponsible,rp_cause:rp_cause,rp_ship:rp_ship,rp_level0:rp_level0,rp_level1:rp_level1,rp_level2:rp_level2,rp_level3:rp_level3,rp_approvedby:rp_approvedby,rp_date:rp_date,rp_posno:rp_posno},
+                    success: function(response) {
+						//console.log(response);
+						//var lastid = parseInt(response);
+						var closeregular = document.getElementById("closeregular");
+						$('#regularprojecttable').load(document.URL +  ' #regularprojecttable');
+						//$('#incompletestable tr:last').after("<tr><td>"+partnumber+"</td><td>"+partdescription+"</td><td>"+notes+"</td><td><button class='btn btn-danger notification' id='notification' onClick='deleteincomplete("+lastid+")'><i class='fa fa-times'></i></button></td></tr>");
+						closeregular.click();
+						//var lastid = parseInt(response);
+						//window.location.href = "projectdetails.php?id="+lastid;
+
+						
+                    }
+                });
+
+	
+	
+}

@@ -47,6 +47,7 @@
 
         <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
         <link rel="stylesheet" href="<?=base_url()?>public/css/main.css">
+		<link rel="stylesheet" href="<?=base_url()?>public/css/fontsgoogleapis.css">
 
         <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
 

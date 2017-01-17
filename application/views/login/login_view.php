@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>CHED RO1 S.O.S.</title>
+        <title>Evans Console - Sign Off eForm</title>
 
         <meta name="robots" content="noindex, nofollow">
 
@@ -32,6 +32,7 @@
 
         <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
         <link rel="stylesheet" href="<?=base_url()?>public/css/main.css">
+		<link rel="stylesheet" href="<?=base_url()?>public/css/fontsgoogleapis.css">
 
         <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
 
@@ -47,7 +48,7 @@
         <div id="login-container">
             <!-- Login Header -->
             <h1 class="h2 text-light text-center push-top-bottom animation-slideDown">
-                <i class="fa fa-cube"></i> <strong>CHED RO1 SOS</strong>
+                <i class="fa fa-cube"></i> <strong>Evans Sign Off eForm</strong>
             </h1>
             <!-- END Login Header -->
 
@@ -94,7 +95,7 @@
 
             <!-- Footer -->
             <footer class="text-muted text-center animation-pullUp">
-                <small> &copy; <a href="http://chedro1.com" target="_blank">CHED RO1 SOS v1.0</a></small>
+                <small> &copy; <a href="http://evansonline.com" target="_blank">EVANS Console - Sign Off eForm</a></small>
             </footer>
             <!-- END Footer -->
         </div>

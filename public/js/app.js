@@ -97,6 +97,8 @@ var App = function() {
 
         // Initialize Select2
         $('.select-select2').select2();
+		// Initialize Select2
+        $('.select-select3').select2();
 
         // Initialize Slider for Bootstrap
         $('.input-slider').slider();

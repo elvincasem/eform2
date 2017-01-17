@@ -8,7 +8,7 @@ class Projects extends CI_Controller
 		$this->load->model('projects_model');
 		//$this->load->model('permitsrecognition_model');
 		 $this->data = array(
-            'title' => 'Projects List',
+            'title' => 'Projects',
 			'projectclass' => 'active'
 			
 			);
@@ -32,13 +32,18 @@ class Projects extends CI_Controller
 	
 	
 	public function details($projectid){
+		
+		
 		$data = $this->data;
+		//$scripts = array('<script>App.sidebar("toggle-sidebar");this.blur();</script>');
+        //$data['scripts'] = $scripts;
 		$data['page'] = "index";
-		$data['details'] =array('instname'=>"Projects List") ;
+		$data['details'] =array('instname'=>"Projects Details") ;
 		$data['project_details'] = $this->projects_model->getprojectdetails($projectid);
 		$data['project_incompletes'] = $this->projects_model->getprojectincompletes($projectid);
 		$project_incompletes_q = $this->projects_model->getprojectincompletesq($projectid);
 		$project_assembly = $this->projects_model->getprojectassembly($projectid);
+		$data['project_regular'] = $this->projects_model->getprojectregular($projectid);
 		//print_r($project_incompletes_q['authshipment']);
 		
 		

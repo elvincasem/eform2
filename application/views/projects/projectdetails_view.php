@@ -1,5 +1,11 @@
+<style>
+.smallfont{
+	font-size:12px !important;
+	text-align:center;
+}
+</style>
 
-<div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+<div id="page-container" class="header-fixed-top sidebar-visible-lg-mini">
 	<input type="hidden" id="projectid" value="<?php echo $project_details['projectid'];?>">
 	
 	<!--rightsidebar here-->
@@ -81,7 +87,7 @@
 						
 						<!-- Mini Widgets -->
 						<div class="col-sm-4">
-							<a href="#" class="widget text-center btn-effect-ripple">
+							<a href="#" class="widget text-center btn-effect-ripple hidden">
 								<div class="widget-content themed-background-info text-light-op text-center">
 									<i class="fa fa-2x fa-download push-bit"></i><br>
 									<strong>SAVE DOCUMENT</strong>
@@ -184,7 +190,7 @@
 							<!-- END Partial Responsive Title -->
 
 							<!-- Partial Responsive Content -->
-							<table class="table table-striped table-vcenter" id="incompletestable">
+							<table class="table table-striped table-vcenter table-hover" id="incompletestable">
 								<thead>
 									<tr>
 										<!-- <th>Item</th> -->
@@ -405,76 +411,275 @@
 								
 							</div>
                         </div>
-					
+					<!-- Regular Modal -->
+			<div id="addregularproject" class="modal" role="dialog" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h3 class="modal-title"><strong>Project Details</strong></h3>
+						</div>
+						<div class="modal-body">
+							
+							<div>
+                                <!-- Input States Block -->
+                                <div class="block">
+                                    
+
+                                    <!-- Input States Content -->
+                                    <form class="form-horizontal" onsubmit="return false;">
+									<input type="hidden" id="regularprojectid" value="">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Issue Type</label>
+                                            <div class="col-md-6">
+                                                <select id="rp_issuetype" name="example-select2" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                                    <option></option>
+													<option value="Change Order">Change Order</option>
+													<option value="Damaged Part">Damaged Part</option>
+													<option value="Defective Part">Defective Part</option>
+													<option value="Design Issue">Design Issue</option>
+													<option value="Incomplet">Incomplete</option>
+													<option value="Incorrect Assembly">Incorrect Assembly</option>
+													<option value="Incorrect Part">Incorrect Part</option>
+													<option value="Incorrect Reference Document">Incorrect Reference Document</option>
+													<option value="Missing Part">Missing Part</option>
+													<option value="Physical Misalignment">Physical Misalignment</option>
+													<option value="Solutions Request">Solutions Request</option>
+						
+						
+                                                </select>
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Part Description</label>
+                                            <div class="col-md-6">
+                                                <textarea id="rp_partdescription" class="form-control" ></textarea>
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">QTY</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" id="rp_qty">
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Pos. #</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" id="rp_posno">
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Issue Details</label>
+                                            <div class="col-md-6">
+                                                <textarea id="rp_issuedetails" class="form-control" ></textarea>
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Correction/Immediate Corrective Action</label>
+                                            <div class="col-md-6">
+                                                <textarea id="rp_correction" class="form-control" ></textarea>
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Group Responsible for Immediate Action</label>
+                                            <div class="col-md-6">
+                                                <select id="rp_groupresponsible" name="example-select2" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                                    <option></option>
+													<option value="DESIGN">DESIGN</option>
+													<option value="ECK">ECK</option>
+													<option value="ELECTRICAL">ELECTRICAL</option>
+													<option value="INTEGRATION">INTEGRATION</option>
+													<option value="METAL">METAL</option>
+													<option value="PACKAGING">PACKAGING</option>
+													<option value="PE&D">PE&D</option>
+													<option value="PROCUREMENT">PROCUREMENT</option>
+													<option value="QUALITY">QUALITY</option>
+													<option value="SOLUTIONS">SOLUTIONS</option>
+													<option value="VENDOR">VENDOR</option>
+													<option value="WOOD">WOOD</option>
+													
+						
+						
+                                                </select>
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Group Responsible to fix Root Cause</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" id="rp_cause">
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Ship Incomplete?</label>
+                                            <div class="col-md-6">
+                                                <select id="rp_ship" name="example-select2" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                                    <option value="NONE">NONE</option>
+													<option value="YES">YES</option>
+													<option value="NO">NO</option>
+	
+                                                </select>
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Part Types - Level 0</label>
+                                            <div class="col-md-6">
+                                                <select id="rp_level0" name="example-select2" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+													<option value="NONE">NONE</option>
+                                                    <option value="Buyout">Buyout</option>
+													<option value="Manufactured">Manufactured</option>
+													
+	
+                                                </select>
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Part Types - Level 1</label>
+                                            <div class="col-md-6">
+                                                <select id="rp_level1" name="example-select2" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+													<option value="NONE">NONE</option>
+                                                    <option value="Accessory">Accessory</option>
+													<option value="Electrical">Electrical</option>
+													<option value="Frame">Frame</option>
+													<option value="Hardware">Hardware</option>
+													<option value="Metal">Metal</option>
+													<option value="Millwork">Millwork</option>
+													<option value="Monitor Arm">Monitor Arm</option>
+													<option value="Nosing">Nosing</option>
+													
+	
+                                                </select>
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Part Types - Level 2</label>
+                                           <div class="col-md-6">
+                                                <input type="text" class="form-control" id="rp_level2">
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Part Types - Level 3</label>
+                                           <div class="col-md-6">
+                                                <input type="text" class="form-control" id="rp_level3">
+                                            </div>
+                                        </div>
+										
+										<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Exception completed and Approved By</label>
+                                           <div class="col-md-6">
+                                                <input type="text" class="form-control" id="rp_approvedby">
+                                            </div>
+                                        </div>
+									
+									<div class="form-group">
+                                            <label class="col-md-4 control-label" for="state-normal">Date</label>
+                                           <div class="col-md-6">
+                                               <input type="text" id="rp_date" name="example-datepicker3" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo date("Y-m-d");?>">
+                                            </div>
+                                        </div>
+                                       
+                                        
+                                    </form>
+                                    <!-- END Input States Content -->
+                                </div>
+                                <!-- END Input States Block -->
+							
+							
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-effect-ripple btn-primary" onclick="saveregular();">Save</button>
+							<button type="button" class="btn btn-effect-ripple btn-danger" id="closeregular" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!-- END Regular Modal -->
 					
 					<!-- Datatables Block -->
                         <!-- Datatables is initialized in js/pages/uiTables.js -->
                         <div class="block full">
                             <div class="block-title themed-background-dark text-light-op">
                                 <h2>REGULAR PROJECT or EVANS F.A.T SIGN-OFF EXCEPTIONS</h2>
+								<div style="padding-left:10px;padding-bottom:5px;"><button id="add-regularproject" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addregularproject" onclick="addregularprojectbutton();">
+								<i class="fa fa-plus-circle"></i> Add Item
+							</button></div>
                             </div>
                             <div class="table-responsive">
-                                <table id="example-datatable" class="table table-striped table-bordered table-condensed">
+                                <table class="table table-striped table-vcenter table-condensed table-hover" id="regularprojecttable">
                                     <thead>
                                         <tr>
-                                            <th class="text-center" style="width: 50px;">Exception #</th>
-                                            <th>Issue Type</th>
-                                            <th>Part Description(Include RH/LH)</th>
-                                            <th>QTY</th>
-                                            <th>Pos.#</th>
-                                            <th>Issue Details</th>
-                                            <th>Correction / Immediate Corrective Action</th>
-                                            <th>Group Responsible for immediate action</th>
-                                            <th>Group Responsible to fix Root Cause</th>
-                                            <th>Ship Incomplete? (YES/NO)</th>
-                                            <th>Exception completed and approved by:</th>
-                                            <th>Date</th>
+                                            
+                                            <th class="smallfont">Issue Type</th>
+                                            <th class="smallfont">Part Description<br>(Include RH/LH)</th>
+                                            <th class="smallfont">QTY</th>
+                                            <th class="smallfont">Pos.#</th>
+                                            <th class="smallfont" width="100">Issue Details</th>
+                                            <th class="smallfont">Correction / Immediate Corrective Action</th>
+                                            <th class="smallfont" width="50">Group Responsible for immediate action</th>
+                                            <th class="smallfont" width="50">Group Responsible to fix Root Cause</th>
+                                            <th class="smallfont">Ship Incomplete? (YES/NO)</th>
+                                            <th class="smallfont">Exception completed and approved by:</th>
+                                            <th class="smallfont">Date</th>
+											<th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            
+                                            <td class='text-center'>1</td>
                                             <td class="text-center">1</td>
                                             <td class="text-center">1</td>
                                             <td class="text-center">1</td>
                                             <td class="text-center">1</td>
                                             <td class="text-center">1</td>
                                             <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
+                                            <td class="text-center">Design</td>
+                                            <td class="text-center">YES</td>
+                                            <td class="text-center">Angelica</td>
+                                            <td class="text-center">2016/01/01</td>
+											<td></td>
                                         </tr>
-                                        <tr>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-center">2</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">3</td>
+										
+										<?php
+										//print_r($project_regular);
+										
+										foreach ($project_regular as $rows2 => $link2) {
 
-                                        </tr>
+												echo"<tr class='odd gradeX'>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'></td>";
+												echo"<td class='center'> 
+													<button class='btn btn-primary notification' id='notification' onClick='#'><i class='fa fa-edit'></i></button>
+													<button class='btn btn-danger notification' id='notification' onClick='deleteincomplete($pdetailsid)'><i class='fa fa-times'></i></button>
+												</td>";
+												//echo"</tr>";
+											}
+											?>
+										
+										
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -1651,5 +1856,6 @@
 	<!-- END Main Container -->
 </div>
 <!-- END Page Container -->
+
 
 

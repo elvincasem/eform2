@@ -25,10 +25,11 @@
 								<li class="<?php echo $projectclass;?>">
                                     <a href="<?=base_url()?>projects"><i class="gi gi-inbox sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Projects</span></a>
                                 </li>
-								<li>
-                                    <a href="<?=base_url()?>reports"><i class="gi gi-more_items sidebar-nav-icon"></i><span>Reports</span></a>
+								<li class="<?php //echo $projectclass;?>">
+                                    <a href="<?=base_url()?>reports"><i class="gi gi-more_items sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Reports</span></a>
                                 </li>
-								<li">
+								
+								<li>
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-rocket sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Settings</span></a>
                                     <ul>
 										<li >

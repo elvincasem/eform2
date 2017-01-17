@@ -28,5 +28,17 @@
 			echo " <script>$(function(){ ReadyDashboard.init(); });</script>";
 		}
 		?>
+		
+		<?php
+/*Loading of javascript from project_details controller*/
+/*if(isset($scripts))
+{
+    foreach($scripts as $script)
+    {
+        echo $script;
+    }
+}*/
+?>
+
     </body>
 </html>

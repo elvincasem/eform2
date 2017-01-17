@@ -48,6 +48,20 @@ class Projects_model extends CI_Model
 		
 	}
 	
+	public function getprojectregular($projectid)
+	{
+
+			$result = $this->db->query("SELECT * FROM project_regular WHERE projectid='$projectid'");
+			return $result->result_array();
+			
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
