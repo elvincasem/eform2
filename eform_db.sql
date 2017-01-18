@@ -24,11 +24,11 @@ CREATE TABLE `project` (
   `formdate` date DEFAULT NULL,
   `originator` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`projectid`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project` */
 
-insert  into `project`(`projectid`,`projectname`,`projectnumber`,`projecttype`,`formdate`,`originator`) values (18,'Haywan 2','398438','Counter Smart','2016-11-27','Name Here'),(21,'mememem','398438','Counter Smart','2016-11-27','Vincent '),(33,'mememem','398438','Counter Smart','2016-11-27','John Doe'),(41,'mememem','398438','Counter Smart','2016-11-27','Kent Schaffter'),(42,'Haywan Project','1133458','Honeywell','2016-12-30','Elvin Casem'),(43,'project sample','123456','Custom','2016-12-15','ME'),(48,'sdfsdf','123','0','0000-00-00',''),(50,'fasdfa','33','0','0000-00-00',''),(53,'New Project','12345','Counter Smart','2017-01-07','Elvin Casem'),(54,'nnnn','321','Defeciency','2017-01-07','elvin');
+insert  into `project`(`projectid`,`projectname`,`projectnumber`,`projecttype`,`formdate`,`originator`) values (18,'Haywan 2','398438','Counter Smart','2016-11-27','Name Here'),(42,'Haywan Project','1133458','Honeywell','2016-12-30','Elvin Casem'),(43,'project sample','123456','Custom','2016-12-15','ME'),(53,'New Project','12345','Counter Smart','2017-01-07','Elvin Casem');
 
 /*Table structure for table `project_assembly` */
 
@@ -57,7 +57,7 @@ CREATE TABLE `project_assembly` (
 
 /*Data for the table `project_assembly` */
 
-insert  into `project_assembly`(`assmblyid`,`projectid`,`faintegration`,`assemblynotes`,`q101`,`q102`,`q103`,`q104`,`q105`,`q106`,`q107`,`q108`,`q109`,`q110`,`q112`,`q113`,`positionnos`) values (3,18,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(4,19,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(5,20,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(11,32,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(12,33,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(13,34,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(14,35,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(15,36,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(16,37,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(17,38,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(18,39,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(19,40,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(20,41,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(21,42,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(22,43,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(23,44,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(24,45,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(25,46,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(26,47,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(27,48,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(28,44,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(29,45,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(30,46,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(31,47,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(32,48,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(33,49,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(34,50,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(35,51,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(36,52,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(37,53,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(38,54,'NONE1','adfasdf1111','NA','NA','YES','YES','NO','YES','YES','NO','YES','YES','NA','NA','444');
+insert  into `project_assembly`(`assmblyid`,`projectid`,`faintegration`,`assemblynotes`,`q101`,`q102`,`q103`,`q104`,`q105`,`q106`,`q107`,`q108`,`q109`,`q110`,`q112`,`q113`,`positionnos`) values (3,18,'NONE','','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(4,19,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(5,20,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(11,32,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(12,33,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(13,34,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(14,35,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(15,36,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(16,37,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(17,38,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(18,39,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(19,40,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(20,41,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(21,42,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(22,43,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(23,44,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(24,45,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(25,46,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(26,47,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(27,48,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(28,44,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(29,45,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(30,46,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(31,47,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(32,48,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(33,49,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(34,50,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(35,51,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(36,52,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(37,53,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(38,54,'NONE1','adfasdf1111','NA','NA','YES','YES','NO','YES','YES','NO','YES','YES','NA','NA','444');
 
 /*Table structure for table `project_incompletes` */
 
@@ -70,11 +70,11 @@ CREATE TABLE `project_incompletes` (
   `description` varchar(300) DEFAULT NULL,
   `notes` text,
   PRIMARY KEY (`pdetailsid`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_incompletes` */
 
-insert  into `project_incompletes`(`pdetailsid`,`projectid`,`partnumber`,`description`,`notes`) values (18,18,'adsf','Require Design','dff'),(19,19,'345345','In Process',''),(21,20,'w4323','','');
+insert  into `project_incompletes`(`pdetailsid`,`projectid`,`partnumber`,`description`,`notes`) values (18,18,'adsf','Require Design','dff'),(19,19,'345345','In Process',''),(21,20,'w4323','',''),(22,42,'234','In Process','d'),(23,42,'e','Require Design','df');
 
 /*Table structure for table `project_incompletes_q` */
 
@@ -100,6 +100,34 @@ CREATE TABLE `project_incompletes_q` (
 /*Data for the table `project_incompletes_q` */
 
 insert  into `project_incompletes_q`(`pdetailsqid`,`projectid`,`authshipment`,`authsolution`,`authdate`,`hardwarebox`,`authpackaged`,`pmsee`,`pmsolution`,`pmdate`,`pmexception`,`pmexsolution`,`pmexdate`) values (5,18,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(6,19,'YES','NONE','0000-00-00','YES','YES','NO','NONE','0000-00-00','YES','NONE','0000-00-00'),(7,20,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(12,32,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(13,33,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(14,34,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(15,35,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(16,36,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(17,37,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(18,38,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(19,39,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(20,40,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(21,41,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(22,42,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(23,43,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(24,44,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(25,45,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(26,46,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(27,47,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(28,48,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(29,44,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(30,45,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(31,46,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(32,47,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(33,48,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(34,49,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(35,50,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(36,51,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(37,52,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(38,53,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(39,54,'YES','NONE1','0000-00-00','YES','YES','YES','NONE1','0000-00-00','YES','NONE','0000-00-00');
+
+/*Table structure for table `project_regular` */
+
+DROP TABLE IF EXISTS `project_regular`;
+
+CREATE TABLE `project_regular` (
+  `rpid` bigint(20) NOT NULL AUTO_INCREMENT,
+  `projectid` bigint(20) DEFAULT NULL,
+  `rp_issuetype` varchar(500) DEFAULT NULL,
+  `rp_partdescription` text,
+  `rp_qty` int(11) DEFAULT NULL,
+  `rp_posno` varbinary(500) DEFAULT NULL,
+  `rp_issuedetails` text,
+  `rp_groupresponsible` varchar(500) DEFAULT NULL,
+  `rp_cause` varchar(300) DEFAULT NULL,
+  `rp_ship` varchar(100) DEFAULT NULL,
+  `rp_level0` varchar(500) DEFAULT NULL,
+  `rp_level1` varchar(500) DEFAULT NULL,
+  `rp_level2` varchar(500) DEFAULT NULL,
+  `rp_level3` varchar(500) DEFAULT NULL,
+  `rp_approvedby` varchar(300) DEFAULT NULL,
+  `rp_date` date DEFAULT NULL,
+  PRIMARY KEY (`rpid`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+/*Data for the table `project_regular` */
+
+insert  into `project_regular`(`rpid`,`projectid`,`rp_issuetype`,`rp_partdescription`,`rp_qty`,`rp_posno`,`rp_issuedetails`,`rp_groupresponsible`,`rp_cause`,`rp_ship`,`rp_level0`,`rp_level1`,`rp_level2`,`rp_level3`,`rp_approvedby`,`rp_date`) values (1,18,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,18,'','',0,'','','','','','','','','','','0000-00-00'),(3,18,'Damaged Part','',0,'','','','','','','','','','','0000-00-00'),(4,18,'Damaged Part','part desc',3,'23','asd','3','3','3','3','3','3','3','3','0000-00-00'),(5,18,'Defective Part','part',0,'pos','issue','qty','qty','qty','qty','qty','qty','qty','qty','0000-00-00'),(6,18,'Change Order','sadf',2,'pos','issye','2','2','2','2','2','2','2','2','0000-00-00'),(7,18,'','',0,'','','','','','','','','','','0000-00-00'),(8,18,'','',0,'','','','','','','','','','','0000-00-00'),(9,18,'','',3,'pos','3','3','3','3','3','3','3','3','3','0000-00-00'),(10,18,'','',3,'pos','issue detail','3','root cause','YES','Buyout','Electrical','level2','level3','Angie','2017-01-18'),(11,18,'Defective Part','part description',3,'pos','issue detail','3','root cause','YES','Buyout','Electrical','level2','level3','Angie','2017-01-18'),(12,18,'Damaged Part','afs',2,'1','321','2','','NONE','NONE','NONE','','','','2017-01-18'),(13,18,'Change Order','df',2,'da','21','2','','NONE','NONE','NONE','','','','2017-01-18');
 
 /*Table structure for table `project_services` */
 

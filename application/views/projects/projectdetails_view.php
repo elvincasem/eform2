@@ -412,6 +412,7 @@
 							</div>
                         </div>
 					<!-- Regular Modal -->
+			
 			<div id="addregularproject" class="modal" role="dialog" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -607,6 +608,7 @@
 			</div>
 		</div>
 			<!-- END Regular Modal -->
+			
 					
 					<!-- Datatables Block -->
                         <!-- Datatables is initialized in js/pages/uiTables.js -->

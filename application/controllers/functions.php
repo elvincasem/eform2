@@ -170,20 +170,21 @@ class Functions extends CI_Controller
 		$rp_posno = $this->input->post('rp_posno');
 		$rp_issuedetails = $this->input->post('rp_issuedetails');
 		$rp_groupresponsible = $this->input->post('rp_qty');
-		$rp_cause = $this->input->post('rp_qty');
-		$rp_ship = $this->input->post('rp_qty');
-		$rp_level0 = $this->input->post('rp_qty');
-		$rp_level1 = $this->input->post('rp_qty');
-		$rp_level2 = $this->input->post('rp_qty');
-		$rp_level3 = $this->input->post('rp_qty');
-		$rp_approvedby = $this->input->post('rp_qty');
-		$rp_date = $this->input->post('rp_qty');
+		$rp_cause = $this->input->post('rp_cause');
+		$rp_ship = $this->input->post('rp_ship');
+		$rp_level0 = $this->input->post('rp_level0');
+		$rp_level1 = $this->input->post('rp_level1');
+		$rp_level2 = $this->input->post('rp_level2');
+		$rp_level3 = $this->input->post('rp_level3');
+		$rp_approvedby = $this->input->post('rp_approvedby');
+		$rp_date = $this->input->post('rp_date');
 		
 		
 		
 		$sql = "INSERT INTO project_regular (projectid,rp_issuetype,rp_partdescription,rp_qty,rp_posno,rp_issuedetails,rp_groupresponsible,rp_cause,rp_ship,rp_level0,rp_level1,rp_level2,rp_level3,rp_approvedby,rp_date) VALUES (".$this->db->escape($projectid).", ".$this->db->escape($rp_issuetype).", ".$this->db->escape($rp_partdescription).", ".$this->db->escape($rp_qty).", ".$this->db->escape($rp_posno).", ".$this->db->escape($rp_issuedetails).", ".$this->db->escape($rp_groupresponsible).", ".$this->db->escape($rp_cause).", ".$this->db->escape($rp_ship).", ".$this->db->escape($rp_level0).", ".$this->db->escape($rp_level1).", ".$this->db->escape($rp_level2).", ".$this->db->escape($rp_level3).", ".$this->db->escape($rp_approvedby).", ".$this->db->escape($rp_date).")";
 		$this->db->query($sql);
-		echo $this->db->affected_rows();
+		//echo $this->db->affected_rows();
+		echo $sql;
 		
 		/*
 		$sqlselect = $this->db->query("SELECT MAX(pdetailsid) AS lastid FROM project_incompletes WHERE projectid='$projectid'");
