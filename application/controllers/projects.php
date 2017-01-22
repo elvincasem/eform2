@@ -541,38 +541,20 @@ class Projects extends CI_Controller
 		
 		//packaging
 		$data['packagingname'] = $project_packaging['packagingname'];
-		$data['packagingname'] = $project_packaging['packaginotes'];
+		$data['packagingnotes'] = $project_packaging['packagingnotes'];
+		
+		
+		
+		
+		
+		
+		
 		
 		$this->load->view('inc/header_view');
 		$this->load->view('projects/projectdetails_view',$data);
 		$this->load->view('inc/footer_view');
 		
-		/*
-		$data = $this->data;
-		$data['page'] = "institution";
-		$data['details'] = $this->heidirectory_model->getinstname($instcode)->row();
 		
-		//if($data['details']->result=='0'){
-			//echo 'none';
-		//}else{
-			$data['contacts_list'] = $this->heidirectory_model->getcontacts($instcode);
-			$data['programs'] = $this->heidirectory_model->getprograms($instcode);
-			$data['deans'] = $this->heidirectory_model->getdeans($instcode);
-			$data['formernames'] = $this->heidirectory_model->getformernames($instcode);
-			
-			$data['permits_list'] = $this->permitsrecognition_model->getspecific($instcode);
-			
-			
-			$data['institutioncode'] = $instcode;
-			//$data['subnavtitle'] = $data['instname'];
-			//$data['heidirectory'] = $result->result();
-			
-			$this->load->view('inc/header_view');
-			$this->load->view('heidirectory/heidirectorydetails_view',$data);
-			$this->load->view('heidirectory/mapheader_view');
-			$this->load->view('inc/footer_view');
-			//print_r($data);
-		//}*/
 		
 	}
 	
