@@ -57,6 +57,7 @@ function deleteproject(id){
                     type: 'post',
                     data: {projectid: id},
                     success: function(response) {
+						console.log(response);
 						location.reload();
                     }
                 });
@@ -421,7 +422,7 @@ function saveassembly(){
 }
 function saveservices(projectid){
 	
-					var servicename = document.getElementById("servicename").value;
+					var servicesname = document.getElementById("servicesname").value;
 					
 					
 					if(document.getElementById("q21yes").checked==true){
@@ -487,12 +488,41 @@ function saveservices(projectid){
 					
 					
 					
+					
 					var servicesnotes = document.getElementById("servicesnotes").value;
+					var extra1 = document.getElementById("extra1").value;
+					if(document.getElementById("eq1yes").checked==true){
+						var eq1 = "YES";
+					}if(document.getElementById("eq1no").checked==true){
+						var eq1 = "NO";
+					}if(document.getElementById("eq1na").checked==true){
+						var eq1 = "NA";
+					}
+					
+					var extra2 = document.getElementById("extra2").value;
+					if(document.getElementById("eq2yes").checked==true){
+						var eq2 = "YES";
+					}if(document.getElementById("eq2no").checked==true){
+						var eq2 = "NO";
+					}if(document.getElementById("eq2na").checked==true){
+						var eq2 = "NA";
+					}
+					
+					var extra3 = document.getElementById("extra3").value;
+					
+					if(document.getElementById("eq3yes").checked==true){
+						var eq3 = "YES";
+					}if(document.getElementById("eq3no").checked==true){
+						var eq3 = "NO";
+					}if(document.getElementById("eq3na").checked==true){
+						var eq3 = "NA";
+					}
+					
 					
 					$.ajax({
-                    url: 'include/functions.php',
+                     url: '../../functions/saveservices',
                     type: 'post',
-                    data: {action: "saveservices",projectid: projectid,servicename:servicename,servicesnotes:servicesnotes,q21:q21,q22:q22,q23:q23,q24:q24,q25:q25,q26:q26,q27:q27},
+                    data: {projectid: projectid,servicesname:servicesname,servicesnotes:servicesnotes,q21:q21,q22:q22,q23:q23,q24:q24,q25:q25,q26:q26,q27:q27,extra1:extra1,extra2:extra2,extra3:extra3,eq1:eq1,eq2:eq2,eq3:eq3},
                     success: function(response) {
 						console.log(response);
 						//var growlType = $(this).data('growl');
@@ -516,6 +546,8 @@ function saveservices(projectid){
 
 
 
+
+
 $('.btn-growl').on('click', function(){
                 var growlType = $(this).data('growl');
 
@@ -529,9 +561,85 @@ $('.btn-growl').on('click', function(){
                 $(this).prop('disabled', true);
             });
 			
+		
+
+function addregularprojectbutton(){
+	
+	//document.getElementById("partnumber").value="";
+	//document.getElementById("notes").value="";
+}
+
+function saveregular(){
+	
+					var projectid = document.getElementById("projectid").value;
+					var rp_issuetype = document.getElementById("rp_issuetype").value;
+					var rp_partdescription = document.getElementById("rp_partdescription").value;
+					var rp_qty = document.getElementById("rp_qty").value;
+					var rp_posno = document.getElementById("rp_posno").value;
+					var rp_issuedetails = document.getElementById("rp_issuedetails").value;
+					var rp_correction = document.getElementById("rp_correction").value;
+					var rp_groupresponsible = document.getElementById("rp_groupresponsible").value;
+					var rp_cause = document.getElementById("rp_cause").value;
+					var rp_ship = document.getElementById("rp_ship").value;
+					var rp_level0 = document.getElementById("rp_level0").value;
+					var rp_level1 = document.getElementById("rp_level1").value;
+					var rp_level2 = document.getElementById("rp_level2").value;
+					var rp_level3 = document.getElementById("rp_level3").value;
+					var rp_approvedby = document.getElementById("rp_approvedby").value;
+					var rp_date = document.getElementById("rp_date").value;
+					//alert("test");
+					
+					$.ajax({
+                    url: '../../functions/saveregular',
+                    type: 'post',
+                    data: {projectid: projectid, rp_issuetype: rp_issuetype,rp_partdescription:rp_partdescription,rp_qty:rp_qty,rp_issuedetails:rp_issuedetails,rp_correction:rp_correction,rp_groupresponsible:rp_groupresponsible,rp_cause:rp_cause,rp_ship:rp_ship,rp_level0:rp_level0,rp_level1:rp_level1,rp_level2:rp_level2,rp_level3:rp_level3,rp_approvedby:rp_approvedby,rp_date:rp_date,rp_posno:rp_posno},
+                    success: function(response) {
+						console.log(response);
+						//var lastid = parseInt(response);
+						var closeregular = document.getElementById("closeregular");
+						$('#regularprojecttable').load(document.URL +  ' #regularprojecttable');
+						//$('#modalform').load(document.URL +  ' #modalform');
+						//$('#incompletestable tr:last').after("<tr><td>"+partnumber+"</td><td>"+partdescription+"</td><td>"+notes+"</td><td><button class='btn btn-danger notification' id='notification' onClick='deleteincomplete("+lastid+")'><i class='fa fa-times'></i></button></td></tr>");
+						closeregular.click();
+						//var lastid = parseInt(response);
+						//window.location.href = "projectdetails.php?id="+lastid;
+
+						
+                    }
+                });
+
+	
+	
+}
+
+function deleteregular(id){
+	
+	var r = confirm("Are your sure you want to delete this detail?");
+    if (r == true) {
+        //alert ("You pressed OK!");
+		//alert(id);
+		$.ajax({
+                    url: '../../functions/deleteregular',
+                    type: 'post',
+                    data: {rpid: id},
+                    success: function(response) {
+						console.log(response);
+						//location.reload();
+						$('#regularprojecttable').load(document.URL +  ' #regularprojecttable');
+                    }
+                });
+		
+    } if(r == false) {
+        //txt = "You pressed Cancel!";
+		
+    }
+	
+}
+
+
 function savedesign(projectid){
 	
-					var servicename = document.getElementById("servicename").value;
+					var designname = document.getElementById("designname").value;
 					
 					
 					if(document.getElementById("q31yes").checked==true){
@@ -560,16 +668,29 @@ function savedesign(projectid){
 						var q33 = "NA";
 					}
 					
-					
-					
-					
-					
+
 					var designnotes = document.getElementById("designnotes").value;
+					var designextra1 = document.getElementById("designextra1").value;
+					if(document.getElementById("deq1yes").checked==true){
+						var deq1 = "YES";
+					}if(document.getElementById("deq1no").checked==true){
+						var deq1 = "NO";
+					}if(document.getElementById("deq1na").checked==true){
+						var deq1 = "NA";
+					}
+					var designextra2 = document.getElementById("designextra2").value;
+					if(document.getElementById("deq2yes").checked==true){
+						var deq2 = "YES";
+					}if(document.getElementById("deq2no").checked==true){
+						var deq2 = "NO";
+					}if(document.getElementById("deq2na").checked==true){
+						var deq2 = "NA";
+					}
 					
 					$.ajax({
-                    url: 'include/functions.php',
+                    url: '../../functions/savedesign',
                     type: 'post',
-                    data: {action: "savedesign",projectid: projectid,designname:designname,designnotes:designnotes,q31:q31,q32:q32,q33:q33},
+                    data: {projectid: projectid,designname:designname,designnotes:designnotes,q31:q31,q32:q32,q33:q33,designextra1:designextra1,designextra2:designextra2,deq1:deq1,deq2:deq2},
                     success: function(response) {
 						console.log(response);
 						//var growlType = $(this).data('growl');
@@ -589,53 +710,65 @@ function savedesign(projectid){
 
 	
 	
-}			
+}	
 
-function addregularprojectbutton(){
+function saveqa(projectid){
 	
-	//document.getElementById("partnumber").value="";
-	//document.getElementById("notes").value="";
-}
+					var qaname = document.getElementById("qaname").value;
+					var qanotes = document.getElementById("qanotes").value;
+					
+					
+					
+					if(document.getElementById("q41yes").checked==true){
+						var q41 = "YES";
+					}if(document.getElementById("q41no").checked==true){
+						var q41 = "NO";
+					}if(document.getElementById("q41na").checked==true){
+						var q41 = "NA";
+					}
+					
+					if(document.getElementById("q42yes").checked==true){
+						var q42 = "YES";
+					}if(document.getElementById("q42no").checked==true){
+						var q42 = "NO";
+					}if(document.getElementById("q42na").checked==true){
+						var q42 = "NA";
+					}
+					
+					
+					
+					if(document.getElementById("q43yes").checked==true){
+						var q43 = "YES";
+					}if(document.getElementById("q43no").checked==true){
+						var q43 = "NO";
+					}if(document.getElementById("q43na").checked==true){
+						var q43 = "NA";
+					}
+					
 
-function saveregular(){
-	
-					var projectid = document.getElementById("projectid").value;
-					var rp_issuetype = document.getElementById("rp_issuetype").value;
-					var rp_partdescription = document.getElementById("rp_partdescription").value;
-					var rp_qty = document.getElementById("rp_qty").value;
-					var rp_posno = document.getElementById("rp_posno").value;
-					var rp_issuedetails = document.getElementById("rp_issuedetails").value;
-					var rp_correction = document.getElementById("rp_correction").value;
-					var rp_groupresponsible = document.getElementById("rp_groupresponsible").value;
-					var rp_cause = document.getElementById("rp_cause").value;
-					var rp_ship = document.getElementById("rp_ship").value;
-					var rp_level0 = document.getElementById("rp_level0").value;
-					var rp_level1 = document.getElementById("rp_level1").value;
-					var rp_level2 = document.getElementById("rp_level2").value;
-					var rp_level3 = document.getElementById("rp_level3").value;
-					var rp_approvedby = document.getElementById("rp_approvedby").value;
-					var rp_date = document.getElementById("rp_date").value;
-					alert("test");
+					
 					
 					$.ajax({
-                    url: '../../functions/saveregular',
+                    url: '../../functions/saveqa',
                     type: 'post',
-                    data: {projectid: projectid, rp_issuetype: rp_issuetype,rp_partdescription:rp_partdescription,rp_qty:rp_qty,rp_issuedetails:rp_issuedetails,rp_correction:rp_correction,rp_groupresponsible:rp_groupresponsible,rp_cause:rp_cause,rp_ship:rp_ship,rp_level0:rp_level0,rp_level1:rp_level1,rp_level2:rp_level2,rp_level3:rp_level3,rp_approvedby:rp_approvedby,rp_date:rp_date,rp_posno:rp_posno},
+                    data: {projectid: projectid,qaname:qaname,qanotes:qanotes,q41:q41,q42:q42,q43:q43},
                     success: function(response) {
 						console.log(response);
-						//var lastid = parseInt(response);
-						var closeregular = document.getElementById("closeregular");
-						$('#regularprojecttable').load(document.URL +  ' #regularprojecttable');
-						//$('#modalform').load(document.URL +  ' #modalform');
-						//$('#incompletestable tr:last').after("<tr><td>"+partnumber+"</td><td>"+partdescription+"</td><td>"+notes+"</td><td><button class='btn btn-danger notification' id='notification' onClick='deleteincomplete("+lastid+")'><i class='fa fa-times'></i></button></td></tr>");
-						closeregular.click();
+						//var growlType = $(this).data('growl');
+
+						$.bootstrapGrowl('<h4><strong>Success!</strong></h4> <p>Services Saved!</p>', {
+							type: 'success',
+							delay: 3000,
+							allow_dismiss: true,
+							offset: {from: 'top', amount: 20}
+						});
 						//var lastid = parseInt(response);
 						//window.location.href = "projectdetails.php?id="+lastid;
 
 						
                     }
-                });
+                }); 
 
 	
 	
-}
+}	

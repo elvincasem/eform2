@@ -40,11 +40,21 @@ class Projects extends CI_Controller
 		$data['page'] = "index";
 		$data['details'] =array('instname'=>"Projects Details") ;
 		$data['project_details'] = $this->projects_model->getprojectdetails($projectid);
+		
+		//redirect if no record found
+		if($data['project_details'] ==null){
+			redirect('projects');
+		}
+		
 		$data['project_incompletes'] = $this->projects_model->getprojectincompletes($projectid);
 		$project_incompletes_q = $this->projects_model->getprojectincompletesq($projectid);
 		$project_assembly = $this->projects_model->getprojectassembly($projectid);
 		$data['project_regular'] = $this->projects_model->getprojectregular($projectid);
-		//print_r($project_incompletes_q['authshipment']);
+		$project_services = $this->projects_model->getprojectservices($projectid);
+		$project_design = $this->projects_model->getprojectdesign($projectid);
+		$project_qa= $this->projects_model->getqualityassurance($projectid);
+		$project_packaging = $this->projects_model->getpackaging($projectid);
+		$project_notes= $this->projects_model->getnotes($projectid);
 		
 		
 		
@@ -254,6 +264,284 @@ class Projects extends CI_Controller
 		}
 		
 		$data['positionnos'] = $project_assembly['positionnos'];
+		
+		
+		//Project Services
+		//print_r($project_services);
+		$data['servicesid'] = $project_services['servicesid'];
+		$data['servicesname'] = $project_services['servicesname'];
+		$data['servicesnotes'] = $project_services['servicesnotes'];
+		
+		if($project_services['q21']=='YES'){
+			$data['q21yes'] = "checked=checked";
+			$data['q21no'] = "";
+			$data['q21na'] = "";
+		}if($project_services['q21']=='NO'){
+			$data['q21yes'] = "";
+			$data['q21no'] = "checked=checked";
+			$data['q21na'] = "";
+		}if($project_services['q21']=='NA'){
+			$data['q21yes'] = "";
+			$data['q21no'] = "";
+			$data['q21na'] = "checked=checked";
+		}
+		
+			if($project_services['q22']=='YES'){
+			$data['q22yes'] = "checked=checked";
+			$data['q22no'] = "";
+			$data['q22na'] = "";
+		}if($project_services['q22']=='NO'){
+			$data['q22yes'] = "";
+			$data['q22no'] = "checked=checked";
+			$data['q22na'] = "";
+		}if($project_services['q22']=='NA'){
+			$data['q22yes'] = "";
+			$data['q22no'] = "";
+			$data['q22na'] = "checked=checked";
+		}
+		
+		if($project_services['q23']=='YES'){
+			$data['q23yes'] = "checked=checked";
+			$data['q23no'] = "";
+			$data['q23na'] = "";
+		}if($project_services['q23']=='NO'){
+			$data['q23yes'] = "";
+			$data['q23no'] = "checked=checked";
+			$data['q23na'] = "";
+		}if($project_services['q23']=='NA'){
+			$data['q23yes'] = "";
+			$data['q23no'] = "";
+			$data['q23na'] = "checked=checked";
+		}
+		
+		if($project_services['q24']=='YES'){
+			$data['q24yes'] = "checked=checked";
+			$data['q24no'] = "";
+			$data['q24na'] = "";
+		}if($project_services['q24']=='NO'){
+			$data['q24yes'] = "";
+			$data['q24no'] = "checked=checked";
+			$data['q24na'] = "";
+		}if($project_services['q24']=='NA'){
+			$data['q24yes'] = "";
+			$data['q24no'] = "";
+			$data['q24na'] = "checked=checked";
+		}
+		
+		if($project_services['q25']=='YES'){
+			$data['q25yes'] = "checked=checked";
+			$data['q25no'] = "";
+			$data['q25na'] = "";
+		}if($project_services['q25']=='NO'){
+			$data['q25yes'] = "";
+			$data['q25no'] = "checked=checked";
+			$data['q25na'] = "";
+		}if($project_services['q25']=='NA'){
+			$data['q25yes'] = "";
+			$data['q25no'] = "";
+			$data['q25na'] = "checked=checked";
+		}
+		
+		if($project_services['q26']=='YES'){
+			$data['q26yes'] = "checked=checked";
+			$data['q26no'] = "";
+			$data['q26na'] = "";
+		}if($project_services['q26']=='NO'){
+			$data['q26yes'] = "";
+			$data['q26no'] = "checked=checked";
+			$data['q26na'] = "";
+		}if($project_services['q26']=='NA'){
+			$data['q26yes'] = "";
+			$data['q26no'] = "";
+			$data['q26na'] = "checked=checked";
+		}
+		
+		if($project_services['q27']=='YES'){
+			$data['q27yes'] = "checked=checked";
+			$data['q27no'] = "";
+			$data['q27na'] = "";
+		}if($project_services['q27']=='NO'){
+			$data['q27yes'] = "";
+			$data['q27no'] = "checked=checked";
+			$data['q27na'] = "";
+		}if($project_services['q27']=='NA'){
+			$data['q27yes'] = "";
+			$data['q27no'] = "";
+			$data['q27na'] = "checked=checked";
+		}
+		$data['extra1'] = $project_services['extra1'];
+		if($project_services['eq1']=='YES'){
+			$data['eq1yes'] = "checked=checked";
+			$data['eq1no'] = "";
+			$data['eq1na'] = "";
+		}if($project_services['eq1']=='NO'){
+			$data['eq1yes'] = "";
+			$data['eq1no'] = "checked=checked";
+			$data['eq1na'] = "";
+		}if($project_services['eq1']=='NA'){
+			$data['eq1yes'] = "";
+			$data['eq1no'] = "";
+			$data['eq1na'] = "checked=checked";
+		}
+		
+		$data['extra2'] = $project_services['extra2'];
+		if($project_services['eq2']=='YES'){
+			$data['eq2yes'] = "checked=checked";
+			$data['eq2no'] = "";
+			$data['eq2na'] = "";
+		}if($project_services['eq2']=='NO'){
+			$data['eq2yes'] = "";
+			$data['eq2no'] = "checked=checked";
+			$data['eq2na'] = "";
+		}if($project_services['eq2']=='NA'){
+			$data['eq2yes'] = "";
+			$data['eq2no'] = "";
+			$data['eq2na'] = "checked=checked";
+		}
+		
+		
+		$data['extra3'] = $project_services['extra3'];
+		if($project_services['eq3']=='YES'){
+			$data['eq3yes'] = "checked=checked";
+			$data['eq3no'] = "";
+			$data['eq3na'] = "";
+		}if($project_services['eq3']=='NO'){
+			$data['eq3yes'] = "";
+			$data['eq3no'] = "checked=checked";
+			$data['eq3na'] = "";
+		}if($project_services['eq3']=='NA'){
+			$data['eq3yes'] = "";
+			$data['eq3no'] = "";
+			$data['eq3na'] = "checked=checked";
+		}
+		
+		
+		//design
+		$data['designname'] = $project_design['designname'];
+		if($project_design['q31']=='YES'){
+			$data['q31yes'] = "checked=checked";
+			$data['q31no'] = "";
+			$data['q31na'] = "";
+		}if($project_design['q31']=='NO'){
+			$data['q31yes'] = "";
+			$data['q31no'] = "checked=checked";
+			$data['q31na'] = "";
+		}if($project_design['q31']=='NA'){
+			$data['q31yes'] = "";
+			$data['q31no'] = "";
+			$data['q31na'] = "checked=checked";
+		}
+		
+		if($project_design['q32']=='YES'){
+			$data['q32yes'] = "checked=checked";
+			$data['q32no'] = "";
+			$data['q32na'] = "";
+		}if($project_design['q32']=='NO'){
+			$data['q32yes'] = "";
+			$data['q32no'] = "checked=checked";
+			$data['q32na'] = "";
+		}if($project_design['q32']=='NA'){
+			$data['q32yes'] = "";
+			$data['q32no'] = "";
+			$data['q32na'] = "checked=checked";
+		}
+		
+		if($project_design['q33']=='YES'){
+			$data['q33yes'] = "checked=checked";
+			$data['q33no'] = "";
+			$data['q33na'] = "";
+		}if($project_design['q33']=='NO'){
+			$data['q33yes'] = "";
+			$data['q33no'] = "checked=checked";
+			$data['q33na'] = "";
+		}if($project_design['q33']=='NA'){
+			$data['q33yes'] = "";
+			$data['q33no'] = "";
+			$data['q33na'] = "checked=checked";
+		}
+		
+		$data['designextra1'] = $project_design['designextra1'];
+		if($project_design['deq1']=='YES'){
+			$data['deq1yes'] = "checked=checked";
+			$data['deq1no'] = "";
+			$data['deq1na'] = "";
+		}if($project_design['deq1']=='NO'){
+			$data['deq1yes'] = "";
+			$data['deq1no'] = "checked=checked";
+			$data['deq1na'] = "";
+		}if($project_design['deq1']=='NA'){
+			$data['deq1yes'] = "";
+			$data['deq1no'] = "";
+			$data['deq1na'] = "checked=checked";
+		}
+		$data['designextra2'] = $project_design['designextra2'];
+		if($project_design['deq2']=='YES'){
+			$data['deq2yes'] = "checked=checked";
+			$data['deq2no'] = "";
+			$data['deq2na'] = "";
+		}if($project_design['deq2']=='NO'){
+			$data['deq2yes'] = "";
+			$data['deq2no'] = "checked=checked";
+			$data['deq2na'] = "";
+		}if($project_design['deq2']=='NA'){
+			$data['deq2yes'] = "";
+			$data['deq2no'] = "";
+			$data['deq2na'] = "checked=checked";
+		}
+		
+		$data['designnotes'] = $project_design['designnotes'];
+		
+		
+		//quality assurance
+		//print_r($project_qa);
+		$data['qaname'] = $project_qa['qaname'];
+		$data['qanotes'] = $project_qa['qanotes'];
+		
+		if($project_qa['q41']=='YES'){
+			$data['q41yes'] = "checked=checked";
+			$data['q41no'] = "";
+			$data['q41na'] = "";
+		}if($project_qa['q41']=='NO'){
+			$data['q41yes'] = "";
+			$data['q41no'] = "checked=checked";
+			$data['q41na'] = "";
+		}if($project_qa['q41']=='NA'){
+			$data['q41yes'] = "";
+			$data['q41no'] = "";
+			$data['q41na'] = "checked=checked";
+		}
+		
+		if($project_qa['q42']=='YES'){
+			$data['q42yes'] = "checked=checked";
+			$data['q42no'] = "";
+			$data['q42na'] = "";
+		}if($project_qa['q42']=='NO'){
+			$data['q42yes'] = "";
+			$data['q42no'] = "checked=checked";
+			$data['q42na'] = "";
+		}if($project_qa['q42']=='NA'){
+			$data['q42yes'] = "";
+			$data['q42no'] = "";
+			$data['q42na'] = "checked=checked";
+		}
+		
+		if($project_qa['q43']=='YES'){
+			$data['q43yes'] = "checked=checked";
+			$data['q43no'] = "";
+			$data['q43na'] = "";
+		}if($project_qa['q43']=='NO'){
+			$data['q43yes'] = "";
+			$data['q43no'] = "checked=checked";
+			$data['q43na'] = "";
+		}if($project_qa['q43']=='NA'){
+			$data['q43yes'] = "";
+			$data['q43no'] = "";
+			$data['q43na'] = "checked=checked";
+		}
+		
+		//packaging
+		$data['packagingname'] = $project_packaging['packagingname'];
+		$data['packagingname'] = $project_packaging['packaginotes'];
 		
 		$this->load->view('inc/header_view');
 		$this->load->view('projects/projectdetails_view',$data);

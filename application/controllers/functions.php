@@ -45,6 +45,10 @@ class Functions extends CI_Controller
 		$this->db->query("INSERT INTO project_incompletes_q(projectid) VALUES('$currentid')");
 		$this->db->query("INSERT INTO project_assembly(projectid) VALUES('$currentid')");
 		$this->db->query("INSERT INTO project_services(projectid) VALUES('$currentid')");
+		$this->db->query("INSERT INTO project_design(projectid) VALUES('$currentid')");
+		$this->db->query("INSERT INTO project_qualityassurance(projectid) VALUES('$currentid')");
+		$this->db->query("INSERT INTO project_packaging(projectid) VALUES('$currentid')");
+		$this->db->query("INSERT INTO project_notes(projectid) VALUES('$currentid')");
 		
 		
 		//$conn = null;
@@ -59,10 +63,18 @@ class Functions extends CI_Controller
 
 	public function deleteproject(){
 		$projectid = $this->input->post('projectid');
-		$sql = "DELETE from project where projectid='".$projectid."'";
-		echo $sql;
-		$this->db->query($sql);
-		//echo $this->db->affected_rows();
+		
+		$this->db->delete('project', array('projectid' => $projectid));
+		$this->db->delete('project_assembly', array('projectid' => $projectid));
+		$this->db->delete('project_design', array('projectid' => $projectid));
+		$this->db->delete('project_incompletes', array('projectid' => $projectid));
+		$this->db->delete('project_incompletes_q', array('projectid' => $projectid));
+		$this->db->delete('project_qualityassurance', array('projectid' => $projectid));
+		$this->db->delete('project_regular', array('projectid' => $projectid));
+		$this->db->delete('project_services', array('projectid' => $projectid));
+		$this->db->delete('project_packaging', array('projectid' => $projectid));
+		$this->db->delete('project_notes', array('projectid' => $projectid));
+		
 	}
 	
 	public function updateproject(){
@@ -169,6 +181,7 @@ class Functions extends CI_Controller
 		$rp_qty = $this->input->post('rp_qty');
 		$rp_posno = $this->input->post('rp_posno');
 		$rp_issuedetails = $this->input->post('rp_issuedetails');
+		$rp_correction = $this->input->post('rp_correction');
 		$rp_groupresponsible = $this->input->post('rp_qty');
 		$rp_cause = $this->input->post('rp_cause');
 		$rp_ship = $this->input->post('rp_ship');
@@ -181,7 +194,7 @@ class Functions extends CI_Controller
 		
 		
 		
-		$sql = "INSERT INTO project_regular (projectid,rp_issuetype,rp_partdescription,rp_qty,rp_posno,rp_issuedetails,rp_groupresponsible,rp_cause,rp_ship,rp_level0,rp_level1,rp_level2,rp_level3,rp_approvedby,rp_date) VALUES (".$this->db->escape($projectid).", ".$this->db->escape($rp_issuetype).", ".$this->db->escape($rp_partdescription).", ".$this->db->escape($rp_qty).", ".$this->db->escape($rp_posno).", ".$this->db->escape($rp_issuedetails).", ".$this->db->escape($rp_groupresponsible).", ".$this->db->escape($rp_cause).", ".$this->db->escape($rp_ship).", ".$this->db->escape($rp_level0).", ".$this->db->escape($rp_level1).", ".$this->db->escape($rp_level2).", ".$this->db->escape($rp_level3).", ".$this->db->escape($rp_approvedby).", ".$this->db->escape($rp_date).")";
+		$sql = "INSERT INTO project_regular (projectid,rp_issuetype,rp_partdescription,rp_qty,rp_posno,rp_issuedetails,rp_correction,rp_groupresponsible,rp_cause,rp_ship,rp_level0,rp_level1,rp_level2,rp_level3,rp_approvedby,rp_date) VALUES (".$this->db->escape($projectid).", ".$this->db->escape($rp_issuetype).", ".$this->db->escape($rp_partdescription).", ".$this->db->escape($rp_qty).", ".$this->db->escape($rp_posno).", ".$this->db->escape($rp_issuedetails).", ".$this->db->escape($rp_correction).", ".$this->db->escape($rp_groupresponsible).", ".$this->db->escape($rp_cause).", ".$this->db->escape($rp_ship).", ".$this->db->escape($rp_level0).", ".$this->db->escape($rp_level1).", ".$this->db->escape($rp_level2).", ".$this->db->escape($rp_level3).", ".$this->db->escape($rp_approvedby).", ".$this->db->escape($rp_date).")";
 		$this->db->query($sql);
 		//echo $this->db->affected_rows();
 		echo $sql;
@@ -195,7 +208,84 @@ class Functions extends CI_Controller
 		
 	}
 	
+	public function deleteregular(){
+		$rpid = $this->input->post('rpid');
+		$sql = "DELETE FROM project_regular where rpid='".$rpid."'";
+		$this->db->query($sql);
+		//echo $sql;
+	}
 	
+	public function saveservices(){
+		$projectid = $this->input->post('projectid');
+		$servicesname = $this->input->post('servicesname');
+		$servicesnotes = $this->input->post('servicesnotes');
+		$q21 = $this->input->post('q21');
+		$q22 = $this->input->post('q22');
+		$q23 = $this->input->post('q23');
+		$q24 = $this->input->post('q24');
+		$q25 = $this->input->post('q25');
+		$q26 = $this->input->post('q26');
+		$q27 = $this->input->post('q27');
+		$extra1 = $this->input->post('extra1');
+		$extra2 = $this->input->post('extra2');
+		$extra3 = $this->input->post('extra3');
+		$eq1 = $this->input->post('eq1');
+		$eq2 = $this->input->post('eq2');
+		$eq3 = $this->input->post('eq3');
+		//$rp_date = $this->input->post('rp_date');
+		
+		
+		
+		$sql = "update project_services set servicesname=".$this->db->escape($servicesname)." ,servicesnotes=".$this->db->escape($servicesnotes)." ,q21=".$this->db->escape($q21)." ,q22=".$this->db->escape($q22)." ,q23=".$this->db->escape($q23)." ,q24=".$this->db->escape($q24)." ,q25=".$this->db->escape($q25)." ,q26=".$this->db->escape($q26)." ,q27=".$this->db->escape($q27)." ,extra1=".$this->db->escape($extra1)." ,extra2=".$this->db->escape($extra2)." ,extra3=".$this->db->escape($extra3)." ,eq1=".$this->db->escape($eq1)." ,eq2=".$this->db->escape($eq2)." ,eq3=".$this->db->escape($eq3)." where projectid=".$this->db->escape($projectid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
+	
+	public function savedesign(){
+		$projectid = $this->input->post('projectid');
+		$designname = $this->input->post('designname');
+		$designnotes = $this->input->post('designnotes');
+		$q31 = $this->input->post('q31');
+		$q32 = $this->input->post('q32');
+		$q33 = $this->input->post('q33');
+		$designextra1 = $this->input->post('designextra1');
+		$designextra2 = $this->input->post('designextra2');
+		$deq1 = $this->input->post('deq1');
+		$deq2 = $this->input->post('deq2');
+
+		//$rp_date = $this->input->post('rp_date');
+		
+		
+		
+		$sql = "update project_design set designname=".$this->db->escape($designname)." ,designnotes=".$this->db->escape($designnotes)." ,q31=".$this->db->escape($q31)." ,q32=".$this->db->escape($q32)." ,q33=".$this->db->escape($q33)." ,designextra1=".$this->db->escape($designextra1)." ,designextra2=".$this->db->escape($designextra2)." ,deq1=".$this->db->escape($deq1)." ,deq2=".$this->db->escape($deq2)." where projectid=".$this->db->escape($projectid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
+	
+	public function saveqa(){
+		$projectid = $this->input->post('projectid');
+		$qaname = $this->input->post('qaname');
+		$qanotes = $this->input->post('qanotes');
+		$q41 = $this->input->post('q41');
+		$q42 = $this->input->post('q42');
+		$q43 = $this->input->post('q43');
+		
+		$sql = "update project_qualityassurance set qaname=".$this->db->escape($qaname)." ,qanotes=".$this->db->escape($qanotes)." ,q41=".$this->db->escape($q41)." ,q42=".$this->db->escape($q42)." ,q43=".$this->db->escape($q43)." where projectid=".$this->db->escape($projectid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
 	
 	
 	

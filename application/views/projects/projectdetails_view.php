@@ -249,7 +249,7 @@
                             <div class="block-title themed-background-dark text-light-op">
 							
                               <!--  <h2>REGULAR PROJECT or EVANS F.A.T SIGN-OFF EXCEPTIONS</h2> -->
-								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="saveexceptions(<?php //echo $projectid;?>);">
+								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="saveexceptions(<?php echo $project_details['projectid'];?>);">
 								<i class="fa fa-save"></i> Save Exceptions
 							</button></div>
 								<div class="pull-right"></div>
@@ -629,52 +629,47 @@
                                             <th class="smallfont">QTY</th>
                                             <th class="smallfont">Pos.#</th>
                                             <th class="smallfont" width="100">Issue Details</th>
-                                            <th class="smallfont">Correction / Immediate Corrective Action</th>
+                                            <th class="smallfont" width="150">Correction / Immediate Corrective Action</th>
                                             <th class="smallfont" width="50">Group Responsible for immediate action</th>
                                             <th class="smallfont" width="50">Group Responsible to fix Root Cause</th>
-                                            <th class="smallfont">Ship Incomplete? (YES/NO)</th>
-                                            <th class="smallfont">Exception completed and approved by:</th>
-                                            <th class="smallfont">Date</th>
+                                            <th class="smallfont" width="50">Ship Incomplete? (YES/NO)</th>
+											<th class="smallfont">Level 0</th>
+											<th class="smallfont">Level 1</th>
+											<th class="smallfont">Level 2</th>
+											<th class="smallfont">Level 3</th>
+                                           
+                                            <th class="smallfont" width="80">Exception completed and approved by:</th>
+											<th class="smallfont">Date</th>
 											<th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            
-                                            <td class='text-center'>1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-center">Design</td>
-                                            <td class="text-center">YES</td>
-                                            <td class="text-center">Angelica</td>
-                                            <td class="text-center">2016/01/01</td>
-											<td></td>
-                                        </tr>
-										
+                                        										
 										<?php
 										//print_r($project_regular);
 										
 										foreach ($project_regular as $rows2 => $link2) {
 
 												echo"<tr class='odd gradeX'>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
-												echo"<td class='text-center'></td>";
+												echo"<td class='text-center'>".$link2['rp_issuetype']."</td>";
+												echo"<td class='text-center'>".$link2['rp_partdescription']."</td>";
+												echo"<td class='text-center'>".$link2['rp_qty']."</td>";
+												echo"<td class='text-center'>".$link2['rp_posno']."</td>";
+												echo"<td class='text-center'>".$link2['rp_issuedetails']."</td>";
+												echo"<td class='text-center'>".$link2['rp_correction']."</td>";
+												echo"<td class='text-center'>".$link2['rp_groupresponsible']."</td>";
+												echo"<td class='text-center'>".$link2['rp_cause']."</td>";
+												echo"<td class='text-center'>".$link2['rp_ship']."</td>";
+												echo"<td class='text-center'>".$link2['rp_level0']."</td>";
+												echo"<td class='text-center'>".$link2['rp_level1']."</td>";
+												echo"<td class='text-center'>".$link2['rp_level2']."</td>";
+												echo"<td class='text-center'>".$link2['rp_level3']."</td>";
+												echo"<td class='text-center'>".$link2['rp_approvedby']."</td>";
+												echo"<td class='text-center'>".$link2['rp_date']."</td>";
+
 												echo"<td class='center'> 
 													<button class='btn btn-primary notification' id='notification' onClick='#'><i class='fa fa-edit'></i></button>
-													<button class='btn btn-danger notification' id='notification' onClick='deleteincomplete($pdetailsid)'><i class='fa fa-times'></i></button>
+													<button class='btn btn-danger notification' id='notification' onClick='deleteregular(".$link2['rpid'].")'><i class='fa fa-times'></i></button>
 												</td>";
 												//echo"</tr>";
 											}
@@ -993,7 +988,7 @@
 						<div class="block full">
                             <div class="block-title themed-background-dark text-light-op">
                                 <h2>2. SOLUTIONS/CLIENT SERVICES</h2>
-								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="saveservices(<?php //echo$projectid;?>);">
+								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="saveservices(<?php echo $project_details['projectid'];?>);">
 								<i class="fa fa-save"></i> Save Services
 							</button></div>
                             </div>
@@ -1003,7 +998,7 @@
 							<div class="col-lg-6">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input type="text" id="servicename" name="example-input1-group1" class="form-control" placeholder="Name" value="<?php //echo$servicesname;?>">
+								<input type="text" id="servicesname" class="form-control" placeholder="Name" value="<?php echo $servicesname;?>">
 							</div>
 							</div>
 							</div>
@@ -1024,17 +1019,17 @@
 												<td><div class="text-black">2.1 Console/Millwork: Colors match Finish Schedule</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q21yes">
-														<input type="radio" id="q21yes" name="q21" <?php //echo$q21yes;?>>
+														<input type="radio" id="q21yes" name="q21" <?php echo $q21yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q21no">
-														<input type="radio" id="q21no" name="q21" <?php //echo$q21no;?>>
+														<input type="radio" id="q21no" name="q21" <?php echo $q21no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q21na">
-														<input type="radio" id="q21na" name="q21" <?php //echo$q21na;?>>
+														<input type="radio" id="q21na" name="q21" <?php echo$q21na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1043,17 +1038,17 @@
 												<td><div class="text-black">2.2 Console: Client equipment will fit into console. Measurement taken</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q22yes">
-														<input type="radio" id="q22yes" name="q22" <?php //echo$q22yes;?>>
+														<input type="radio" id="q22yes" name="q22" <?php echo $q22yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q22no">
-														<input type="radio" id="q22no" name="q22" <?php //echo$q22no;?>>
+														<input type="radio" id="q22no" name="q22" <?php echo $q22no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q22na">
-														<input type="radio" id="q22na" name="q22" <?php //echo$q22na;?>>
+														<input type="radio" id="q22na" name="q22" <?php echo $q22na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1062,17 +1057,17 @@
 												<td><div class="text-black">2.3 Buyouts: All Buyout scope is correct (slatwall mount vs. desktop mount)</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q23yes">
-														<input type="radio" id="q23yes" name="q23" <?php //echo$q23yes;?>>
+														<input type="radio" id="q23yes" name="q23" <?php  echo $q23yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q23no">
-														<input type="radio" id="q23no" name="q23" <?php //echo$q23no;?>>
+														<input type="radio" id="q23no" name="q23" <?php  echo $q23no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q23na">
-														<input type="radio" id="q23na" name="q23" <?php //echo$q23na;?>>
+														<input type="radio" id="q23na" name="q23" <?php  echo $q23na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1081,17 +1076,17 @@
 												<td><div class="text-black">2.4 Buyouts:  All Buyouts have been packaged together or installed on console correctly.</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q24yes">
-														<input type="radio" id="q24yes" name="q24" <?php //echo$q24yes;?>>
+														<input type="radio" id="q24yes" name="q24" <?php  echo $q24yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q24no">
-														<input type="radio" id="q24no" name="q24"  <?php //echo$q24no;?>>
+														<input type="radio" id="q24no" name="q24"  <?php  echo $q24no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q24na">
-														<input type="radio" id="q24na" name="q24"  <?php //echo$q24na;?>>
+														<input type="radio" id="q24na" name="q24"  <?php  echo $q24na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1100,17 +1095,17 @@
 												<td><div class="text-black">2.5 Buyouts:  All Buyouts free from damages, and have been checked for quality</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q25yes">
-														<input type="radio" id="q25yes" name="q25"  <?php //echo$q25yes;?>>
+														<input type="radio" id="q25yes" name="q25"  <?php  echo $q25yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q25no">
-														<input type="radio" id="q25no" name="q25"  <?php //echo$q25no;?>>
+														<input type="radio" id="q25no" name="q25"  <?php echo $q25no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q25na">
-														<input type="radio" id="q25na" name="q25"  <?php //echo$q25na;?>>
+														<input type="radio" id="q25na" name="q25"  <?php echo $q25na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1119,17 +1114,17 @@
 												<td><div class="text-black">2.6 Customer Equipment: Is there any customer equipment to be returned?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q26yes">
-														<input type="radio" id="q26yes" name="q26"  <?php //echo$q26yes;?>>
+														<input type="radio" id="q26yes" name="q26"  <?php echo $q26yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q26no">
-														<input type="radio" id="q26no" name="q26" <?php //echo$q26no;?>>
+														<input type="radio" id="q26no" name="q26" <?php echo $q26no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q26na">
-														<input type="radio" id="q26na" name="q26"  <?php //echo$q26na;?>>
+														<input type="radio" id="q26na" name="q26"  <?php echo $q26na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1138,17 +1133,17 @@
 												<td><div class="text-black">2.7 TKS Products to be consolidated with console shipment (Canada / International)<span class="help-block">*Parts, Warranties, Deficiencies and Goodwill - Client Services will sign-off the section of this form.</span></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q27yes">
-														<input type="radio" id="q27yes" name="q27"  <?php //echo$q27yes;?>>
+														<input type="radio" id="q27yes" name="q27"  <?php echo $q27yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q27no">
-														<input type="radio" id="q27no" name="q27"  <?php //echo$q27no;?>>
+														<input type="radio" id="q27no" name="q27"  <?php echo $q27no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q27na">
-														<input type="radio" id="q27na" name="q27"  <?php //echo$q27na;?>>
+														<input type="radio" id="q27na" name="q27"  <?php echo $q27na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1169,58 +1164,58 @@
 											
 											
 											<tr>
-												<td><div class="text-black"><input type="text" id="" name="" class="form-control" placeholder="<insert description of item to be checked>"></div></td>
+												<td><div class="text-black"><input type="text" id="extra1" name="" class="form-control" placeholder="<insert description of item to be checked>" value="<?php echo $extra1;?>"></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q2input1yes">
-														<input type="radio" id="q2input1yes" name="q2input1" value="">
+														<input type="radio" id="eq1yes" name="q2input1" <?php echo $eq1yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q2input1no">
-														<input type="radio" id="q2input1no" name="q2input1" value="">
+														<input type="radio" id="eq1no" name="q2input1" <?php echo $eq1no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q2input1na">
-														<input type="radio" id="q2input1na" name="q2input1" value="">
+														<input type="radio" id="eq1na" name="q2input1" <?php echo $eq1na;?>>
 													</label>
 												</td>
 											</tr>
 											
 											<tr>
-												<td><div class="text-black"><input type="text" id="" name="" class="form-control" placeholder="<insert description of item to be checked>"></div></td>
+												<td><div class="text-black"><input type="text" id="extra2" name="" class="form-control" placeholder="<insert description of item to be checked>" value="<?php echo $extra2;?>"></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q2input2yes">
-														<input type="radio" id="q2input2yes" name="q2input2" value="">
+														<input type="radio" id="eq2yes" name="q2input2" <?php echo $eq2yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q2input2no">
-														<input type="radio" id="q2input2no" name="q2input2" value="">
+														<input type="radio" id="eq2no" name="q2input2" <?php echo $eq2no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q2input2na">
-														<input type="radio" id="q2input2na" name="q2input2" value="">
+														<input type="radio" id="eq2na" name="q2input2" <?php echo $eq2na;?>>
 													</label>
 												</td>
 											</tr>
 											
 											<tr>
-												<td><div class="text-black"><input type="text" id="" name="" class="form-control" placeholder="<insert description of item to be checked>"></div></td>
+												<td><div class="text-black"><input type="text" id="extra3" name="" class="form-control" placeholder="<insert description of item to be checked>" value="<?php echo $extra3;?>"></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q2input3yes">
-														<input type="radio" id="q2input3yes" name="q2input3" value="">
+														<input type="radio" id="eq3yes" name="q2input3" <?php echo $eq3yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q2input3no">
-														<input type="radio" id="q2input3no" name="q2input3" value="">
+														<input type="radio" id="eq3no" name="q2input3" <?php echo $eq3no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q2input3na">
-														<input type="radio" id="q2input3na" name="q2input3" value="">
+														<input type="radio" id="eq3na" name="q2input3" <?php echo $eq3na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1232,7 +1227,7 @@
 								<div class="col-xs-12">
 									<h2 class="h5 text-uppercase push text-center"><strong>Solutions/Client Services Notes:</strong></h2>
 									<div class="col-lg-12">
-										<textarea id="servicesnotes" name="example-textarea-input" rows="2" class="form-control" placeholder=""> <?php //echo$servicesnotes;?></textarea>
+										<textarea id="servicesnotes" name="example-textarea-input" rows="2" class="form-control" placeholder=""><?php echo $servicesnotes;?></textarea>
 									</div>
 								</div>
 								</div>
@@ -1247,7 +1242,7 @@
 						<div class="block full">
                             <div class="block-title themed-background-dark text-light-op">
                                 <h2>3. DESIGN</h2>
-								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="savedesign(<?php //echo$projectid;?>);">
+								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="savedesign(<?php echo $project_details['projectid'];?>);">
 								<i class="fa fa-save"></i> Save Design
 							</button></div>
                             </div>
@@ -1257,7 +1252,7 @@
 							<div class="col-lg-6">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input type="text" id="designname" name="example-input1-group1" class="form-control" placeholder="Name">
+								<input type="text" id="designname" name="example-input1-group1" class="form-control" placeholder="Name" value="<?php echo $designname;?>">
 							</div>
 							</div>
 							</div>
@@ -1278,17 +1273,17 @@
 												<td><div class="text-black">3.1 Verify Console Quantity and Layout vs PQ/ Drawings/ BOM/ Structural?<span class="help-block">Modules, Corners, End Panels, Work Surfaces, ECT.</span></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q31yes">
-														<input type="radio" id="q31yes" name="q31" value="">
+														<input type="radio" id="q31yes" name="q31"  <?php echo $q31yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q31no">
-														<input type="radio" id="q31no" name="q31" value="">
+														<input type="radio" id="q31no" name="q31" <?php echo $q31no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q31na">
-														<input type="radio" id="q31na" name="q31" value="">
+														<input type="radio" id="q31na" name="q31" <?php echo $q31na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1297,17 +1292,17 @@
 												<td><div class="text-black">3.2 Verify all Accessories vs PQ/ Drawings/ BOM/ Structural?<span class="help-block">Prcs Shelves, Kybd / Pencil Drawers, Anchor Kits, Rackmount Kits, Turrets, Byouts.</span></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q32yes">
-														<input type="radio" id="q32yes" name="q32" value="">
+														<input type="radio" id="q32yes" name="q32" <?php echo $q32yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q32no">
-														<input type="radio" id="q32no" name="q32" value="">
+														<input type="radio" id="q32no" name="q32" <?php echo $q32no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q32na">
-														<input type="radio" id="q32na" name="q32" value="">
+														<input type="radio" id="q32na" name="q32" <?php echo $q32na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1316,17 +1311,17 @@
 												<td><div class="text-black">3.3 Verify all Electronic Components vs PQ/ Drawings/ BOM/ Structural?<span class="help-block">Task Lights, Power Bars, Lift Column Components, Fans, Grommets, Transformers, Grounding, Heat Panel, JCU.</span></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q33yes">
-														<input type="radio" id="q33yes" name="q33" value="">
+														<input type="radio" id="q33yes" name="q33" <?php echo $q33yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q33no">
-														<input type="radio" id="q33no" name="q33" value="">
+														<input type="radio" id="q33no" name="q33" <?php echo $q33no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q33na">
-														<input type="radio" id="q33na" name="q33" value="">
+														<input type="radio" id="q33na" name="q33" <?php echo $q33na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1347,39 +1342,39 @@
 											
 											
 											<tr>
-												<td><div class="text-black"><input type="text" id="" name="" class="form-control" placeholder="<insert description of item to be checked>"></div></td>
+												<td><div class="text-black"><input type="text" id="designextra1" name="" class="form-control" placeholder="<insert description of item to be checked>" value="<?php echo $designextra1;?>"></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q3input1yes">
-														<input type="radio" id="q3input1yes" name="q3input1" value="">
+														<input type="radio" id="deq1yes" name="q3input1" <?php echo $deq1yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q3input1no">
-														<input type="radio" id="q3input1no" name="q3input1" value="">
+														<input type="radio" id="deq1no" name="q3input1" <?php echo $deq1no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q3input1na">
-														<input type="radio" id="q3input1na" name="q3input1" value="">
+														<input type="radio" id="deq1na" name="q3input1" <?php echo $deq1na;?>>
 													</label>
 												</td>
 											</tr>
 											
 											<tr>
-												<td><div class="text-black"><input type="text" id="" name="" class="form-control" placeholder="<insert description of item to be checked>"></div></td>
+												<td><div class="text-black"><input type="text" id="designextra2" name="" class="form-control" placeholder="<insert description of item to be checked>" value="<?php echo $designextra2; ?>"></div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q3input2yes">
-														<input type="radio" id="q3input2yes" name="q3input2" value="">
+														<input type="radio" id="deq2yes" name="q3input2" <?php echo $deq2yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q3input2no">
-														<input type="radio" id="q3input2no" name="q3input2" value="">
+														<input type="radio" id="deq2no" name="q3input2" <?php echo $deq2no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q3input2na">
-														<input type="radio" id="q3input2na" name="q3input2" value="">
+														<input type="radio" id="deq2na" name="q3input2" <?php echo $deq2na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1391,7 +1386,7 @@
 								<div class="col-xs-12">
 									<h2 class="h5 text-uppercase push text-center"><strong>Design Notes:</strong></h2>
 									<div class="col-lg-12">
-										<textarea id="designnotes" name="example-textarea-input" rows="2" class="form-control" placeholder=""></textarea>
+										<textarea id="designnotes" name="example-textarea-input" rows="2" class="form-control" placeholder=""><?php echo $designnotes;?></textarea>
 									</div>
 								</div>
 								</div>
@@ -1406,6 +1401,9 @@
 						<div class="block full">
                             <div class="block-title themed-background-dark text-light-op">
                                 <h2>4. QUALITY ASSURANCE</h2>
+								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="saveqa(<?php echo $project_details['projectid'];?>);">
+								<i class="fa fa-save"></i> Save QA
+							</button></div>
                             </div>
 							
 							<div class="row">
@@ -1413,7 +1411,7 @@
 							<div class="col-lg-6">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input type="text" id="example-input1-group1" name="example-input1-group1" class="form-control" placeholder="Name">
+								<input type="text" id="qaname" name="example-input1-group1" class="form-control" placeholder="Name" value="<?php echo $qaname;?>">
 							</div>
 							</div>
 							</div>
@@ -1434,17 +1432,17 @@
 												<td><div class="text-black">4.1 Fit</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q41yes">
-														<input type="radio" id="q41yes" name="q41" value="">
+														<input type="radio" id="q41yes" name="q41" <?php echo $q41yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q41no">
-														<input type="radio" id="q41no" name="q41" value="">
+														<input type="radio" id="q41no" name="q41" <?php echo $q41no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q41na">
-														<input type="radio" id="q41na" name="q41" value="">
+														<input type="radio" id="q41na" name="q41" <?php echo $q41na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1453,17 +1451,17 @@
 												<td><div class="text-black">4.2 Finish</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q42yes">
-														<input type="radio" id="q42yes" name="q42" value="">
+														<input type="radio" id="q42yes" name="q42" <?php echo $q42yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q42no">
-														<input type="radio" id="q42no" name="q42" value="">
+														<input type="radio" id="q42no" name="q42" <?php echo $q42no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q42na">
-														<input type="radio" id="q42na" name="q42" value="">
+														<input type="radio" id="q42na" name="q42" <?php echo $q42na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1472,17 +1470,17 @@
 												<td><div class="text-black">4.3 Function</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q43yes">
-														<input type="radio" id="q43yes" name="q43" value="">
+														<input type="radio" id="q43yes" name="q43" <?php echo $q43yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q43no">
-														<input type="radio" id="q43no" name="q43" value="">
+														<input type="radio" id="q43no" name="q43" <?php echo $q43no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q43na">
-														<input type="radio" id="q43na" name="q43" value="">
+														<input type="radio" id="q43na" name="q43" <?php echo $q43na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1495,7 +1493,7 @@
 								<div class="col-xs-12">
 									<h2 class="h5 text-uppercase push text-center"><strong>Quality Assurance Notes:</strong></h2>
 									<div class="col-lg-12">
-										<textarea id="example-textarea-input" name="example-textarea-input" rows="2" class="form-control" placeholder=""></textarea>
+										<textarea id="qanotes" name="example-textarea-input" rows="2" class="form-control" placeholder=""><?php echo $qanotes;?></textarea>
 									</div>
 								</div>
 								</div>

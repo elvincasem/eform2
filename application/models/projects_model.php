@@ -56,6 +56,49 @@ class Projects_model extends CI_Model
 			
 		
 	}
+	public function getprojectservices($projectid)
+	{
+
+			$result = $this->db->query("SELECT * FROM project_services WHERE projectid='$projectid'");
+			$resultarray = $result->result_array();
+			return $resultarray[0];
+		
+	}
+	public function getprojectdesign($projectid)
+	{
+
+			$result = $this->db->query("SELECT * FROM project_design WHERE projectid='$projectid'");
+			$resultarray = $result->result_array();
+			return $resultarray[0];
+		
+	}
+	
+	public function getqualityassurance($projectid)
+	{
+
+			$result = $this->db->query("SELECT * FROM project_qualityassurance WHERE projectid='$projectid'");
+			$resultarray = $result->result_array();
+			return $resultarray[0];
+		
+	}
+	
+	public function getpackaging($projectid)
+	{
+
+			$result = $this->db->query("SELECT * FROM project_packaging WHERE projectid='$projectid'");
+			$resultarray = $result->result_array();
+			return $resultarray[0];
+		
+	}
+	
+	public function getnotes($projectid)
+	{
+
+			$result = $this->db->query("SELECT * FROM project_notes WHERE projectid='$projectid'");
+			$resultarray = $result->result_array();
+			return $resultarray[0];
+		
+	}
 	
 	
 	
