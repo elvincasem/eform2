@@ -48,7 +48,8 @@ class Functions extends CI_Controller
 		$this->db->query("INSERT INTO project_design(projectid) VALUES('$currentid')");
 		$this->db->query("INSERT INTO project_qualityassurance(projectid) VALUES('$currentid')");
 		$this->db->query("INSERT INTO project_packaging(projectid) VALUES('$currentid')");
-		$this->db->query("INSERT INTO project_notes(projectid) VALUES('$currentid')");
+		$currentday = date('Y-m-d');
+		$this->db->query("INSERT INTO project_notes(projectid,daterelease) VALUES('$currentid','$currentday')");
 		
 		
 		//$conn = null;
@@ -287,8 +288,82 @@ class Functions extends CI_Controller
 		
 	}
 	
+	public function savepackaging(){
+		$projectid = $this->input->post('projectid');
+		$packagingname = $this->input->post('packagingname');
+		$packagingnotes = $this->input->post('packagingnotes');
+		$q51 = $this->input->post('q51');
+		$q52 = $this->input->post('q52');
+		$q53 = $this->input->post('q53');
+		$q55 = $this->input->post('q55');
+		$q56 = $this->input->post('q56');
+		$q57 = $this->input->post('q57');
+		$q58 = $this->input->post('q58');
+		$q59 = $this->input->post('q59');
+		$q510 = $this->input->post('q510');
+		
+		$sql = "update project_packaging set packagingname=".$this->db->escape($packagingname)." ,packagingnotes=".$this->db->escape($packagingnotes)." ,q51=".$this->db->escape($q51)." ,q52=".$this->db->escape($q52)." ,q53=".$this->db->escape($q53)." ,q55=".$this->db->escape($q55)." ,q56=".$this->db->escape($q56)." ,q57=".$this->db->escape($q57)." ,q58=".$this->db->escape($q58)." ,q59=".$this->db->escape($q59)." ,q510=".$this->db->escape($q510)." where projectid=".$this->db->escape($projectid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
+	
+	public function savedetails(){
+		$projectid = $this->input->post('projectid');
+		$installernotes = $this->input->post('installernotes');
+		$integrationrep = $this->input->post('integrationrep');
+		$packagingrep = $this->input->post('packagingrep');
+		$timerelease = $this->input->post('timerelease');
+		$daterelease = $this->input->post('daterelease');
+		
+		
+		$sql = "update project_notes set installernotes=".$this->db->escape($installernotes)." ,integrationrep=".$this->db->escape($integrationrep)." ,packagingrep=".$this->db->escape($packagingrep)." ,timerelease=".$this->db->escape($timerelease)." ,daterelease=".$this->db->escape($daterelease)." where projectid=".$this->db->escape($projectid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
 	
 	
+	public function checkusername(){
+		$username = $this->input->post('username');
+		$checkuser = $this->db->query("SELECT count(uid) as duplicateid FROM users where username='$username'");
+		$checkuseroarray = $checkuser->result_array();
+		echo json_encode($checkuseroarray[0]);
+	}
+	
+	
+	public function saveuser(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$user_name = $this->input->post('user_name');
+		$usertype = $this->input->post('usertype');
+
+		$sql = "INSERT INTO users (username,password,name,usertype) VALUES (".$this->db->escape($username).", MD5(".$this->db->escape($password)."), ".$this->db->escape($user_name).", ".$this->db->escape($usertype).")";
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+
+		
+		
+	}
+	
+	public function deleteuser(){
+		$userid = $this->input->post('userid');
+		$sql = "DELETE FROM users where uid='".$userid."'";
+		$this->db->query($sql);
+		//echo $sql;
+	}
+	
+	public function getuser($userid){
+		$sqlselect = $this->db->query("SELECT * FROM users where uid=$userid");
+		$userdetail = $sqlselect->result_array();
+		echo json_encode($userdetail[0]);
+	}
 	
 	
 	
@@ -306,6 +381,10 @@ class Functions extends CI_Controller
 
 
 
+	
+	
+	
+	
 	//save contact from hei details
 	public function savecontact(){
 		

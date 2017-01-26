@@ -9,6 +9,7 @@ function addproject(){
 			document.getElementById("projectnumber").value="";
 			document.getElementById("projectdate").value="";
 			document.getElementById("signoff").value="";
+			setTimeout(function () { $("#projectname").focus(); }, 20);
 }
 	
 			
@@ -695,7 +696,7 @@ function savedesign(projectid){
 						console.log(response);
 						//var growlType = $(this).data('growl');
 
-						$.bootstrapGrowl('<h4><strong>Success!</strong></h4> <p>Services Saved!</p>', {
+						$.bootstrapGrowl('<h4><strong>Success!</strong></h4> <p>Design Saved!</p>', {
 							type: 'success',
 							delay: 3000,
 							allow_dismiss: true,
@@ -756,7 +757,7 @@ function saveqa(projectid){
 						console.log(response);
 						//var growlType = $(this).data('growl');
 
-						$.bootstrapGrowl('<h4><strong>Success!</strong></h4> <p>Services Saved!</p>', {
+						$.bootstrapGrowl('<h4><strong>Success!</strong></h4> <pQA Saved!</p>', {
 							type: 'success',
 							delay: 3000,
 							allow_dismiss: true,
@@ -772,3 +773,292 @@ function saveqa(projectid){
 	
 	
 }	
+
+function savepackaging(projectid){
+	
+					var packagingname = document.getElementById("packagingname").value;
+					var packagingnotes = document.getElementById("packagingnotes").value;
+					
+					
+					
+					if(document.getElementById("q51yes").checked==true){
+						var q51 = "YES";
+					}if(document.getElementById("q51no").checked==true){
+						var q51 = "NO";
+					}if(document.getElementById("q51na").checked==true){
+						var q51 = "NA";
+					}
+					
+					if(document.getElementById("q52yes").checked==true){
+						var q52 = "YES";
+					}if(document.getElementById("q52no").checked==true){
+						var q52 = "NO";
+					}if(document.getElementById("q52na").checked==true){
+						var q52 = "NA";
+					}
+					
+					
+					
+					if(document.getElementById("q53yes").checked==true){
+						var q53 = "YES";
+					}if(document.getElementById("q53no").checked==true){
+						var q53 = "NO";
+					}if(document.getElementById("q53na").checked==true){
+						var q53 = "NA";
+					}
+					
+					if(document.getElementById("q55yes").checked==true){
+						var q55 = "YES";
+					}if(document.getElementById("q55no").checked==true){
+						var q55 = "NO";
+					}if(document.getElementById("q55na").checked==true){
+						var q55 = "NA";
+					}
+					
+					if(document.getElementById("q56yes").checked==true){
+						var q56 = "YES";
+					}if(document.getElementById("q56no").checked==true){
+						var q56 = "NO";
+					}if(document.getElementById("q56na").checked==true){
+						var q56 = "NA";
+					}
+
+					if(document.getElementById("q57yes").checked==true){
+						var q57 = "YES";
+					}if(document.getElementById("q57no").checked==true){
+						var q57 = "NO";
+					}if(document.getElementById("q57na").checked==true){
+						var q57 = "NA";
+					}
+					
+					if(document.getElementById("q58yes").checked==true){
+						var q58 = "YES";
+					}if(document.getElementById("q58no").checked==true){
+						var q58 = "NO";
+					}if(document.getElementById("q58na").checked==true){
+						var q58 = "NA";
+					}
+					
+					if(document.getElementById("q59yes").checked==true){
+						var q59 = "YES";
+					}if(document.getElementById("q59no").checked==true){
+						var q59 = "NO";
+					}if(document.getElementById("q59na").checked==true){
+						var q59 = "NA";
+					}
+					
+					if(document.getElementById("q510yes").checked==true){
+						var q510 = "YES";
+					}if(document.getElementById("q510no").checked==true){
+						var q510 = "NO";
+					}if(document.getElementById("q510na").checked==true){
+						var q510 = "NA";
+					}
+					
+					$.ajax({
+                    url: '../../functions/savepackaging',
+                    type: 'post',
+                    data: {projectid: projectid,packagingname:packagingname,packagingnotes:packagingnotes,q51:q51,q52:q52,q53:q53,q55:q55,q56:q56,q57:q57,q58:q58,q59:q59,q510:q510},
+                    success: function(response) {
+						console.log(response);
+						//var growlType = $(this).data('growl');
+
+						$.bootstrapGrowl('<h4><strong>Success!</strong></h4> <p>Packaging Saved!</p>', {
+							type: 'success',
+							delay: 3000,
+							allow_dismiss: true,
+							offset: {from: 'top', amount: 20}
+						});
+						//var lastid = parseInt(response);
+						//window.location.href = "projectdetails.php?id="+lastid;
+
+						
+                    }
+                }); 
+
+	
+	
+}	
+
+function savedetails(projectid){
+	
+					var installernotes = document.getElementById("installernotes").value;
+					var integrationrep = document.getElementById("integrationrep").value;
+					var packagingrep = document.getElementById("packagingrep").value;
+					var timerelease = document.getElementById("timerelease").value;
+					var daterelease = document.getElementById("daterelease").value;
+							
+					
+					$.ajax({
+                    url: '../../functions/savedetails',
+                    type: 'post',
+                    data: {projectid: projectid,installernotes:installernotes,integrationrep:integrationrep,packagingrep:packagingrep,timerelease:timerelease,daterelease:daterelease},
+                    success: function(response) {
+						console.log(response);
+						//var growlType = $(this).data('growl');
+
+						$.bootstrapGrowl('<h4><strong>Success!</strong></h4> <p>Details Saved!</p>', {
+							type: 'success',
+							delay: 3000,
+							allow_dismiss: true,
+							offset: {from: 'top', amount: 20}
+						});
+						//var lastid = parseInt(response);
+						//window.location.href = "projectdetails.php?id="+lastid;
+
+						
+                    }
+                }); 
+
+	
+	
+}	
+
+
+function adduser(){
+			
+			$("#username").get(0).setSelectionRange(0,0);
+			$('#updateuser').prop("disabled", true);    
+			$('#saveuser').prop("disabled", false);    
+			document.getElementById("username").value ="";
+			document.getElementById("password").value="";
+			document.getElementById("user_name").value="";
+
+			setTimeout(function () { $("#username").focus(); }, 20);
+			
+
+}
+	
+			
+
+
+
+//save project
+
+function saveuser(){
+	
+
+					var username = document.getElementById("username").value;
+					var password = document.getElementById("password").value;
+					var user_name = document.getElementById("user_name").value;
+					var usertype = document.getElementById("usertype").value;
+					
+			if(username!="" && password!="" && user_name!="" && usertype!=""){
+
+					//check duplicate user
+					$.ajax({
+                    url: 'functions/checkusername',
+                    type: 'post',
+                    data: {username: username},
+                    success: function(response) {
+						console.log(response);
+						duplicateid = JSON.parse(response);
+						var numberofduplicate = parseInt(duplicateid.duplicateid);
+						//alert(numberofduplicate);
+						//console.log(last);
+						
+						if(numberofduplicate==0){
+							$.ajax({
+								url: 'functions/saveuser',
+								type: 'post',
+								data: {username: username, password: password,user_name:user_name,usertype:usertype},
+								success: function(response) {
+									//console.log(response);
+									//convertresponse = JSON.parse(response);
+									//var lastid = parseInt(convertresponse.lastid);
+									location.reload();
+									//console.log(last);
+									//window.location.href = "projects/details/"+lastid;
+
+									
+								}
+							});
+						}else{
+							alert("Username already used.")
+						}
+						
+						
+                    }
+                });
+
+			}//end if all fields are not blank
+			else{
+				alert("Please fill up the required fields.");
+				setTimeout(function () { $("#username").focus(); }, 20);
+			}
+}
+
+function deleteuser(id){
+	
+	var r = confirm("Are your sure you want to delete this User?");
+    if (r == true) {
+        //alert ("You pressed OK!");
+		var person = prompt("Please enter Administrator Password");
+		if (person =='superadmin') {
+		$.ajax({
+                    url: 'functions/deleteuser',
+                    type: 'post',
+                    data: {userid: id},
+                    success: function(response) {
+						//console.log(response);
+						location.reload();
+                    }
+                });
+		}else{
+			alert("Invalid Password");
+		}
+		
+    } if(r == false) {
+        //txt = "You pressed Cancel!";
+		
+    }
+	
+}
+
+function edituser(id){
+	
+	//$('#update').removeAttr("disabled");
+	$('#updateuser').prop("disabled", false);    
+	$('#saveuser').prop("disabled", true);  
+	$('#password').prop("disabled", true); 	
+	
+
+	$.ajax({
+		url: 'functions/getuser/'+id,
+		type: 'post',
+		//data: {projectid : id},
+		success: function(response) {
+			//console.log(response);
+			 var data = JSON.parse(response);
+			 
+			//insert values	
+			document.getElementById("uid").value = id;
+			document.getElementById("username").value = data.username;
+			//document.getElementById("password").value = data.password;
+			document.getElementById("user_name").value = data.name;
+			//document.getElementById("usertype").value = data.usertype;
+			
+			var usertypevalue = data.usertype;
+			var proj = document.getElementById("usertype");
+			var opt = document.createElement("option");
+			opt.value = data.usertype;
+			if(data.usertype==""){
+				opt.text = "";
+			}else{
+				opt.text = data.usertype;
+			}
+			
+			opt.selected = "selected";
+
+			proj.add(opt,  proj.options[0]);
+			
+			
+			
+			return "valid";
+		} 
+	});
+		
+$('#updateequipment').prop("disabled", true); 	
+	
+	
+}

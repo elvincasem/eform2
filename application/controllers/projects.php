@@ -9,8 +9,9 @@ class Projects extends CI_Controller
 		//$this->load->model('permitsrecognition_model');
 		 $this->data = array(
             'title' => 'Projects',
-			'projectclass' => 'active'
-			
+			'projectclass' => 'active',
+			'usersclass' => '',
+			'userssubclass' => ''
 			);
 	}
 	
@@ -543,11 +544,139 @@ class Projects extends CI_Controller
 		$data['packagingname'] = $project_packaging['packagingname'];
 		$data['packagingnotes'] = $project_packaging['packagingnotes'];
 		
+		if($project_packaging['q51']=='YES'){
+			$data['q51yes'] = "checked=checked";
+			$data['q51no'] = "";
+			$data['q51na'] = "";
+		}if($project_packaging['q51']=='NO'){
+			$data['q51yes'] = "";
+			$data['q51no'] = "checked=checked";
+			$data['q51na'] = "";
+		}if($project_packaging['q51']=='NA'){
+			$data['q51yes'] = "";
+			$data['q51no'] = "";
+			$data['q51na'] = "checked=checked";
+		}
 		
+		if($project_packaging['q52']=='YES'){
+			$data['q52yes'] = "checked=checked";
+			$data['q52no'] = "";
+			$data['q52na'] = "";
+		}if($project_packaging['q52']=='NO'){
+			$data['q52yes'] = "";
+			$data['q52no'] = "checked=checked";
+			$data['q52na'] = "";
+		}if($project_packaging['q52']=='NA'){
+			$data['q52yes'] = "";
+			$data['q52no'] = "";
+			$data['q52na'] = "checked=checked";
+		}
 		
+		if($project_packaging['q53']=='YES'){
+			$data['q53yes'] = "checked=checked";
+			$data['q53no'] = "";
+			$data['q53na'] = "";
+		}if($project_packaging['q53']=='NO'){
+			$data['q53yes'] = "";
+			$data['q53no'] = "checked=checked";
+			$data['q53na'] = "";
+		}if($project_packaging['q53']=='NA'){
+			$data['q53yes'] = "";
+			$data['q53no'] = "";
+			$data['q53na'] = "checked=checked";
+		}
+
 		
+		if($project_packaging['q55']=='YES'){
+			$data['q55yes'] = "checked=checked";
+			$data['q55no'] = "";
+			$data['q55na'] = "";
+		}if($project_packaging['q55']=='NO'){
+			$data['q55yes'] = "";
+			$data['q55no'] = "checked=checked";
+			$data['q55na'] = "";
+		}if($project_packaging['q55']=='NA'){
+			$data['q55yes'] = "";
+			$data['q55no'] = "";
+			$data['q55na'] = "checked=checked";
+		}
 		
+				
+		if($project_packaging['q56']=='YES'){
+			$data['q56yes'] = "checked=checked";
+			$data['q56no'] = "";
+			$data['q56na'] = "";
+		}if($project_packaging['q56']=='NO'){
+			$data['q56yes'] = "";
+			$data['q56no'] = "checked=checked";
+			$data['q56na'] = "";
+		}if($project_packaging['q56']=='NA'){
+			$data['q56yes'] = "";
+			$data['q56no'] = "";
+			$data['q56na'] = "checked=checked";
+		}
 		
+		if($project_packaging['q57']=='YES'){
+			$data['q57yes'] = "checked=checked";
+			$data['q57no'] = "";
+			$data['q57na'] = "";
+		}if($project_packaging['q57']=='NO'){
+			$data['q57yes'] = "";
+			$data['q57no'] = "checked=checked";
+			$data['q57na'] = "";
+		}if($project_packaging['q57']=='NA'){
+			$data['q57yes'] = "";
+			$data['q57no'] = "";
+			$data['q57na'] = "checked=checked";
+		}
+		
+		if($project_packaging['q58']=='YES'){
+			$data['q58yes'] = "checked=checked";
+			$data['q58no'] = "";
+			$data['q58na'] = "";
+		}if($project_packaging['q58']=='NO'){
+			$data['q58yes'] = "";
+			$data['q58no'] = "checked=checked";
+			$data['q58na'] = "";
+		}if($project_packaging['q58']=='NA'){
+			$data['q58yes'] = "";
+			$data['q58no'] = "";
+			$data['q58na'] = "checked=checked";
+		}
+		
+		if($project_packaging['q59']=='YES'){
+			$data['q59yes'] = "checked=checked";
+			$data['q59no'] = "";
+			$data['q59na'] = "";
+		}if($project_packaging['q59']=='NO'){
+			$data['q59yes'] = "";
+			$data['q59no'] = "checked=checked";
+			$data['q59na'] = "";
+		}if($project_packaging['q59']=='NA'){
+			$data['q59yes'] = "";
+			$data['q59no'] = "";
+			$data['q59na'] = "checked=checked";
+		}
+		
+		if($project_packaging['q510']=='YES'){
+			$data['q510yes'] = "checked=checked";
+			$data['q510no'] = "";
+			$data['q510na'] = "";
+		}if($project_packaging['q510']=='NO'){
+			$data['q510yes'] = "";
+			$data['q510no'] = "checked=checked";
+			$data['q510na'] = "";
+		}if($project_packaging['q510']=='NA'){
+			$data['q510yes'] = "";
+			$data['q510no'] = "";
+			$data['q510na'] = "checked=checked";
+		}
+		
+		$data['installernotes'] = $project_notes['installernotes'];
+		$data['integrationrep'] = $project_notes['integrationrep'];
+		$data['packagingrep'] = $project_notes['packagingrep'];
+		$data['timerelease'] = $project_notes['timerelease'];
+		$data['daterelease'] = $project_notes['daterelease'];
 		
 		
 		$this->load->view('inc/header_view');

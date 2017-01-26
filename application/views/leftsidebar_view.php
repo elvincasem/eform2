@@ -29,10 +29,10 @@
                                     <a href="<?=base_url()?>reports"><i class="gi gi-more_items sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Reports</span></a>
                                 </li>
 								
-								<li>
+								<li class="<?php echo $usersclass;?>">
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-rocket sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Settings</span></a>
                                     <ul>
-										<li >
+										<li class="<?php echo $userssubclass;?>">
                                             <a href="<?=base_url()?>users" ><i class="gi gi-user sidebar-nav-icon"></i>Users</a>
                                         </li>
 										

@@ -1510,6 +1510,9 @@
 					<div class="block full">
                             <div class="block-title themed-background-dark text-light-op">
                                 <h2>5. PACKAGING</h2>
+								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="savepackaging(<?php echo $project_details['projectid'];?>);">
+								<i class="fa fa-save"></i> Save Packaging
+							</button></div>
                             </div>
 							
 							<div class="row">
@@ -1517,7 +1520,7 @@
 							<div class="col-lg-6">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input type="text" id="example-input1-group1" name="example-input1-group1" class="form-control" placeholder="Name">
+								<input type="text" id="packagingname" name="example-input1-group1" class="form-control" placeholder="Name" value="<?php echo $packagingname;?>">
 							</div>
 							</div>
 							</div>
@@ -1538,17 +1541,17 @@
 												<td><div class="text-black">5.01 Have pictures of project been taken?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q501yes">
-														<input type="radio" id="q501yes" name="q501" value="">
+														<input type="radio" id="q51yes" name="q51" <?php echo $q51yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q501no">
-														<input type="radio" id="q501no" name="q501" value="">
+														<input type="radio" id="q51no" name="q51" <?php echo $q51no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q501na">
-														<input type="radio" id="q501na" name="q501" value="">
+														<input type="radio" id="q51na" name="q51" <?php echo $q51na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1557,17 +1560,17 @@
 												<td><div class="text-black">5.02 Is there a Toolbox packed for this project?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q502yes">
-														<input type="radio" id="q502yes" name="q502" value="">
+														<input type="radio" id="q52yes" name="q52" <?php echo $q52yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q502no">
-														<input type="radio" id="q502no" name="q502" value="">
+														<input type="radio" id="q52no" name="q52" <?php echo $q52no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q502na">
-														<input type="radio" id="q502na" name="q502" value="">
+														<input type="radio" id="q52na" name="q52" <?php echo $q52na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1576,17 +1579,17 @@
 												<td><div class="text-black">5.03 Packaging checklist completed?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q503yes">
-														<input type="radio" id="q503yes" name="q503" value="">
+														<input type="radio" id="q53yes" name="q53" <?php echo $q53yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q503no">
-														<input type="radio" id="q503no" name="q503" value="">
+														<input type="radio" id="q53no" name="q53" <?php echo $q53no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q503na">
-														<input type="radio" id="q503na" name="q503" value="">
+														<input type="radio" id="q53na" name="q53" <?php echo $q53na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1595,17 +1598,17 @@
 												<td><div class="text-black">5.05 Are all exceptions signed off prior to shipment?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q505yes">
-														<input type="radio" id="q505yes" name="q505" value="">
+														<input type="radio" id="q55yes" name="q505" <?php echo $q55yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q505no">
-														<input type="radio" id="q505no" name="q505" value="">
+														<input type="radio" id="q55no" name="q505" <?php echo $q55no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q505na">
-														<input type="radio" id="q505na" name="q505" value="">
+														<input type="radio" id="q55na" name="q505" <?php echo $q55na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1629,17 +1632,17 @@
 												<td><div class="text-black">5.06 BoM And Prodect Specific Checklist are Completed?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q506yes">
-														<input type="radio" id="q506yes" name="q506" value="">
+														<input type="radio" id="q56yes" name="q506" <?php echo $q56yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q506no">
-														<input type="radio" id="q506no" name="q506" value="">
+														<input type="radio" id="q56no" name="q506" <?php echo $q56no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q506na">
-														<input type="radio" id="q506na" name="q506" value="">
+														<input type="radio" id="q56na" name="q506" <?php echo $q56na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1648,17 +1651,17 @@
 												<td><div class="text-black">5.07 All approved items have been clearly communicated to the Packaging Team?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q507yes">
-														<input type="radio" id="q507yes" name="q507" value="">
+														<input type="radio" id="q57yes" name="q57" <?php echo $q57yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q507no">
-														<input type="radio" id="q507no" name="q507" value="">
+														<input type="radio" id="q57no" name="q57" <?php echo $q57no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q507na">
-														<input type="radio" id="q507na" name="q507" value="">
+														<input type="radio" id="q57na" name="q57" <?php echo $q57na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1667,17 +1670,17 @@
 												<td><div class="text-black">5.08 Any outstanding issues are clearly communicated to the Packaging Team?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q508yes">
-														<input type="radio" id="q508yes" name="q508" value="">
+														<input type="radio" id="q58yes" name="q58" <?php echo $q58yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q508no">
-														<input type="radio" id="q508no" name="q508" value="">
+														<input type="radio" id="q58no" name="q58" <?php echo $q58no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q508na">
-														<input type="radio" id="q508na" name="q508" value="">
+														<input type="radio" id="q58na" name="q58" <?php echo $q58na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1686,17 +1689,17 @@
 												<td><div class="text-black">5.09 Loose Parts have been Boxed and Sealed and are clearly marked with Part #?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q509yes">
-														<input type="radio" id="q509yes" name="q509" value="">
+														<input type="radio" id="q59yes" name="q59" <?php echo $q59yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q509no">
-														<input type="radio" id="q509no" name="q509" value="">
+														<input type="radio" id="q59no" name="q59" <?php echo $q59no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q509na">
-														<input type="radio" id="q509na" name="q509" value="">
+														<input type="radio" id="q59na" name="q59" <?php echo $q59na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1705,17 +1708,17 @@
 												<td><div class="text-black">5.10 Has the E-Arm checklist been provided?</div></td>
 												<td class="text-right" style="width: 30%;">
 													<label for="q510yes">
-														<input type="radio" id="q510yes" name="q510" value="">
+														<input type="radio" id="q510yes" name="q510" <?php echo $q510yes;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp
 													<label for="q510no">
-														<input type="radio" id="q510no" name="q510" value="">
+														<input type="radio" id="q510no" name="q510" <?php echo $q510no;?>>
 													</label>
 													&nbsp &nbsp &nbsp
 													&nbsp &nbsp &nbsp
 													<label for="q510na">
-														<input type="radio" id="q510na" name="q510" value="">
+														<input type="radio" id="q510na" name="q510" <?php echo $q510na;?>>
 													</label>
 												</td>
 											</tr>
@@ -1728,7 +1731,7 @@
 								<div class="col-xs-12">
 									<h2 class="h5 text-uppercase push text-center"><strong>Packaging Notes:</strong></h2>
 									<div class="col-lg-12">
-										<textarea id="example-textarea-input" name="example-textarea-input" rows="3" class="form-control" placeholder=""></textarea>
+										<textarea id="packagingnotes" name="example-textarea-input" rows="3" class="form-control" placeholder=""><?php echo $packagingnotes;?></textarea>
 									</div>
 								</div>
 								</div>
@@ -1737,47 +1740,24 @@
 							</div>
                         </div>
 
-					<div class="row">
-                        <div class="col-xs-12">
-							<div class="block">
-								<div class="widget">
-								<div class="widget-content widget-content-full">
-									<table class="table table-striped table-borderless remove-margin">
-										<tbody>
-											<tr>
-												<td><div class="text-black">Project Name:</div></td>
-												<td class="text-center" style="width: 80%;"><span class="text-muted"><input type="text" id="example-input-small" name="example-input-small" class="form-control " placeholder=""></span></td>
-											</tr>
-											<tr>
-												<td><div class="text-black">Number:</div></td>
-												<td class="text-center" style="width: 80%;"><span class="text-muted"><input type="text" id="example-input-small" name="example-input-small" class="form-control" placeholder=""></span></td>
-											</tr>
-											<tr>
-												<td><div class="text-black">Product Type:</div></td>
-												<td class="text-center" style="width: 80%;"><span class="text-muted"><input type="text" id="example-input-small" name="example-input-small" class="form-control " placeholder=""></span></td>
-											</tr>
-											<tr>
-												<td><div class="text-black">Date:</div></td>
-												<td class="text-center" style="width: 80%;"><span class="text-muted"><input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy"></span></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					
 					<div class="row">
+					
                         <div class="col-xs-12">
+						
 							<div class="block">
+							<div class="block-title themed-background-dark text-light-op">
+								<div style="padding-left:10px;padding-bottom:5px;padding-top:5px;"><button id="add-incompletes" class="btn btn-primary btn-sm" onclick="savedetails(<?php echo $project_details['projectid'];?>);">
+								<i class="fa fa-save"></i> Save Details
+							</button></div>
+                            </div>
 								<div class="widget">
 								<div class="widget-content widget-content-full">
 									<div class="row">
 									<div class="col-xs-12">
 										<h2 class="h5 text-uppercase push text-center"><strong>Project/Installer Notes:</strong></h2>
 										<div class="col-lg-12">
-											<textarea id="example-textarea-input" name="example-textarea-input" rows="2" class="form-control" placeholder=""></textarea>
+											<textarea id="installernotes" name="example-textarea-input" rows="2" class="form-control" placeholder=""><?php echo $installernotes;?></textarea>
 										</div>
 									</div>
 									</div>
@@ -1796,10 +1776,10 @@
 												<div class="widget-content themed-background-muted">
 													<div class="widget-heading text-dark">
 														<div class="text-black">Integration Rep:</div>
-														<span class="text-muted"><input type="text" id="example-input-small" name="example-input-small" class="form-control input-sm" placeholder=""></span>
+														<span class="text-muted"><input type="text" id="integrationrep" name="example-input-small" class="form-control input-sm" placeholder="" value="<?php echo $integrationrep;?>"></span>
 														<br>
 														<div class="text-black">Packaging Rep:</div>
-														<span class="text-muted"><input type="text" id="example-input-small" name="example-input-small" class="form-control input-sm" placeholder=""></span>
+														<span class="text-muted"><input type="text" id="packagingrep" name="example-input-small" class="form-control input-sm" placeholder="" value="<?php echo $packagingrep;?>"></span>
 													</div>
 												</div>
 
@@ -1816,7 +1796,7 @@
 														<div class="text-black">Time:</div>
 														<span class="text-muted">
 															<div class="input-group bootstrap-timepicker">
-																<input type="text" id="example-timepicker" name="example-timepicker" class="form-control input-timepicker">
+																<input type="text" id="timerelease" name="example-timepicker" class="form-control input-timepicker" value="<?php echo $timerelease;?>">
 																<span class="input-group-btn">
 																	<a href="javascript:void(0)" class="btn btn-effect-ripple btn-primary"><i class="fa fa-clock-o"></i></a>
 																</span>
@@ -1826,7 +1806,7 @@
 														<br>
 														
 														<div class="text-black">Date:</div>
-														<span class="text-muted"><input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy"></span>
+														<span class="text-muted"><input type="text" id="daterelease" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $daterelease;?>"></span>
 														
 														
 													</div>

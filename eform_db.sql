@@ -23,12 +23,13 @@ CREATE TABLE `project` (
   `projecttype` varchar(300) DEFAULT NULL,
   `formdate` date DEFAULT NULL,
   `originator` varchar(300) DEFAULT NULL,
+  `timest` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`projectid`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project` */
 
-insert  into `project`(`projectid`,`projectname`,`projectnumber`,`projecttype`,`formdate`,`originator`) values (72,'test','121','Defeciency','2017-01-23','eeee');
+insert  into `project`(`projectid`,`projectname`,`projectnumber`,`projecttype`,`formdate`,`originator`,`timest`) values (73,'Sample','123','Custom','2017-01-26','Elvin','2017-01-26 23:12:16'),(74,'eeee','eee','FAA','2017-01-26','eeee','2017-01-26 23:12:16');
 
 /*Table structure for table `project_assembly` */
 
@@ -53,11 +54,11 @@ CREATE TABLE `project_assembly` (
   `q113` varchar(100) DEFAULT 'NA',
   `positionnos` varchar(300) DEFAULT 'NONE',
   UNIQUE KEY `assmblyid` (`assmblyid`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_assembly` */
 
-insert  into `project_assembly`(`assmblyid`,`projectid`,`faintegration`,`assemblynotes`,`q101`,`q102`,`q103`,`q104`,`q105`,`q106`,`q107`,`q108`,`q109`,`q110`,`q112`,`q113`,`positionnos`) values (57,72,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE');
+insert  into `project_assembly`(`assmblyid`,`projectid`,`faintegration`,`assemblynotes`,`q101`,`q102`,`q103`,`q104`,`q105`,`q106`,`q107`,`q108`,`q109`,`q110`,`q112`,`q113`,`positionnos`) values (58,73,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(59,74,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE');
 
 /*Table structure for table `project_design` */
 
@@ -76,11 +77,11 @@ CREATE TABLE `project_design` (
   `deq2` varchar(100) DEFAULT 'NA',
   `designnotes` text,
   PRIMARY KEY (`designid`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_design` */
 
-insert  into `project_design`(`designid`,`projectid`,`designname`,`q31`,`q32`,`q33`,`designextra1`,`deq1`,`designextra2`,`deq2`,`designnotes`) values (19,72,'NONE','NA','NA','NA',NULL,'NA',NULL,'NA',NULL);
+insert  into `project_design`(`designid`,`projectid`,`designname`,`q31`,`q32`,`q33`,`designextra1`,`deq1`,`designextra2`,`deq2`,`designnotes`) values (20,73,'NONE','NA','NA','NA',NULL,'NA',NULL,'NA',NULL),(21,74,'NONE','NA','NA','NA',NULL,'NA',NULL,'NA',NULL);
 
 /*Table structure for table `project_incompletes` */
 
@@ -92,10 +93,13 @@ CREATE TABLE `project_incompletes` (
   `partnumber` varchar(300) DEFAULT NULL,
   `description` varchar(300) DEFAULT NULL,
   `notes` text,
+  `timest` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`pdetailsid`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_incompletes` */
+
+insert  into `project_incompletes`(`pdetailsid`,`projectid`,`partnumber`,`description`,`notes`,`timest`) values (1,73,'321','In Process','test','2017-01-26 23:12:47');
 
 /*Table structure for table `project_incompletes_q` */
 
@@ -116,11 +120,11 @@ CREATE TABLE `project_incompletes_q` (
   `pmexsolution` varchar(300) DEFAULT 'NONE',
   `pmexdate` date NOT NULL,
   PRIMARY KEY (`pdetailsqid`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_incompletes_q` */
 
-insert  into `project_incompletes_q`(`pdetailsqid`,`projectid`,`authshipment`,`authsolution`,`authdate`,`hardwarebox`,`authpackaged`,`pmsee`,`pmsolution`,`pmdate`,`pmexception`,`pmexsolution`,`pmexdate`) values (58,72,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00');
+insert  into `project_incompletes_q`(`pdetailsqid`,`projectid`,`authshipment`,`authsolution`,`authdate`,`hardwarebox`,`authpackaged`,`pmsee`,`pmsolution`,`pmdate`,`pmexception`,`pmexsolution`,`pmexdate`) values (59,73,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(60,74,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00');
 
 /*Table structure for table `project_notes` */
 
@@ -132,13 +136,15 @@ CREATE TABLE `project_notes` (
   `installernotes` text,
   `integrationrep` varchar(500) DEFAULT 'NONE',
   `packagingrep` varchar(500) DEFAULT 'NONE',
-  `datetimerelease` datetime DEFAULT NULL,
+  `timerelease` varchar(100) NOT NULL DEFAULT '00:00:00 AM',
+  `daterelease` date NOT NULL,
+  `timest` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`notesid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_notes` */
 
-insert  into `project_notes`(`notesid`,`projectid`,`installernotes`,`integrationrep`,`packagingrep`,`datetimerelease`) values (3,72,NULL,'NONE','NONE',NULL);
+insert  into `project_notes`(`notesid`,`projectid`,`installernotes`,`integrationrep`,`packagingrep`,`timerelease`,`daterelease`,`timest`) values (4,73,'','NONE','NONE','3:12:00 PM','2017-01-26','2017-01-26 23:06:53'),(8,74,'','NONE','NONE','12:00:15 PM','2017-01-26','2017-01-26 23:11:45');
 
 /*Table structure for table `project_packaging` */
 
@@ -156,14 +162,14 @@ CREATE TABLE `project_packaging` (
   `q57` varchar(100) DEFAULT 'NA',
   `q58` varchar(100) DEFAULT 'NA',
   `q59` varchar(100) DEFAULT 'NA',
-  `q60` varchar(100) DEFAULT 'NA',
+  `q510` varchar(100) DEFAULT 'NA',
   `packagingnotes` text,
   PRIMARY KEY (`packagingid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_packaging` */
 
-insert  into `project_packaging`(`packagingid`,`projectid`,`packagingname`,`q51`,`q52`,`q53`,`q55`,`q56`,`q57`,`q58`,`q59`,`q60`,`packagingnotes`) values (3,72,'NONE','NA','NA','NA','NA','NA','NA','NA','NA','NA',NULL);
+insert  into `project_packaging`(`packagingid`,`projectid`,`packagingname`,`q51`,`q52`,`q53`,`q55`,`q56`,`q57`,`q58`,`q59`,`q510`,`packagingnotes`) values (4,73,'NONE','NA','NA','NA','NA','NA','NA','NA','NA','NA',NULL),(5,74,'NONE','NA','NA','NA','NA','NA','NA','NA','NA','NA',NULL);
 
 /*Table structure for table `project_qualityassurance` */
 
@@ -178,11 +184,11 @@ CREATE TABLE `project_qualityassurance` (
   `q43` varchar(100) DEFAULT 'NA',
   `qanotes` text,
   PRIMARY KEY (`qaid`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_qualityassurance` */
 
-insert  into `project_qualityassurance`(`qaid`,`projectid`,`qaname`,`q41`,`q42`,`q43`,`qanotes`) values (17,72,'NONE','NA','NA','NA',NULL);
+insert  into `project_qualityassurance`(`qaid`,`projectid`,`qaname`,`q41`,`q42`,`q43`,`qanotes`) values (18,73,'NONE','NA','NA','NA',NULL),(19,74,'NONE','NA','NA','NA',NULL);
 
 /*Table structure for table `project_regular` */
 
@@ -206,8 +212,9 @@ CREATE TABLE `project_regular` (
   `rp_level3` varchar(500) DEFAULT NULL,
   `rp_approvedby` varchar(300) DEFAULT NULL,
   `rp_date` date DEFAULT NULL,
+  `timest` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`rpid`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_regular` */
 
@@ -234,11 +241,11 @@ CREATE TABLE `project_services` (
   `extra3` text,
   `eq3` varchar(100) DEFAULT 'NA',
   UNIQUE KEY `assmblyid` (`servicesid`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_services` */
 
-insert  into `project_services`(`servicesid`,`projectid`,`servicesname`,`servicesnotes`,`q21`,`q22`,`q23`,`q24`,`q25`,`q26`,`q27`,`extra1`,`eq1`,`extra2`,`eq2`,`extra3`,`eq3`) values (56,72,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA',NULL,'NA',NULL,'NA',NULL,'NA');
+insert  into `project_services`(`servicesid`,`projectid`,`servicesname`,`servicesnotes`,`q21`,`q22`,`q23`,`q24`,`q25`,`q26`,`q27`,`extra1`,`eq1`,`extra2`,`eq2`,`extra3`,`eq3`) values (57,73,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA',NULL,'NA',NULL,'NA',NULL,'NA'),(58,74,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA',NULL,'NA',NULL,'NA',NULL,'NA');
 
 /*Table structure for table `users` */
 
@@ -251,11 +258,11 @@ CREATE TABLE `users` (
   `name` varchar(500) DEFAULT NULL,
   `usertype` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`uid`,`username`,`password`,`name`,`usertype`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','Admin','superadmin');
+insert  into `users`(`uid`,`username`,`password`,`name`,`usertype`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','Admin','admin'),(2,'test','test','test','staff'),(3,'test2','ad0234829205b9033196ba818f7a872b','test2','staff');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
