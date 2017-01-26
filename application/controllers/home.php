@@ -9,7 +9,9 @@ class Home extends CI_Controller
 		$this->load->model('dashboard_model');
 		  $this->data = array(
             'title' => 'Projects List',
-			'projectclass' => ''
+			'projectclass' => '',
+			'usersclass' => '',
+			'userssubclass' => ''
 			
 			);
 	}
