@@ -566,8 +566,22 @@ $('.btn-growl').on('click', function(){
 
 function addregularprojectbutton(){
 	
-	//document.getElementById("partnumber").value="";
-	//document.getElementById("notes").value="";
+	//var projectid = document.getElementById("projectid").value;
+	//var rp_issuetype = document.getElementById("rp_issuetype").value;
+	$("#saveregularbutton").removeClass("hidden");
+	$("#updateregularbutton").addClass("hidden");
+	document.getElementById("rp_partdescription").value ="";
+	document.getElementById("rp_qty").value ="";
+	document.getElementById("rp_posno").value ="";
+	document.getElementById("rp_issuedetails").value ="";
+	document.getElementById("rp_correction").value ="";
+	
+	document.getElementById("rp_cause").value ="";
+	
+	document.getElementById("rp_level2").value ="";
+	document.getElementById("rp_level3").value ="";
+	document.getElementById("rp_approvedby").value ="";
+	document.getElementById("rp_date").value ="";
 }
 
 function saveregular(){
@@ -609,6 +623,59 @@ function saveregular(){
                     }
                 });
 
+	
+	
+}
+
+function editregular(id){
+	$("#saveregularbutton").addClass("hidden");
+	$("#updateregularbutton").removeClass("hidden");
+	
+	
+	$.ajax({
+		url: '../../functions/getregularproject/'+id,
+		type: 'post',
+		//data: {projectid : id},
+		success: function(response) {
+			//console.log(response);
+			var data = JSON.parse(response);
+			console.log(data);
+			document.getElementById("regularprojectid").value = data.rpid;
+
+			//var issuetype = data.rp_issuetype;
+			var proj = document.getElementById("rp_issuetype");
+			var opt = document.createElement("option");
+			opt.value = data.rp_issuetype;
+			if(data.rp_issuetype==""){
+				opt.text = "";
+			}else{
+				opt.text = data.rp_issuetype;
+			}
+			opt.selected = "selected";
+			proj.add(opt,  proj.options[0]);
+			
+			
+			document.getElementById("rp_partdescription").value = data.rp_partdescription;
+			document.getElementById("rp_qty").value = data.rp_qty;
+			document.getElementById("rp_posno").value = data.rp_posno;
+			document.getElementById("rp_issuedetails").value = data.rp_issuedetails;
+			document.getElementById("rp_correction").value = data.rp_correction;
+			//var rp_groupresponsible = document.getElementById("rp_groupresponsible").value;
+			var rp_groupresponsible = document.getElementById("rp_groupresponsible");
+			var opt = document.createElement("option");
+			opt.value = data.rp_groupresponsible;
+			if(data.rp_groupresponsible==""){
+				opt.text = "";
+			}else{
+				opt.text = data.rp_groupresponsible;
+			}
+			opt.selected = "selected";
+			rp_groupresponsible.add(opt,  rp_groupresponsible.options[0]);
+			
+			
+			
+		} 
+	});
 	
 	
 }

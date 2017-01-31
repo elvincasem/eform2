@@ -600,7 +600,8 @@
 							
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-effect-ripple btn-primary" onclick="saveregular();">Save</button>
+							<button type="button" id="saveregularbutton" class="btn btn-effect-ripple btn-primary" onclick="saveregular();">Save</button>
+							<button type="button" id="updateregularbutton" class="btn btn-effect-ripple btn-primary" onclick="updateregular();">Update</button>
 							<button type="button" class="btn btn-effect-ripple btn-danger" id="closeregular" data-dismiss="modal">Close</button>
 						</div>
 					</div>
@@ -668,7 +669,7 @@
 												echo"<td class='text-center'>".$link2['rp_date']."</td>";
 
 												echo"<td class='center'> 
-													<button class='btn btn-primary notification' id='notification' onClick='#'><i class='fa fa-edit'></i></button>
+													<button class='btn btn-primary notification' id='notification' onClick='editregular(".$link2['rpid'].")' data-toggle='modal' data-target='#addregularproject'><i class='fa fa-edit'></i></button>
 													<button class='btn btn-danger notification' id='notification' onClick='deleteregular(".$link2['rpid'].")'><i class='fa fa-times'></i></button>
 												</td>";
 												//echo"</tr>";

@@ -183,7 +183,7 @@ class Functions extends CI_Controller
 		$rp_posno = $this->input->post('rp_posno');
 		$rp_issuedetails = $this->input->post('rp_issuedetails');
 		$rp_correction = $this->input->post('rp_correction');
-		$rp_groupresponsible = $this->input->post('rp_qty');
+		$rp_groupresponsible = $this->input->post('rp_groupresponsible');
 		$rp_cause = $this->input->post('rp_cause');
 		$rp_ship = $this->input->post('rp_ship');
 		$rp_level0 = $this->input->post('rp_level0');
@@ -393,7 +393,11 @@ class Functions extends CI_Controller
 		
 	}
 	
-	
+	public function getregularproject($rpid){
+		$sqlselect = $this->db->query("SELECT * FROM project_regular where rpid=$rpid");
+		$projectdetail = $sqlselect->result_array();
+		echo json_encode($projectdetail[0]);
+	}
 	
 	
 	
