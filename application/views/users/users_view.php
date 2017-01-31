@@ -82,6 +82,51 @@
                 </div>
                 <!-- END Regular Modal -->
 			
+			 <!-- Regular Modal change password -->
+                <div id="changepassword" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3 class="modal-title"><strong>Change password</strong></h3>
+                            </div>
+                            <div class="modal-body">
+                                
+								
+								<!-- Input States Block -->
+            <div class="block">
+                
+
+                <!-- Input States Content -->
+                <form action="#" method="post" class="form-horizontal" onsubmit="return false;">
+                    <div class="form-group">
+					<input type="hidden" id="uid" name="state-normal" class="form-control" >
+                        <label class="col-md-3 control-label" for="state-normal">New Password</label>
+                        <div class="col-md-7">
+                            <input type="password" id="newpassword" name="state-normal" class="form-control" tabindex="0" >
+                        </div>
+						
+						
+
+                    </div>
+                    
+                </form>
+                <!-- END Input States Content -->
+            </div>
+            <!-- END Input States Block -->
+								
+								
+								
+                            </div>
+                            <div class="modal-footer">
+                                
+								<button type="button" id="updateuser" class="btn btn-effect-ripple btn-primary" onclick="updatepassword();">Update</button>
+                                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Regular Modal -->
             
 	<div class="block full">
         <div class="block-title">
@@ -110,9 +155,9 @@
 			
 				echo "<td class='center'> 
 					
-					<button class='btn btn-primary' data-toggle='tooltip' data-placement='top'   data-original-title='Edit User' onClick='edituser(".$users['uid'].")'  data-toggle='modal' data-target='#addusermodal'><i class='fa fa-edit'></i></button>
-					<button class='btn btn-warning' data-toggle='tooltip' data-placement='top'   data-original-title='Change Password' onClick='edituser(".$users['uid'].")'  data-toggle='modal' data-target='#addusermodal'><i class='gi gi-rotation_lock'></i></button>
-					<button class='btn btn-danger notification' data-toggle='tooltip' data-placement='top'   data-original-title='Delete User' id='notification' onClick='deleteuser(".$users['uid'].")'><i class='fa fa-times'></i></button>
+					<button class='btn btn-primary' title='Edit User'  onClick='edituser(".$users['uid'].")'  data-toggle='modal' data-target='#addusermodal'><i class='fa fa-edit'></i></button>
+					<button class='btn btn-warning' title='Change Password' onClick='changepassword(".$users['uid'].")'  data-toggle='modal' data-target='#changepassword'><i class='gi gi-rotation_lock'></i></button>
+					<button class='btn btn-danger notification' title='Delete User' id='notification' onClick='deleteuser(".$users['uid'].")'><i class='fa fa-times'></i></button>
 				</td>";
 				echo "</tr>";
 				

@@ -365,7 +365,33 @@ class Functions extends CI_Controller
 		echo json_encode($userdetail[0]);
 	}
 	
+	public function changepassword(){
+		$uid = $this->input->post('userid');
+		$newpassword = $this->input->post('newpassword');
+			
+		$sql = "update users set password=MD5(".$this->db->escape($newpassword).") where uid=".$this->db->escape($uid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
 	
+	public function updateuser(){
+		$uid = $this->input->post('userid');
+		$username = $this->input->post('username');
+		$user_name = $this->input->post('user_name');
+		$usertype = $this->input->post('usertype');
+			
+		$sql = "update users set username=".$this->db->escape($username).",name=".$this->db->escape($user_name).",usertype=".$this->db->escape($usertype)." where uid=".$this->db->escape($uid)."";
+		
+		echo $sql;
+		$this->db->query($sql);
+		echo $this->db->affected_rows();
+		
+		
+	}
 	
 	
 	

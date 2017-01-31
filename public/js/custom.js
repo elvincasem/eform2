@@ -1058,7 +1058,52 @@ function edituser(id){
 		} 
 	});
 		
-$('#updateequipment').prop("disabled", true); 	
 	
+}
+
+function updateuser(){
 	
+	$('#updateuser').prop("disabled", true);    
+	
+	var userid = document.getElementById("uid").value;
+	var username = document.getElementById("username").value;
+	var user_name = document.getElementById("user_name").value;
+	var usertype = document.getElementById("usertype").value;
+	
+	$.ajax({
+		url: 'functions/updateuser/',
+		type: 'post',
+		data: {userid : userid,username:username,user_name:user_name,usertype:usertype},
+		success: function(response) {
+			//console.log(response);
+			 //var data = JSON.parse(response);
+			 window.location.reload();
+			
+		} 
+	});
+		
+
+}
+
+function changepassword(id){
+	document.getElementById("uid").value = id;
+	setTimeout(function () { $("#newpassword").focus(); }, 20);
+}
+
+function updatepassword(){
+	var userid = document.getElementById("uid").value;
+	var newpassword = document.getElementById("newpassword").value;
+	$.ajax({
+		url: 'functions/changepassword/',
+		type: 'post',
+		data: {userid : userid,newpassword:newpassword},
+		success: function(response) {
+			//console.log(response);
+			 //var data = JSON.parse(response);
+			 window.location.reload();
+			
+		} 
+	});
+		
+
 }
