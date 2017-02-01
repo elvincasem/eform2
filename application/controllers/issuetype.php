@@ -1,6 +1,6 @@
 <?php
 
-class Home extends CI_Controller
+class Issuetype extends CI_Controller
 {
 	
 	public function __construct()
@@ -12,24 +12,15 @@ class Home extends CI_Controller
 			'projectclass' => '',
 			'usersclass' => '',
 			'userssubclass' => '',
-			'reportsclass' => '',
-			'reports_issuetypeclass' => ''
+			'reportsclass' => 'active',
+			'reports_issuetypeclass' => 'active'
 			
 			);
 	}
 	
 	public function index()
 	{
-		/*$this->load->helper('url');
-		$data['title'] = "Welcome";
-		$data['heiclass'] = "";
-		$data['heilist'] = "";
-		$data['programlist'] = "";
-		$data['deanslist'] = "";
-		$data['contacts'] = "";
-		$data['accounts'] = "";
-		$data['programapplication'] = "";
-		$data['permits'] = "";*/
+		
 		$data = $this->data;
 		$data['totalprojects'] = $this->dashboard_model->gettotalprojects();
 		$data['totalissuecount'] = $this->dashboard_model->gettotalissuecount();
@@ -38,7 +29,7 @@ class Home extends CI_Controller
 		$this->load->view('inc/header_view');
 		
 
-		$this->load->view('home/home_view',$data);
+		$this->load->view('reports/issuetype_view',$data);
 		$this->load->view('inc/footer_view');
 		
 	}

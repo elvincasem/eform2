@@ -439,7 +439,7 @@
 													<option value="Damaged Part">Damaged Part</option>
 													<option value="Defective Part">Defective Part</option>
 													<option value="Design Issue">Design Issue</option>
-													<option value="Incomplet">Incomplete</option>
+													<option value="Incomplete">Incomplete</option>
 													<option value="Incorrect Assembly">Incorrect Assembly</option>
 													<option value="Incorrect Part">Incorrect Part</option>
 													<option value="Incorrect Reference Document">Incorrect Reference Document</option>

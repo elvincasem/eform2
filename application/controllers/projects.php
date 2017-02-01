@@ -11,7 +11,9 @@ class Projects extends CI_Controller
             'title' => 'Projects',
 			'projectclass' => 'active',
 			'usersclass' => '',
-			'userssubclass' => ''
+			'userssubclass' => '',
+			'reportsclass' => '',
+			'reports_issuetypeclass' => ''
 			);
 	}
 	

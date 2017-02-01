@@ -566,6 +566,7 @@ $('.btn-growl').on('click', function(){
 
 function addregularprojectbutton(){
 	
+	
 	//var projectid = document.getElementById("projectid").value;
 	//var rp_issuetype = document.getElementById("rp_issuetype").value;
 	$("#saveregularbutton").removeClass("hidden");
@@ -671,7 +672,49 @@ function editregular(id){
 			}
 			opt.selected = "selected";
 			rp_groupresponsible.add(opt,  rp_groupresponsible.options[0]);
+
+			document.getElementById("rp_cause").value = data.rp_cause;
 			
+			var rp_ship = document.getElementById("rp_ship");
+			var opt = document.createElement("option");
+			opt.value = data.rp_ship;
+			if(data.rp_ship==""){
+				opt.text = "";
+			}else{
+				opt.text = data.rp_ship;
+			}
+			opt.selected = "selected";
+			rp_ship.add(opt,  rp_ship.options[0]);
+			//level 0
+			var rp_level0 = document.getElementById("rp_level0");
+			var opt = document.createElement("option");
+			opt.value = data.rp_level0;
+			if(data.rp_level0==""){
+				opt.text = "";
+			}else{
+				opt.text = data.rp_level0;
+			}
+			opt.selected = "selected";
+			rp_level0.add(opt,  rp_level0.options[0]);
+			//level 1
+			var rp_level1 = document.getElementById("rp_level1");
+			var opt = document.createElement("option");
+			opt.value = data.rp_level1;
+			if(data.rp_level1==""){
+				opt.text = "";
+			}else{
+				opt.text = data.rp_level1;
+			}
+			opt.selected = "selected";
+			rp_level1.add(opt,  rp_level1.options[0]);
+			
+			//level 2
+			document.getElementById("rp_level2").value = data.rp_level2;
+			document.getElementById("rp_level3").value = data.rp_level3;
+			
+
+			document.getElementById("rp_approvedby").value = data.rp_approvedby;
+			document.getElementById("rp_date").value = data.rp_date;
 			
 			
 		} 
@@ -679,6 +722,50 @@ function editregular(id){
 	
 	
 }
+
+function updateregular(){
+	
+	$(this).prop('disabled', true);
+					var regularprojectid = document.getElementById("regularprojectid").value;
+					//var projectid = document.getElementById("projectid").value;
+					var rp_issuetype = document.getElementById("rp_issuetype").value;
+					var rp_partdescription = document.getElementById("rp_partdescription").value;
+					var rp_qty = document.getElementById("rp_qty").value;
+					var rp_posno = document.getElementById("rp_posno").value;
+					var rp_issuedetails = document.getElementById("rp_issuedetails").value;
+					var rp_correction = document.getElementById("rp_correction").value;
+					var rp_groupresponsible = document.getElementById("rp_groupresponsible").value;
+					var rp_cause = document.getElementById("rp_cause").value;
+					var rp_ship = document.getElementById("rp_ship").value;
+					var rp_level0 = document.getElementById("rp_level0").value;
+					var rp_level1 = document.getElementById("rp_level1").value;
+					var rp_level2 = document.getElementById("rp_level2").value;
+					var rp_level3 = document.getElementById("rp_level3").value;
+					var rp_approvedby = document.getElementById("rp_approvedby").value;
+					var rp_date = document.getElementById("rp_date").value;
+					//alert("test");
+					
+					$.ajax({
+                    url: '../../functions/updateregular',
+                    type: 'post',
+                    data: {regularprojectid:regularprojectid,rp_issuetype: rp_issuetype,rp_partdescription:rp_partdescription,rp_qty:rp_qty,rp_issuedetails:rp_issuedetails,rp_correction:rp_correction,rp_groupresponsible:rp_groupresponsible,rp_cause:rp_cause,rp_ship:rp_ship,rp_level0:rp_level0,rp_level1:rp_level1,rp_level2:rp_level2,rp_level3:rp_level3,rp_approvedby:rp_approvedby,rp_date:rp_date,rp_posno:rp_posno},
+                    success: function(response) {
+						console.log(response);
+						
+						var closeregular = document.getElementById("closeregular");
+						$('#regularprojecttable').load(document.URL +  ' #regularprojecttable');
+						closeregular.click();
+						
+
+						
+                    }
+                });
+
+	
+	
+}
+
+
 
 function deleteregular(id){
 	

@@ -209,6 +209,41 @@ class Functions extends CI_Controller
 		
 	}
 	
+	public function updateregular(){
+		$regularprojectid = $this->input->post('regularprojectid');
+		$rp_issuetype = $this->input->post('rp_issuetype');
+		$rp_partdescription = $this->input->post('rp_partdescription');
+		$rp_qty = $this->input->post('rp_qty');
+		$rp_posno = $this->input->post('rp_posno');
+		$rp_issuedetails = $this->input->post('rp_issuedetails');
+		$rp_correction = $this->input->post('rp_correction');
+		$rp_groupresponsible = $this->input->post('rp_groupresponsible');
+		$rp_cause = $this->input->post('rp_cause');
+		$rp_ship = $this->input->post('rp_ship');
+		$rp_level0 = $this->input->post('rp_level0');
+		$rp_level1 = $this->input->post('rp_level1');
+		$rp_level2 = $this->input->post('rp_level2');
+		$rp_level3 = $this->input->post('rp_level3');
+		$rp_approvedby = $this->input->post('rp_approvedby');
+		$rp_date = $this->input->post('rp_date');
+		
+		
+		
+		$sql = "update project_regular set rp_issuetype=".$this->db->escape($rp_issuetype)." ,rp_partdescription=".$this->db->escape($rp_partdescription)." ,rp_qty=".$this->db->escape($rp_qty)." ,rp_posno=".$this->db->escape($rp_posno)." ,rp_issuedetails=".$this->db->escape($rp_issuedetails)." ,rp_correction=".$this->db->escape($rp_correction)." ,rp_groupresponsible=".$this->db->escape($rp_groupresponsible)." ,rp_cause=".$this->db->escape($rp_cause)." ,rp_ship=".$this->db->escape($rp_ship)." ,rp_level0=".$this->db->escape($rp_level0)." ,rp_level1=".$this->db->escape($rp_level1)." ,rp_level2=".$this->db->escape($rp_level2)." ,rp_level3=".$this->db->escape($rp_level3)." ,rp_approvedby=".$this->db->escape($rp_approvedby)." ,rp_date=".$this->db->escape($rp_date)." where rpid=".$this->db->escape($regularprojectid)."";
+		
+		$this->db->query($sql);
+		//echo $this->db->affected_rows();
+		echo $sql;
+		
+		/*
+		$sqlselect = $this->db->query("SELECT MAX(pdetailsid) AS lastid FROM project_incompletes WHERE projectid='$projectid'");
+		$lastidinserted = $sqlselect->result_array();
+		echo json_encode($lastidinserted[0]);
+		$currentid = $lastidinserted[0]['lastid'];
+		echo $currentid;*/
+		
+	}
+	
 	public function deleteregular(){
 		$rpid = $this->input->post('rpid');
 		$sql = "DELETE FROM project_regular where rpid='".$rpid."'";

@@ -10,7 +10,9 @@ class Users extends CI_Controller
             'title' => 'Users Directory',
 			'projectclass' => '',
 			'usersclass' => 'active',
-			'userssubclass' => 'active'
+			'userssubclass' => 'active',
+			'reportsclass' => '',
+			'reports_issuetypeclass' => ''
 			);
 	}
 	
