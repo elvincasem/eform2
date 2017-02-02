@@ -30,7 +30,7 @@
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-more_items sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Reports</span></a>
                                     <ul>
 										<li class="<?php echo $reports_issuetypeclass;?>">
-                                            <a href="<?=base_url()?>issuetype" ><i class="gi gi-user sidebar-nav-icon"></i>Issue Type</a>
+                                            <a href="<?=base_url()?>home" ><i class="gi gi-user sidebar-nav-icon"></i>Issue Type</a>
                                         </li>
 										
 									</ul>
