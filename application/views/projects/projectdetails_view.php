@@ -281,7 +281,7 @@
 											</div>
 											<div class="widget-heading text-dark">
 												<div class="text-black">Date:</div>
-												<span class="text-muted"><input type="text" id="authdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $authdate;?>"></span>
+												<span class="text-muted"><input type="text" id="authdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php if($authdate!="0000-00-00"){echo $authdate;};?>"></span>
 											</div>
 										</div>
 									</div>
@@ -366,7 +366,7 @@
 											</div>
 											<div class="widget-heading text-dark">
 												<div class="text-black">Date:</div>
-												<span class="text-muted"><input type="text" id="pmdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $pmdate;?>"></span>
+												<span class="text-muted"><input type="text" id="pmdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php if($pmdate!="0000-00-00"){echo $pmdate;}?>"></span>
 											</div>
 										</div>
 									</div>
@@ -402,7 +402,7 @@
 											</div>
 											<div class="widget-heading text-dark">
 												<div class="text-black">Date:</div>
-												<span class="text-muted"><input type="text" id="pmexdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $pmexdate;?>"></span>
+												<span class="text-muted"><input type="text" id="pmexdate" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php if($pmexdate!="0000-00-00"){echo $pmexdate;} ?>"></span>
 											</div>
 										</div>
 									</div>

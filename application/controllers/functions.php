@@ -136,6 +136,9 @@ class Functions extends CI_Controller
 		$pmexsolution = $this->input->post('pmexsolution');
 		$pmexdate = $this->input->post('pmexdate');
 		
+		
+		
+		
 		$sql = "update project_incompletes_q set authshipment=".$this->db->escape($authshipment)." ,authsolution=".$this->db->escape($authsolution)." ,authdate=".$this->db->escape($authdate)." ,hardwarebox=".$this->db->escape($hardwarebox)." ,authpackaged=".$this->db->escape($authpackaged)." ,pmsee=".$this->db->escape($pmsee)." ,pmsolution=".$this->db->escape($pmsolution)." ,pmdate=".$this->db->escape($pmdate)." ,pmexception=".$this->db->escape($pmexception)." ,pmexsolution=".$this->db->escape($pmexsolution)." ,pmexdate=".$this->db->escape($pmexdate)." where projectid=".$this->db->escape($projectid)."";
 		
 		echo $sql;
