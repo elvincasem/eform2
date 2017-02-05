@@ -2,7 +2,7 @@
                 <div id="sidebar">
                     <!-- Sidebar Brand -->
                     <div id="sidebar-brand" class="themed-background">
-                        <a href="<?=base_url()?>home" class="sidebar-title">
+                        <a href="<?=base_url()?>home" class="sidebar-title sidebar-nav-mini-hide">
                             <img src="<?=base_url()?>public/img/evans-logo.png">
                         </a>
                     </div>
