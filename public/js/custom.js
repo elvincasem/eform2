@@ -228,11 +228,12 @@ function saveexceptions(){
 					//var authshipment = $('#authshipment').this;
 					var authsolution = document.getElementById("authsolution").value;
 					var authdate = document.getElementById("authdate").value;
-					if(document.getElementById("hardwareyes").checked==true){
+					var hardwarebox = document.getElementById("hardwarebox").value;
+					/*if(document.getElementById("hardwareyes").checked==true){
 						var hardwarebox = "YES";
 					}else{
 						var hardwarebox = "NO";
-					}
+					}*/
 					if(document.getElementById("authpackyes").checked==true){
 						var authpackaged = "YES";
 					}else{

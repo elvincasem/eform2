@@ -1,5 +1,5 @@
 
-            <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+            <div id="page-container" class="header-fixed-top sidebar-visible-lg-full sidebar-light">
                 
 				
 				<!--rightsidebar here-->

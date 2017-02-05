@@ -1,5 +1,5 @@
 
-<div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+<div id="page-container" class="header-fixed-top sidebar-visible-lg-full sidebar-light">
 	
 	
 	<!--rightsidebar here-->
@@ -131,7 +131,7 @@
 				foreach ($projectlist as $projects):
 				//$heiname = strtoupper($hei['instname']);
 				echo "<tr class='odd gradeX'>";
-				echo "<td><a href='projects/details/".$projects['projectid']."'>".$projects['projectname']."</a></td>";
+				echo "<td><h4><strong><a href='projects/details/".$projects['projectid']."'>".$projects['projectname']."</a></h4></strong></td>";
 				echo "<td>".$projects['projectnumber']."</td>";
 				echo "<td>".$projects['projecttype']."</td>";
 				echo "<td>".$projects['formdate']."</td>";

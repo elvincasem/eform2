@@ -71,13 +71,14 @@ class Projects extends CI_Controller
 		$data['authsolution'] = $project_incompletes_q['authsolution'];
 		$data['authdate'] = $project_incompletes_q['authdate'];
 		
-		if($project_incompletes_q['hardwarebox']=='YES'){
+		/*if($project_incompletes_q['hardwarebox']=='YES'){
 			$data['hardwareboxyes'] = "checked=checked";
 			$data['hardwareboxno'] = "";
 		}else{
 			$data['hardwareboxyes'] = "";
 			$data['hardwareboxno'] = "checked=checked";
-		}
+		}*/
+		$data['hardwarecount'] = $project_incompletes_q['hardwarebox'];
 		
 		if($project_incompletes_q['authpackaged']=='YES'){
 			$data['authpackagedyes'] = "checked=checked";

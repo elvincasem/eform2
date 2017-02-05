@@ -297,16 +297,8 @@
 											<div class="text-center">
 											<span class="widget-heading text-dark">
 												<div class="form-group">
-													<div class="radio-inline">
-														<label for="secondradio-yes">
-															<input type="radio" id="hardwareyes" name="second-radios" value="YES"  <?php echo $hardwareboxyes;?>>YES
-														</label>
-													</div>
-													<div class="radio-inline">
-														<label for="secondradio-no">
-															<input type="radio" id="hardwareno" name="second-radios" value="NO"  <?php echo $hardwareboxno;?>>NO
-														</label>
-													</div>
+													<input type="text" id="hardwarebox" name="example-input-small" class="form-control" placeholder="0" value="<?php echo $hardwarecount;?>">
+													
 												</div>
 											</span>
 											</div>
@@ -514,7 +506,25 @@
 										<div class="form-group">
                                             <label class="col-md-4 control-label" for="state-normal">Group Responsible to fix Root Cause</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" id="rp_cause">
+												<select id="rp_cause" name="example-select2" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                                    <option></option>
+													<option value="DESIGN">DESIGN</option>
+													<option value="ECK">ECK</option>
+													<option value="ELECTRICAL">ELECTRICAL</option>
+													<option value="INTEGRATION">INTEGRATION</option>
+													<option value="METAL">METAL</option>
+													<option value="PACKAGING">PACKAGING</option>
+													<option value="PE&D">PE&D</option>
+													<option value="PROCUREMENT">PROCUREMENT</option>
+													<option value="QUALITY">QUALITY</option>
+													<option value="SOLUTIONS">SOLUTIONS</option>
+													<option value="VENDOR">VENDOR</option>
+													<option value="WOOD">WOOD</option>
+													
+						
+						
+                                                </select>
+                                                
                                             </div>
                                         </div>
 										
