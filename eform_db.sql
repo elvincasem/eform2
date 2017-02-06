@@ -29,7 +29,7 @@ CREATE TABLE `project` (
 
 /*Data for the table `project` */
 
-insert  into `project`(`projectid`,`projectname`,`projectnumber`,`projecttype`,`formdate`,`originator`,`timest`) values (73,'Sample','123','Custom','2017-01-26','Elvin','2017-01-26 23:12:16'),(74,'eeee','eee','FAA','2017-01-26','eeee','2017-01-26 23:12:16'),(75,' Honeywell FREEPORT TX','U15-8004-302 ','Honeywell','2017-09-09','Henry Balba','2017-01-31 20:25:18');
+insert  into `project`(`projectid`,`projectname`,`projectnumber`,`projecttype`,`formdate`,`originator`,`timest`) values (73,'Sample','123','Custom','2017-01-26','Elvin','2017-01-26 23:12:16'),(75,' Honeywell FREEPORT TX','U15-8004-302 ','Honeywell','2017-09-09','Henry Balba','2017-01-31 20:25:18');
 
 /*Table structure for table `project_assembly` */
 
@@ -58,7 +58,7 @@ CREATE TABLE `project_assembly` (
 
 /*Data for the table `project_assembly` */
 
-insert  into `project_assembly`(`assmblyid`,`projectid`,`faintegration`,`assemblynotes`,`q101`,`q102`,`q103`,`q104`,`q105`,`q106`,`q107`,`q108`,`q109`,`q110`,`q112`,`q113`,`positionnos`) values (58,73,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(59,74,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(60,75,'Henry Balba','','YES','YES','YES','YES','YES','YES','YES','NO','NA','YES','NO','YES','NONE');
+insert  into `project_assembly`(`assmblyid`,`projectid`,`faintegration`,`assemblynotes`,`q101`,`q102`,`q103`,`q104`,`q105`,`q106`,`q107`,`q108`,`q109`,`q110`,`q112`,`q113`,`positionnos`) values (58,73,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NA','NONE'),(60,75,'Henry Balba','','YES','YES','YES','YES','YES','YES','YES','NO','NA','YES','NO','YES','NONE');
 
 /*Table structure for table `project_design` */
 
@@ -81,7 +81,7 @@ CREATE TABLE `project_design` (
 
 /*Data for the table `project_design` */
 
-insert  into `project_design`(`designid`,`projectid`,`designname`,`q31`,`q32`,`q33`,`designextra1`,`deq1`,`designextra2`,`deq2`,`designnotes`) values (20,73,'NONE','NA','NA','NA',NULL,'NA',NULL,'NA',NULL),(21,74,'NONE','NA','NA','NA',NULL,'NA',NULL,'NA',NULL),(22,75,'ANGELA M','YES','YES','YES','','NA','','NA','');
+insert  into `project_design`(`designid`,`projectid`,`designname`,`q31`,`q32`,`q33`,`designextra1`,`deq1`,`designextra2`,`deq2`,`designnotes`) values (20,73,'NONE','NA','NA','NA',NULL,'NA',NULL,'NA',NULL),(22,75,'ANGELA M','YES','YES','YES','','NA','','NA','');
 
 /*Table structure for table `project_incompletes` */
 
@@ -111,7 +111,7 @@ CREATE TABLE `project_incompletes_q` (
   `authshipment` varchar(100) DEFAULT 'NO',
   `authsolution` varchar(300) DEFAULT 'NONE',
   `authdate` date NOT NULL,
-  `hardwarebox` varchar(100) DEFAULT 'NO',
+  `hardwarebox` int(11) DEFAULT '0',
   `authpackaged` varchar(100) DEFAULT 'NO',
   `pmsee` varchar(100) DEFAULT 'NO',
   `pmsolution` varchar(300) DEFAULT 'NONE',
@@ -124,7 +124,7 @@ CREATE TABLE `project_incompletes_q` (
 
 /*Data for the table `project_incompletes_q` */
 
-insert  into `project_incompletes_q`(`pdetailsqid`,`projectid`,`authshipment`,`authsolution`,`authdate`,`hardwarebox`,`authpackaged`,`pmsee`,`pmsolution`,`pmdate`,`pmexception`,`pmexsolution`,`pmexdate`) values (59,73,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(60,74,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(61,75,'NO','NONE','0000-00-00','NO','NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00');
+insert  into `project_incompletes_q`(`pdetailsqid`,`projectid`,`authshipment`,`authsolution`,`authdate`,`hardwarebox`,`authpackaged`,`pmsee`,`pmsolution`,`pmdate`,`pmexception`,`pmexsolution`,`pmexdate`) values (59,73,'NO','NONE','0000-00-00',0,'NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00'),(61,75,'NO','NONE','0000-00-00',0,'NO','NO','NONE','0000-00-00','NO','NONE','0000-00-00');
 
 /*Table structure for table `project_notes` */
 
@@ -144,7 +144,7 @@ CREATE TABLE `project_notes` (
 
 /*Data for the table `project_notes` */
 
-insert  into `project_notes`(`notesid`,`projectid`,`installernotes`,`integrationrep`,`packagingrep`,`timerelease`,`daterelease`,`timest`) values (4,73,'','NONE','NONE','3:12:00 PM','2017-01-26','2017-01-26 23:06:53'),(8,74,'','NONE','NONE','12:00:15 PM','2017-01-26','2017-01-26 23:11:45'),(9,75,'','HB','KEVIN W.','2:40:00 PM','2016-09-09','2017-01-31 20:25:18');
+insert  into `project_notes`(`notesid`,`projectid`,`installernotes`,`integrationrep`,`packagingrep`,`timerelease`,`daterelease`,`timest`) values (4,73,'','NONE','NONE','3:12:00 PM','2017-01-26','2017-01-26 23:06:53'),(9,75,'','HB','KEVIN W.','2:40:00 PM','2016-09-09','2017-01-31 20:25:18');
 
 /*Table structure for table `project_packaging` */
 
@@ -169,7 +169,7 @@ CREATE TABLE `project_packaging` (
 
 /*Data for the table `project_packaging` */
 
-insert  into `project_packaging`(`packagingid`,`projectid`,`packagingname`,`q51`,`q52`,`q53`,`q55`,`q56`,`q57`,`q58`,`q59`,`q510`,`packagingnotes`) values (4,73,'NONE','NA','NA','NA','NA','NA','NA','NA','NA','NA',NULL),(5,74,'NONE','NA','NA','NA','NA','NA','NA','NA','NA','NA',NULL),(6,75,'NONE','NA','NA','NA','NA','NA','NA','NA','NA','NA',NULL);
+insert  into `project_packaging`(`packagingid`,`projectid`,`packagingname`,`q51`,`q52`,`q53`,`q55`,`q56`,`q57`,`q58`,`q59`,`q510`,`packagingnotes`) values (4,73,'NONE','NA','NA','NA','NA','NA','NA','NA','NA','NA',NULL),(6,75,'NONE','NA','NA','NA','NA','NA','NA','NA','NA','NA',NULL);
 
 /*Table structure for table `project_qualityassurance` */
 
@@ -188,7 +188,7 @@ CREATE TABLE `project_qualityassurance` (
 
 /*Data for the table `project_qualityassurance` */
 
-insert  into `project_qualityassurance`(`qaid`,`projectid`,`qaname`,`q41`,`q42`,`q43`,`qanotes`) values (18,73,'NONE','NA','NA','NA',NULL),(19,74,'NONE','NA','NA','NA',NULL),(20,75,'Azam.M','YES','YES','YES','');
+insert  into `project_qualityassurance`(`qaid`,`projectid`,`qaname`,`q41`,`q42`,`q43`,`qanotes`) values (18,73,'NONE','NA','NA','NA',NULL),(20,75,'Azam.M','YES','YES','YES','');
 
 /*Table structure for table `project_regular` */
 
@@ -214,11 +214,11 @@ CREATE TABLE `project_regular` (
   `rp_date` date DEFAULT NULL,
   `timest` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`rpid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 /*Data for the table `project_regular` */
 
-insert  into `project_regular`(`rpid`,`projectid`,`rp_issuetype`,`rp_partdescription`,`rp_qty`,`rp_posno`,`rp_issuedetails`,`rp_correction`,`rp_groupresponsible`,`rp_cause`,`rp_ship`,`rp_level0`,`rp_level1`,`rp_level2`,`rp_level3`,`rp_approvedby`,`rp_date`,`timest`) values (2,73,'Damaged Part','sdf',0,'dsf','sdf','a','sdf','a','YES','Buyout','Frame','a','a','a','2017-01-27','2017-01-27 07:37:58'),(3,73,'Defective Part','sdf',0,'dsf','sdf','a','sdf','a','YES','Buyout','Frame','a','a','a','2017-01-27','2017-01-27 07:38:05'),(4,75,'Design Issue','SH EARMS',2,'','Not on Bom, but according to design she add before(Angelica)','Design to update the Bom','2','Design','NONE','NONE','NONE','','','Angelica','2016-09-09','2017-01-31 20:26:48'),(5,75,'Design Issue','DH EARMS',2,'','Not on Bom, but according to design she add before(Angelica)','Design to update the Bom','2','Design','NONE','NONE','NONE','','','Angelica','2016-09-09','2017-01-31 20:27:20'),(6,75,'Missing Part','10-32 X 3/8 BUTTON HEAD SCREW',16,'','need for keyboard drawer','Provide before shipment','16','Integration','NONE','NONE','NONE','','','','0000-00-00','2017-01-31 20:28:10'),(7,75,'Incorrect Assembly','C4026695  WRKS W/ KYBOARD  CUT OUT',1,'','Installed on  wrong location ','Make sure next time refer on drawing','1','WOOD','NONE','NONE','NONE','','','NAR','0000-00-00','2017-01-31 20:33:53'),(10,75,'Damaged Part','',0,'','','','','','NONE','NONE','NONE','','','','0000-00-00','2017-01-31 21:05:03');
+insert  into `project_regular`(`rpid`,`projectid`,`rp_issuetype`,`rp_partdescription`,`rp_qty`,`rp_posno`,`rp_issuedetails`,`rp_correction`,`rp_groupresponsible`,`rp_cause`,`rp_ship`,`rp_level0`,`rp_level1`,`rp_level2`,`rp_level3`,`rp_approvedby`,`rp_date`,`timest`) values (2,73,'Damaged Part','sdf',0,'dsf','sdf','a','sdf','a','YES','Buyout','Frame','a','a','a','2017-01-27','2017-01-27 07:37:58'),(3,73,'Defective Part','sdf',0,'dsf','sdf','a','sdf','a','YES','Buyout','Frame','a','a','a','2017-01-27','2017-01-27 07:38:05'),(4,75,'Design Issue','SH EARMS',2,'','Not on Bom, but according to design she add before(Angelica)','Design to update the Bom','2','Design','NONE','NONE','NONE','','','Angelica','2016-09-09','2017-01-31 20:26:48'),(5,75,'Design Issue','DH EARMS',2,'','Not on Bom, but according to design she add before(Angelica)','Design to update the Bom','2','Design','NONE','NONE','NONE','','','Angelica','2016-09-09','2017-01-31 20:27:20'),(6,75,'Missing Part','10-32 X 3/8 BUTTON HEAD SCREW',16,'','need for keyboard drawer','Provide before shipment','16','Integration','NONE','NONE','NONE','','','','0000-00-00','2017-01-31 20:28:10'),(7,75,'Incorrect Assembly','C4026695  WRKS W/ KYBOARD  CUT OUT',1,'','Installed on  wrong location ','Make sure next time refer on drawing','1','WOOD','NONE','NONE','NONE','','','NAR','0000-00-00','2017-01-31 20:33:53'),(10,75,'Damaged Part','',0,'','','','','','NONE','NONE','NONE','','','','0000-00-00','2017-01-31 21:05:03'),(11,75,'Design Issue','',0,'','','','DESIGN','ECK','NONE','NONE','NONE','','','','0000-00-00','2017-02-05 17:06:12');
 
 /*Table structure for table `project_services` */
 
@@ -247,7 +247,7 @@ CREATE TABLE `project_services` (
 
 /*Data for the table `project_services` */
 
-insert  into `project_services`(`servicesid`,`projectid`,`servicesname`,`servicesnotes`,`q21`,`q22`,`q23`,`q24`,`q25`,`q26`,`q27`,`extra1`,`eq1`,`extra2`,`eq2`,`extra3`,`eq3`) values (57,73,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA',NULL,'NA',NULL,'NA',NULL,'NA'),(58,74,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA',NULL,'NA',NULL,'NA',NULL,'NA'),(59,75,'Arthur Z.','','YES','YES','YES','YES','YES','NO','NO','','NA','','NA','','NA');
+insert  into `project_services`(`servicesid`,`projectid`,`servicesname`,`servicesnotes`,`q21`,`q22`,`q23`,`q24`,`q25`,`q26`,`q27`,`extra1`,`eq1`,`extra2`,`eq2`,`extra3`,`eq3`) values (57,73,'NONE',NULL,'NA','NA','NA','NA','NA','NA','NA',NULL,'NA',NULL,'NA',NULL,'NA'),(59,75,'Arthur Z.','','YES','YES','YES','YES','YES','NO','NO','','NA','','NA','','NA');
 
 /*Table structure for table `users` */
 
@@ -260,11 +260,11 @@ CREATE TABLE `users` (
   `name` varchar(500) DEFAULT NULL,
   `usertype` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`uid`,`username`,`password`,`name`,`usertype`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','Admin','admin'),(2,'test','test','test','staff'),(3,'test2','ad0234829205b9033196ba818f7a872b','test2','staff');
+insert  into `users`(`uid`,`username`,`password`,`name`,`usertype`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','Admin','admin'),(2,'test','test','test','staff'),(3,'test2','ad0234829205b9033196ba818f7a872b','test2','staff'),(4,'ariel','05007094b2c553fdf9102200b13c2cc8','Ariel Naron','staff');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
