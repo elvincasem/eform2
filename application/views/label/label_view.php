@@ -8,7 +8,7 @@
                 width:    100%;
             }
 </style>
-            <div id="page-container" class="header-fixed-top sidebar-visible-lg-full sidebar-light">
+            <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
                 
 				
 				<!--rightsidebar here-->
