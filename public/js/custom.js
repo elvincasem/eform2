@@ -26,12 +26,13 @@ function saveproject(){
 					var projecttype = document.getElementById("projecttype").value;
 					var projectdate = document.getElementById("projectdate").value;
 					var signoff = document.getElementById("signoff").value;
+					var country = document.getElementById("country").value;
 					
 					
 					$.ajax({
                     url: 'functions/saveproject',
                     type: 'post',
-                    data: {action: "saveproject", projectname: projectname, projectnumber: projectnumber,projecttype:projecttype,projectdate:projectdate,signoff:signoff},
+                    data: {action: "saveproject", projectname: projectname, projectnumber: projectnumber,projecttype:projecttype,projectdate:projectdate,signoff:signoff,country:country},
                     success: function(response) {
 						console.log(response);
 						convertresponse = JSON.parse(response);
@@ -81,12 +82,13 @@ function updateproject(){
 					var projecttype = document.getElementById("projecttype").value;
 					var projectdate = document.getElementById("projectdate").value;
 					var signoff = document.getElementById("signoff").value;
+					var country = document.getElementById("country").value;
 					
 					
 					$.ajax({
                     url: 'functions/updateproject',
                     type: 'post',
-                    data: {projectid:projectid, projectname: projectname, projectnumber: projectnumber,projecttype:projecttype,projectdate:projectdate,signoff:signoff},
+                    data: {projectid:projectid, projectname: projectname, projectnumber: projectnumber,projecttype:projecttype,projectdate:projectdate,signoff:signoff,country:country},
                     success: function(response) {
 						console.log(response);
 						//var lastid = parseInt(response);
@@ -141,6 +143,19 @@ function editproject(projid){
 			opt.selected = "selected";
 
 			proj.add(opt,  proj.options[0]);
+			
+			var country = document.getElementById("country");
+			var opt = document.createElement("option");
+			opt.value = data.country;
+			if(data.country==""){
+				opt.text = "";
+			}else{
+				opt.text = data.country;
+			}
+			
+			opt.selected = "selected";
+
+			country.add(opt,  country.options[0]);
 			
 			
 			

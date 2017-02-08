@@ -35,22 +35,8 @@
 								
                             </div>
 							
-							<!-- 
-                            <div class="col-sm-6 col-lg-3">
-                                <a href="javascript:void(0)" class="widget">
-                                    <div class="widget-content widget-content-mini text-right clearfix">
-                                        <div class="widget-icon pull-left themed-background-success">
-                                            <i class="gi gi-user text-light-op"></i>
-                                        </div>
-                                        <h2 class="widget-heading h3 text-success">
-                                            <strong><span data-toggle="counter" data-to="<?php 
-										//echo $totalcontacts->totalcontact;
-										?>"></span></strong>
-                                        </h2>
-                                        <span class="text-muted">Contacts</span>
-                                    </div>
-                                </a>
-                            </div>
+					
+					<!--
                             <div class="col-sm-6 col-lg-3">
                                 <a href="javascript:void(0)" class="widget">
                                     <div class="widget-content widget-content-mini text-right clearfix">
@@ -145,7 +131,7 @@
                                 <div class="block">
                                     <!-- Partial Responsive Title -->
                                     <div class="block-title">
-                                        <h2>Group Responsible Total</h2>
+                                        <h2>Group Responsible to fix Root Cause</h2>
                                     </div>
                                     <!-- END Partial Responsive Title -->
 
@@ -162,7 +148,7 @@
 											foreach ($groupresponsible as $group):
 											
 											echo "<tr>";
-											echo "<td>".$group['rp_groupresponsible']."</td>";
+											echo "<td>".$group['rp_cause']."</td>";
 											echo "<td>".$group['totalgroupcount']."</td></tr>";
 											
 											endforeach;
@@ -181,7 +167,19 @@
                         </div>
                         <!-- END First Row -->
 
-						
+					<div class="row">
+                            <div class="col-sm-6 col-lg-6">
+                                <button class="btn btn-lg btn-success">Overall Exceptions by Issue Type</button>
+								<button class="btn btn-lg btn-success"> Overall Exceptions by group  responsible for Root Cause</button>
+								<button class="btn btn-lg btn-success">  Total Exceptions monthly vs Load</button>
+								<button class="btn btn-lg btn-success">  Total Exceptions monthly VS Total Projects for month</button>
+								<button class="btn btn-lg btn-success">  Total Exceptions monthly VS Units produced for month</button>
+								<button class="btn btn-lg btn-success">   Chart of Missing Items Total Exceptions by Month</button>
+								<button class="btn btn-lg btn-success">     Chart of Design Issues Total by month</button>
+								<button class="btn btn-lg btn-success">     Chart of Defective Part types by month</button>
+								<button class="btn btn-lg btn-success">     Chart of Damaged Part Types by month</button>
+                            </div>
+					</div>
 
 
                         

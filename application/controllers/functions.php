@@ -18,9 +18,10 @@ class Functions extends CI_Controller
 		$projecttype = $this->input->post('projecttype');
 		$projectdate = $this->input->post('projectdate');
 		$signoff = $this->input->post('signoff');
+		$country = $this->input->post('country');
 		
 
-		$sqlinsert = "INSERT INTO project(projectname,projectnumber,projecttype,formdate,originator) VALUES('$projectname','$projectnumber','$projecttype','$projectdate','$signoff')";
+		$sqlinsert = "INSERT INTO project(projectname,projectnumber,projecttype,formdate,originator,country) VALUES('$projectname','$projectnumber','$projecttype','$projectdate','$signoff','$country')";
 		//$save = $conn->prepare($sqlinsert);
 		//$save->execute();
 		$this->db->query($sqlinsert);
@@ -87,9 +88,10 @@ class Functions extends CI_Controller
 		$projecttype = $this->input->post('projecttype');
 		$projectdate = $this->input->post('projectdate');
 		$signoff = $this->input->post('signoff');
+		$country = $this->input->post('country');
 		
 
-		$sql = "update project set projectname=".$this->db->escape($projectname)." ,projectnumber=".$this->db->escape($projectnumber)." ,projecttype=".$this->db->escape($projecttype)." ,formdate=".$this->db->escape($projectdate)." ,originator=".$this->db->escape($signoff)." where projectid=".$this->db->escape($projectid)."";
+		$sql = "update project set projectname=".$this->db->escape($projectname)." ,projectnumber=".$this->db->escape($projectnumber)." ,projecttype=".$this->db->escape($projecttype)." ,formdate=".$this->db->escape($projectdate)." ,originator=".$this->db->escape($signoff)." ,country=".$this->db->escape($country)." where projectid=".$this->db->escape($projectid)."";
 		echo $sql;
 
 		$this->db->query($sql);

@@ -86,6 +86,17 @@
                             <input type="text" id="signoff" name="state-normal" class="form-control" >
                         </div>
 						
+						<div class="row"></div>
+						<label class="col-md-3 control-label" for="state-normal">Project Type</label>
+                        <div class="col-md-7">
+                            <select id="country" name="example-select" class="form-control" size="1">
+							
+                                <option value="Canada">Canada</option>
+                                <option value="China">China</option>
+								
+                            </select>
+                        </div>
+						
                     </div>
                     
                 </form>
@@ -122,6 +133,7 @@
 						<th>Project Type</th>
 						<th>Date</th>
 						<th>Originator</th>
+						<th>Country</th>
 						<th></th>
                     </tr>
                 </thead>
@@ -136,6 +148,7 @@
 				echo "<td>".$projects['projecttype']."</td>";
 				echo "<td>".$projects['formdate']."</td>";
 				echo "<td>".$projects['originator']."</td>";
+				echo "<td>".$projects['country']."</td>";
 				
 				echo "<td class='center'> 
 					

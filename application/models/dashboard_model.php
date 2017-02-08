@@ -26,7 +26,7 @@ class Dashboard_model extends CI_Model
 	public function gettotalresponsible()
 	{
 
-			$result = $this->db->query("SELECT rp_groupresponsible,COUNT(*) AS totalgroupcount FROM project_regular GROUP BY rp_groupresponsible ORDER BY totalgroupcount desc");
+			$result = $this->db->query("SELECT rp_cause,COUNT(*) AS totalgroupcount FROM project_regular GROUP BY rp_cause ORDER BY totalgroupcount desc");
 			return $result->result_array();
 			
 		
