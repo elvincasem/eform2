@@ -34,17 +34,23 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="example-daterange1">Date Range</label>
                                             <div class="col-md-9">
-                                                <div class="input-group input-daterange" data-date-format="yyyy-mm-dd">
-                                                    <input type="text" id="date1" name="example-daterange1" class="form-control" placeholder="From">
-                                                    <span class="input-group-addon"><i class="fa fa-chevron-right"></i></span>
-                                                    <input type="text" id="date2" name="example-daterange2" class="form-control" placeholder="To">
-                                                </div>
+                                                <select id="selectyear"  class="form-control">
+													<?php
+													foreach ($yeardata as $listofyears):
+				
+										echo "<option value=".$listofyears['exceptionyear'].">".$listofyears['exceptionyear']."</option>";
+				
+				
+													endforeach;
+													?>
+												
+												</select>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group form-actions">
                                             <div class="col-md-12 col-md-offset-6">
-                                                <button type="submit" class="btn btn-effect-ripple btn-primary" onclick="issutype_report();">Generate</button>
+                                                <button type="submit" class="btn btn-effect-ripple btn-primary" onclick="designissue_report();">Generate</button>
                                                 <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
                                             </div>
                                         </div>

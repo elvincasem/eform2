@@ -57,6 +57,15 @@
 
         <!-- Modernizr (browser feature detection library) -->
         <script src="<?=base_url()?>public/js/vendor/modernizr-3.3.1.min.js"></script>
+		
+		<!-- fushion charts -->
+		
+		<script src="<?=base_url()?>public/js/fushion/fusioncharts.js"></script>
+		<script src="<?=base_url()?>public/js/fushion/fusioncharts.charts.js"></script>
+		<script src="<?=base_url()?>public/js/fushion/fusioncharts.zoomscatter.js"></script>
+		<script src="<?=base_url()?>public/js/fushion/themes/fusioncharts.theme.fint.js"></script>
+		
+		
     </head>
 
     <body>

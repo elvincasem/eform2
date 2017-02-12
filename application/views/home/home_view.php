@@ -169,15 +169,13 @@
 
 					<div class="row">
                             <div class="col-sm-6 col-lg-6">
-                                <button class="btn btn-lg btn-success">Overall Exceptions by Issue Type</button>
-								<button class="btn btn-lg btn-success"> Overall Exceptions by group  responsible for Root Cause</button>
-								<button class="btn btn-lg btn-success">  Total Exceptions monthly vs Load</button>
-								<button class="btn btn-lg btn-success">  Total Exceptions monthly VS Total Projects for month</button>
-								<button class="btn btn-lg btn-success">  Total Exceptions monthly VS Units produced for month</button>
-								<button class="btn btn-lg btn-success">   Chart of Missing Items Total Exceptions by Month</button>
-								<button class="btn btn-lg btn-success">     Chart of Design Issues Total by month</button>
-								<button class="btn btn-lg btn-success">     Chart of Defective Part types by month</button>
-								<button class="btn btn-lg btn-success">     Chart of Damaged Part Types by month</button>
+                                <a href="issuetype" class="btn btn-lg btn-success">Overall Exceptions by Issue Type</a>
+								<a href="grouprootcause" class="btn btn-lg btn-success"> Overall Exceptions by group  responsible for Root Cause</a>
+								
+								
+								<a href="issuetypebymonth" class="btn btn-lg btn-success"> Issue Type Report by Month</a>
+								<a href="customreport" class="btn btn-lg btn-success">Custom Report</a>
+								
                             </div>
 					</div>
 

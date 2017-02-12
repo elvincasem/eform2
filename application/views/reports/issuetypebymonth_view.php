@@ -32,19 +32,44 @@
                                     <form action="#" method="post" class="form-horizontal form-bordered" onsubmit="return false;">
                                         <!-- Datepicker for Bootstrap (classes are initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://eternicode.github.io/bootstrap-datepicker -->
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="example-daterange1">Date Range</label>
-                                            <div class="col-md-9">
-                                                <div class="input-group input-daterange" data-date-format="yyyy-mm-dd">
-                                                    <input type="text" id="date1" name="example-daterange1" class="form-control" placeholder="From">
-                                                    <span class="input-group-addon"><i class="fa fa-chevron-right"></i></span>
-                                                    <input type="text" id="date2" name="example-daterange2" class="form-control" placeholder="To">
-                                                </div>
+										<label class="col-md-3 control-label" for="example-daterange1">Issue Type</label>
+                                            <div class="col-md-3">
+                                                <select id="rp_issuetype" name="example-select2" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                                   
+													<option value="Change Order">Change Order</option>
+													<option value="Damaged Part">Damaged Part</option>
+													<option value="Defective Part">Defective Part</option>
+													<option value="Design Issue">Design Issue</option>
+													<option value="Incomplete">Incomplete</option>
+													<option value="Incorrect Assembly">Incorrect Assembly</option>
+													<option value="Incorrect Part">Incorrect Part</option>
+													<option value="Incorrect Reference Document">Incorrect Reference Document</option>
+													<option value="Missing Part">Missing Part</option>
+													<option value="Physical Misalignment">Physical Misalignment</option>
+													<option value="Solutions Request">Solutions Request</option>
+						
+						
+                                                </select>
+                                            </div>
+                                            <label class="col-md-1 control-label" for="example-daterange1">Year</label>
+                                            <div class="col-md-3">
+                                                <select id="selectyear"  class="form-control">
+													<?php
+													foreach ($yeardata as $listofyears):
+				
+										echo "<option value=".$listofyears['exceptionyear'].">".$listofyears['exceptionyear']."</option>";
+				
+				
+													endforeach;
+													?>
+												
+												</select>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group form-actions">
                                             <div class="col-md-12 col-md-offset-6">
-                                                <button type="submit" class="btn btn-effect-ripple btn-primary" onclick="issutype_report();">Generate</button>
+                                                <button type="submit" class="btn btn-effect-ripple btn-primary" onclick="issuetypebymonth_report();">Generate</button>
                                                 <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
                                             </div>
                                         </div>

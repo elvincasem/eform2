@@ -1277,3 +1277,68 @@ function updatepassword(){
 		
 
 }
+
+
+function issutype_report(){
+	var from = document.getElementById("date1").value;
+	var to = document.getElementById("date2").value;
+	window.location.href = "issuetype/report/"+from+"/"+to;
+}
+function issutype_report_chart(){
+	var from = document.getElementById("date1").value;
+	var to = document.getElementById("date2").value;
+	window.location.href = "../"+from+"/"+to;
+}
+function grouprootcause_report(){
+	var from = document.getElementById("date1").value;
+	var to = document.getElementById("date2").value;
+	window.location.href = "grouprootcause/report/"+from+"/"+to;
+}
+function grouprootcause_report_chart(){
+	var from = document.getElementById("date1").value;
+	var to = document.getElementById("date2").value;
+	window.location.href = "../"+from+"/"+to;
+}
+function issuetypebymonth_report(){
+	//var from = document.getElementById("date1").value;
+	var rp_issuetype = document.getElementById("rp_issuetype").value;
+	var year = document.getElementById("selectyear").value;
+	window.location.href = "issuetypebymonth/report/"+rp_issuetype+"/"+year;
+}
+function issuetypebymonth_report_chart(){
+	var rp_issuetype = document.getElementById("rp_issuetype").value;
+	var year = document.getElementById("selectyear").value;
+	window.location.href = "../"+rp_issuetype+"/"+year;
+}
+function designissue_report(){
+	//var from = document.getElementById("date1").value;
+	var year = document.getElementById("selectyear").value;
+	window.location.href = "designissue/report/"+year;
+}
+function designissue_report_chart(){
+	//var from = document.getElementById("date1").value;
+	var year = document.getElementById("selectyear").value;
+	window.location.href = year;
+}
+
+function custom_report(){
+	var from = document.getElementById("date1").value;
+	var to = document.getElementById("date2").value;
+	var rp_issuetype = document.getElementById("rp_issuetype").value;
+	var level0 = document.getElementById("level0").value;
+	var level1 = document.getElementById("level1").value;
+	var level2 = document.getElementById("level2").value;
+	
+	window.location.href = "customreport/report/"+from+"/"+to+"/"+rp_issuetype+"/"+level0+"/"+level1+"/"+level2;
+}
+
+function custom_report_chart(){
+	var from = document.getElementById("date1").value;
+	var to = document.getElementById("date2").value;
+	var rp_issuetype = document.getElementById("rp_issuetype").value;
+	var level0 = document.getElementById("level0").value;
+	var level1 = document.getElementById("level1").value;
+	var level2 = document.getElementById("level2").value;
+	
+	window.location.href = "../../../../../"+from+"/"+to+"/"+rp_issuetype+"/"+level0+"/"+level1+"/"+level2;
+}

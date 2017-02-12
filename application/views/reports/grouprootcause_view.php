@@ -44,7 +44,7 @@
                                         
                                         <div class="form-group form-actions">
                                             <div class="col-md-12 col-md-offset-6">
-                                                <button type="submit" class="btn btn-effect-ripple btn-primary" onclick="issutype_report();">Generate</button>
+                                                <button type="submit" class="btn btn-effect-ripple btn-primary" onclick="grouprootcause_report();">Generate</button>
                                                 <button type="reset" class="btn btn-effect-ripple btn-danger">Reset</button>
                                             </div>
                                         </div>

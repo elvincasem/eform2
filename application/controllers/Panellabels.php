@@ -13,7 +13,10 @@ class Panellabels extends CI_Controller
 			'usersclass' => '',
 			'userssubclass' => '',
 			'reportsclass' => '',
-			'reports_issuetypeclass' => ''
+			'reports_issuetypeclass' => '',
+			'reports_grouprootclass' => '',
+			'reports_missingitemsclass' => '',
+			'reports_designissueclass' => ''
 			
 			);
 	}

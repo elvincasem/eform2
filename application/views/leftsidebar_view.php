@@ -35,9 +35,27 @@
 								<li class="<?php echo $reportsclass;?>">
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-more_items sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Reports</span></a>
                                     <ul>
-										<li class="<?php echo $reports_issuetypeclass;?>">
-                                            <a href="<?=base_url()?>issuetype" ><i class="gi gi-user sidebar-nav-icon"></i>Issue Type</a>
+										<li>
+                                            <a href="<?=base_url()?>issuetype" class="<?php echo $reports_issuetypeclass;?>"><i class="gi gi-user sidebar-nav-icon"></i>Issue Type</a>
                                         </li>
+										<li>
+                                            <a href="<?=base_url()?>grouprootcause"  class="<?php echo $reports_grouprootclass;?>"><i class="gi gi-user sidebar-nav-icon"></i>Group Responsible for Root Cause</a>
+                                        </li>
+										<li>
+                                            <a  class="<?php echo $reports_missingitemsclass;?>" href="<?=base_url()?>issuetypebymonth"><i class="gi gi-user sidebar-nav-icon"></i>Issue Type Report by Month</a>
+                                        </li>
+										 <li>
+                                            <a  class="<?php //echo $reports_missingitemsclass;?>" href="<?=base_url()?>customreport"><i class="gi gi-user sidebar-nav-icon"></i>Custom Report</a>
+                                        </li>
+										<!--<li>
+                                            <a href="<?=base_url()?>designissue" class="<?php echo $reports_designissueclass;?>"><i class="gi gi-user sidebar-nav-icon"></i>Design Issues by Month</a>
+                                        </li>
+										<li class="<?php //echo $reports_issuetypeclass;?>">
+                                            <a href="<?=base_url()?>issuetype" ><i class="gi gi-user sidebar-nav-icon"></i>Defective Part by Month</a>
+                                        </li>
+										<li class="<?php //echo $reports_issuetypeclass;?>">
+                                            <a href="<?=base_url()?>issuetype" ><i class="gi gi-user sidebar-nav-icon"></i>Damaged Part By Month</a>
+                                        </li> -->
 										
 									</ul>
 								</li>

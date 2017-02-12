@@ -100,22 +100,7 @@ class Projects_model extends CI_Model
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
 
 ?>

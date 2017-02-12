@@ -21,6 +21,16 @@
 		<!-- Page content -->
 		<div id="page-content">
 			<?php //$this->load->view('inc/subnav_view'); ?>
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
 <div class="row">
                         <div class="col-xs-8">
 							<div class="block">
@@ -93,24 +103,707 @@
 									<strong>SAVE DOCUMENT</strong>
 								</div>
 							</a>
-							<a href="#" class="widget text-center btn-effect-ripple">
+							<a href="#modal-large" data-toggle="modal" class="widget text-center btn-effect-ripple">
 								<div class="widget-content themed-background-muted text-dark">
 									<i class="gi gi-print push-bit"></i><br>
 									Print Sign-off<strong> &nbsp WITH &nbsp </strong>Installer Notes
 								</div>
 							</a>
-							<a href="#" class="widget text-center btn-effect-ripple">
+							<!-- <a href="#" class="widget text-center btn-effect-ripple">
 								<div class="widget-content themed-background-muted text-dark">
 									<i class="gi gi-print push-bit"></i><br>
 									Print Sign-off<strong> &nbsp WITHOUT &nbsp </strong>Installer Notes
 								</div>
-							</a>
+							</a> -->
 						</div>
 						<!-- END Mini Widgets -->
 					</div>	
 						
 					<div class="row">
-					
+	
+<div id="modal-large" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+	<div class="modal-dialog modal-lg" >
+		<div class="modal-content" style="width: 1250px; margin-left: -180px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<button onclick="printContent('div1')" class="btn btn-effect-ripple btn-danger"><i class="fa fa-print">Print Record</i></button>
+			</div>
+			<script>function printContent(el){
+	                        var restorepage = document.body.innerHTML;
+	                        var printcontent = document.getElementById(el).innerHTML;
+	                        document.body.innerHTML = printcontent;
+	                        window.print();
+	                        document.body.innerHTML = restorepage;}
+                        </script>
+			<div class="modal-body" id="div1" style="width: 980px;">
+				<table style="width:1155px;">
+				 <tr><td align="center" colspan="4"><b>FINAL INSPECTION AND SIGN-OFF FORM</b></td></tr>
+				 <tr><td></td><td width="230px;" align="right"><b>Sign-off Originator:</b></td><td></td><td rowspan="2" align="right" width="300px;"><img src="<?=base_url()?>public/img/logo.png" width="200px;" height="20px;" /></td></tr>
+				 <tr><td width="140px;" align="right"><b> Project Name: </b></td></tr>
+				 <tr><td align="right"><b> Number: </b></td></tr>
+				 <tr><td align="right"><b> Product Type: </b></td></tr>
+				 <tr><td align="right"><b> Date:</b></td></tr>
+				 <tr><td><b><u>INCOMPLETES</u></b></td></tr>
+				 </table>
+				 
+				 <div>
+												<table width="1215px;" style="font-family: ARIAL; border-right: 2px solid black">
+												<tbody>
+													<tr bgcolor="#CC99FF" style="border-top: 2px solid black; border-bottom: 1px solid black">
+											            <td align="center" width="30px;" style="border-left: 2px solid black; border-right: 1px solid black"><b>Item</b></td>
+											            <td align="center" colspan="6"><b style="font-size: 20px;">Details</b></td>
+											        </tr>
+                                                    <tr>
+												        <td align="center" rowspan="2" width="40px;" style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">1</b></td>
+                                                        <td align="center" width="120px;">Part Number:</td>
+                                                        <td align="right" width="120px;">Part Description:</td>
+                                                        <td colspan="3"></td>
+												        <td width="650px;" style="border-right: 1px solid black">Notes:</td>
+
+                                                    </tr>
+                                                    <tr  style="border-bottom: 1px solid black">
+                                                        <td style="border-top: none; background-color: #FFFF00"></td>
+                                                        <td align="right">In Process</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="right" width="140px;">Requires Design</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td style="border-right: 1px solid black"></td>
+
+                                                    </tr>
+                                                    <tr>
+												        <td align="center" rowspan="2"  style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">2</b></td>
+                                                        <td align="center" width="120px;">Part Number:</td>
+                                                        <td align="right" width="120px;">Part Description:</td>
+                                                        <td colspan="3"></td>
+												        <td  style="border-right: 1px solid black">Notes:</td>
+
+                                                    </tr>
+                                                    <tr  style="border-bottom: 1px solid black">
+                                                        <td style="border-top: none; background-color: #FFFF00"></td>
+                                                        <td align="right">In Process</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="right" width="140px;">Requires Design</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td style="border-right: 1px solid black"></td>
+
+                                                    </tr>
+                                                    <tr>
+												        <td align="center" rowspan="2"  style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">3</b></td>
+                                                        <td align="center" width="120px;">Part Number:</td>
+                                                        <td align="right" width="120px;">Part Description:</td>
+                                                        <td colspan="3"></td>
+												        <td  style="border-right: 1px solid black">Notes:</td>
+
+                                                    </tr>
+                                                    <tr  style="border-bottom: 1px solid black">
+                                                        <td style="border-top: none; background-color: #FFFF00"></td>
+                                                        <td align="right">In Process</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="right" width="140px;">Requires Design</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td style="border-right: 1px solid black"></td>
+
+                                                    </tr>
+                                                    <tr>
+												        <td align="center" rowspan="2"  style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">4</b></td>
+                                                        <td align="center" width="120px;">Part Number:</td>
+                                                        <td align="right" width="120px;">Part Description:</td>
+                                                        <td colspan="3"></td>
+												        <td  style="border-right: 1px solid black">Notes:</td>
+
+                                                    </tr>
+                                                    <tr  style="border-bottom: 1px solid black">
+                                                        <td style="border-top: none; background-color: #FFFF00"></td>
+                                                        <td align="right">In Process</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="right" width="140px;">Requires Design</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td style="border-right: 1px solid black"></td>
+
+                                                    </tr>
+                                                    <tr>
+												        <td align="center" rowspan="2"  style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">5</b></td>
+                                                        <td align="center" width="120px;">Part Number:</td>
+                                                        <td align="right" width="120px;">Part Description:</td>
+                                                        <td colspan="3"></td>
+												        <td  style="border-right: 1px solid black">Notes:</td>
+
+                                                    </tr>
+                                                    <tr  style="border-bottom: 1px solid black">
+                                                        <td style="border-top: none; background-color: #FFFF00"></td>
+                                                        <td align="right">In Process</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="right" width="140px;">Requires Design</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td style="border-right: 1px solid black"></td>
+
+                                                    </tr>
+
+
+
+											    </tbody>
+
+											</table>
+                                            <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                                            <table width="1215px;" style="font-family: ARIAL; border-right: 1px solid black">
+                                                <tbody style="border: 2px solid black">
+                                                    <tr >
+                                                        <td colspan="4" width="320px;" style="border-top: none; background-color: #FFFF00"><center>Authorized for Original Shipment<br />to be Shipped Incomplete:</center></td>
+                                                        <td  colspan="4" align="right" width="400px;" style="background-color: #FFFF00; border: 2px solid black; border-bottom: none"><center>Hardware boxes required:</center></td>
+                                                        <td colspan="8" align="center" width="200px;"  style="background-color: #FFFF00">Does the PM need to see and sign off the <i>Incompletes</i> ?</td>
+
+                                                    </tr>
+                                                    <tr >
+                                                        <td width="80px;" align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align=center width="70px;">YES</td>
+                                                        <td ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left" style="border-right: 2px solid black">NO</td>
+                                                        <td width="70px;" style="border-top: none;" align="right"><input type="text"  name="text1" size="5px;" style="height: 20px; width: 40px;" /></td>
+                                                        <td align="center" >OF</td>
+                                                        <td  width="50px;"><input type="text" name="text2" size="5px;" style="height: 20px; width: 40px;" /></td>
+                                                        <td width="50px;"  style="border-right: 2px solid black;"></td>
+                                                        <td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center" width="50px">YES</td>
+                                                        <td align="center" width="30px" ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center" width="50px">NO</td>
+                                                        <td align="center">Solutions/CS Rep:</td>
+                                                        <td align="center" >________________________</td>
+                                                        <td align="center">Date:</td>
+                                                        <td align="right">__________________</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" style="border-top: none; background-color: #FFFF00" align="right">Solutions/CS Rep:</td>
+                                                        <td colspan="2" style="border-right: 2px solid black; background-color: #FFFF00">________________</td>
+                                                        <td colspan="4" style="border-right: 2px solid black; background-color: #FFFF00"><center>Authorized to be packaged with <i>Exceptions</i> :</center></td>
+                                                        <td colspan="8" align="center" width="200px;"  style="background-color: #FFFF00">Does the PM need to see and sign off the <i>Exceptions</i> ?</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" style="border-top: none;" align="right">Date:</td>
+                                                        <td colspan="2" style="border-right: 2px solid black">________________</td>
+
+                                                        <td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center">YES</td>
+                                                        <td><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left" width="30px"  style="border-right: 2px solid black;">NO</td>
+                                                        <td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center" width="50px">YES</td>
+                                                        <td align="center" width="30px" ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center" width="50px" >NO</td>
+                                                        <td align="center" >Solutions/CS Rep:</td>
+                                                        <td align="center">________________________</td>
+                                                        <td align="center">Date:</td>
+                                                        <td align="right" >__________________</td>
+
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            </div>
+											
+					<u style="color: red; font-weight: bold; margin-left: 5px;">REGULAR PROJECT or EVANS F.A.T SIGN-OFF EXCEPTIONS</u><br>
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  <table border=1 width="1215px;" style="font-family: ARIAL; border-right: 2px solid black;  border-left: 2px solid black;  border-top: 2px solid black;  border-bottom: 2px solid black">
+  
+  <tbody>
+                                                    <tr bgcolor="#CC99FF">
+                                                        <td colspan="9"><center><b><b>Items to be Resolved Prior to Project Shipment</b></b></center></td>
+                                                        <td rowspan="2" align="right"><center><b>Ship<br />Incomplete?<br />(YES/NO)</b></center></td>
+                                                        <td rowspan="2" align="center"><b>Exception<br />completed and<br />approved by:</b></td>
+                                                        <td rowspan="2" width="60px;" align="center"><b>Date</b></td>
+
+                                                    </tr>
+                                                    <tr bgcolor="#FFFF00">
+                                                        <td align="center"><b>Exception<br />#</b></td>
+                                                        <td align=center><b>Issue Type</b></td>
+                                                        <td align="center"><b>Part Description<br />(Include RH/LH)</b></td>
+                                                        <td align="center"><b>QTY</b></td>
+                                                        <td align="center"><b>Pos.#</b></td>
+                                                        <td align="center"><b>Issue Details</b></td>
+                                                        <td align="center"><b>Correction /<br />Immediate Corrective<br />Action</b></td>
+                                                        <td align="center"><b>Group<br />Responsible<br />for Immediate<br />action</b></td>
+                                                        <td align="center"><b>Group<br />Responsible to<br />fix Root Cause</b></td>
+                                                    </tr>
+													<tr>
+                                                        <td align="center">1</td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">2</td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">3</td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">4</td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">5</td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                        <td align="center"></td>
+                                                    </tr>
+				</tbody>
+  </table>
+						<br /><br />
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<table width="1215px;" style="font-size:12px; font-family: ARIAL; border-right: 2px solid black;  border-left: 2px solid black;  border-top: 2px solid black;  border-bottom: 2px solid black">
+                                            <thead>
+                                                <tr bgcolor="#FFFF00">
+                                                        <td colspan="10" style="border: 2px solid #000000; font-size: 16px;"><center><b>FINAL ASSEMBLY / INTEGRATION</b></center></td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+	<tr>
+                                                        <td align="center" width="150px;" bgcolor="#FFCC00" style="border: 1px solid #000000"><b>1. FA/Integration</b></td>
+                                                        <td align="left" colspan="4" width="400px;" style="text-indent: 20px; border: 1px solid #000000">Name:</td>
+                                                        <td align="center" rowspan="12" width="5px;" style="border: 2px solid #000000"></td>
+                                                        <td align="left" width="450px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000"><b>Product Staging</b></td>
+                                                        <td align="right" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">Yes</td>
+                                                        <td align="center" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">No</td>
+                                                        <td align="left" width="80px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">N/A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" width="570px;"  bgcolor="#CC99FF">Standard Inspection Item</td>
+                                                        <td align="center"  width="40px;" bgcolor="#CC99FF">Yes</td>
+                                                        <td align="center" width="40px;" bgcolor="#CC99FF">No</td>
+                                                        <td align="center" width="40px;" bgcolor="#CC99FF">N/A</td>
+                                                        <td align="left" style="border-bottom: 1px solid #000000">1.12 Product fully staged?</td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.01 Components Match the BoM?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left" style="border-bottom: 1px solid #000000">1.13 Product partially staged? Position nos.:____________________</td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.02 Hardware Box Completed?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center" width="2px;"></td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.03 Electrical Assembly cheklist recieved?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center" rowspan="2" colspan="4" bgcolor="#FFCC00" style="border: 2px solid #000000"><b>Final Assembly Notes:</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.04 Metal Assembly cheklist and BoM recieved?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.05 Cladding Assembly cheklist and BoM recieved?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td colspan="4" rowspan="6"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.06 Product specific checklist completed?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.07 Exceptions per manufacturing checklists noted on the exceptions?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.08 Any Changes to BoM at Sign Off?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.09 Shipping Packet included on door at module 1?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2">1.10 All Specials on Finish Schedule Completed??</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                </tbody>
+</table>
+<!-- ------------------------------------------------------------------------------------------------------ -->
+<table width="1215px;" style="font-size:12px; font-family: ARIAL; border-right: 2px solid black;  border-left: 2px solid black;  border-top: none;  border-bottom: 2px solid black">
+			<thead>
+				<tr bgcolor="#FFFF00">
+						<td colspan="10" style="border: 2px solid #000000; font-size: 16px; border-top: none"><center><b>SOLUTIONS / CLIENT SERVICES</b></center></td>
+				</tr>
+			</thead>
+			<tbody>
+				 <tr>
+                                                        <td align="center" width="150px;" bgcolor="#FFCC00" style="border: 1px solid #000000"><b>2. Solutions/<br />Client Services</b></td>
+                                                        <td align="left" colspan="4" width="400px;" style="text-indent: 20px; border: 1px solid #000000">Name:</td>
+                                                        <td align="center" rowspan="12" width="5px;" style="border: 2px solid #000000"></td>
+                                                        <td align="left" width="450px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000"><b>Extra Inspection Item</b></td>
+                                                        <td align="right" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">Yes</td>
+                                                        <td align="center" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">No</td>
+                                                        <td align="left" width="80px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">N/A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" width="570px;"  bgcolor="#CC99FF">Standard Inspection Item</td>
+                                                        <td align="center"  width="40px;" bgcolor="#CC99FF">Yes</td>
+                                                        <td align="center" width="40px;" bgcolor="#CC99FF">No</td>
+                                                        <td align="center" width="40px;" bgcolor="#CC99FF">N/A</td>
+                                                        <td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF">x.x *insert description of item to be checked*</td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.1 Console/Millwork: Colors match Finish Schedule</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF">x.x *insert description of item to be checked*</td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.2 Console: Client equipment will fit into console. Measurement taken</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left" width="2px;" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF">x.x *insert description of item to be checked*</td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.3 Buyouts: All Buyout scope is correct (slatwall mount vs. desktop mount)</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center" rowspan="2" colspan="4" bgcolor="#FFCC00" style="border: 2px solid #000000"><b>Solutions/Client Services Notes:</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.4 Buyouts:  All Buyouts have been packaged together or installed on console correctly.</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.5 Buyouts:  All Buyouts free from damages, and have been checked for quality</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td colspan="4" rowspan="4" style=" border-bottom: 2px solid #000"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.6 Customer Equipment: Is there any customer equipment to be returned?</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.7 TKS Products to be consolidated with console shipment (Canada / International)</td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                    </tr>
+                                                    <tr style="border-bottom: 2px solid #000">
+                                                        <td align="left" colspan="5" >*Parts, Warranties, Deficiencies and Goodwill - Client Services will sign-off the section of this form.</td>
+                                                    </tr>
+
+			</tbody>
+	</table>
+<!-- ------------------------------------------------------------------------------------------------------ -->
+	<table width="1215px;" style="font-size:12px; font-family: ARIAL; border-right: 2px solid black;  border-left: 2px solid black;  border-top: none;  border-bottom: 2px solid black">
+	<thead>
+		<tr bgcolor="#FFFF00">
+				<td colspan="10" style="border: 2px solid #000000; font-size: 16px; border-top: none"><center><b>DESIGN</b></center></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td align="center" width="150px;" bgcolor="#FFCC00" style="border: 1px solid #000000"><b>3. Design</td>
+			<td align="left" colspan="4" width="400px;" style="text-indent: 20px; border: 1px solid #000000">Name:</td>
+			<td align="center" rowspan="12" width="5px;" style="border: 2px solid #000000"></td>
+			<td align="left" width="450px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000"><b>Extra Inspection Item</b></td>
+			<td align="right" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">Yes</td>
+			<td align="center" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">No</td>
+			<td align="left" width="80px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">N/A</td>
+		</tr>
+		<tr>
+			<td align="left" colspan="2" width="570px;"  bgcolor="#CC99FF">Standard Inspection Item</td>
+			<td align="center"  width="40px;" bgcolor="#CC99FF">Yes</td>
+			<td align="center" width="40px;" bgcolor="#CC99FF">No</td>
+			<td align="center" width="40px;" bgcolor="#CC99FF">N/A</td>
+			<td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF">x.x *insert description of item to be checked*</td>
+			<td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		</tr>
+		<tr>
+			<td align="left" colspan="2" style="border-bottom: 1px solid #000000">3.1 Verify Console Quantity and Layout vs PQ/ Drawings/ BOM/ Structural?</td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF">x.x *insert description of item to be checked*</td>
+			<td align="right" rowspan="2"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center" rowspan="2"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="left" rowspan="2"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		</tr>
+		<tr>
+			<td align="left" colspan="5" style="border-bottom: 1px solid #000000">Modules, Corners, End Panels, Work Surfaces, ECT.</td>
+			<td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF"></td>
+		</tr>
+		<tr>
+			<td align="left" colspan="2" style="border-bottom: 1px solid #000000">3.2 Verify all Accessories vs PQ/ Drawings/ BOM/ Structural?</td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center" colspan="4" bgcolor="#FFCC00" style="border: 2px solid #000000"><b>Design Notes:</b></td>
+		</tr>
+		<tr>
+			<td align="left" colspan="5" style="border-bottom: 1px solid #000000">Prcs Shelves, Kybd / Pencil Drawers, Anchor Kits, Rackmount Kits, Turrets, Byouts.</td>
+			<td colspan="4" rowspan="3" style="border: 2px solid #000"></td>
+		</tr>
+		<tr>
+			<td align="left" colspan="2" style="border-bottom: 1px solid #000000">3.3 Verify all Electronic Components vs PQ/ Drawings/ BOM/ Structural?</td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+			<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+
+		</tr>
+		<tr>
+			<td align="left" colspan="5" style="border-bottom: 1px solid #000000">Task Lights, Power Bars, Lift Column Components, Fans, Grommets, Transformers, Grounding, Heat Panel, JCU.</td>
+		</tr>
+	</tbody>
+	</table>
+<!--...................................................................................................--->
+	<table width="1215px;" style="font-size:12px; font-family: ARIAL; border-right: 2px solid black;  border-left: 2px solid black;  border-top: none;  border-bottom: 2px solid black">
+	<thead>
+		<tr bgcolor="#FFFF00">
+				<td colspan="10" style="border: 2px solid #000000; font-size: 16px; border-top: none"><center><b>QUALITY ASSURANCE</b></center></td>
+		</tr>
+	</thead>
+	<tbody>
+	 <tr>
+		<td align="center" width="150px;" bgcolor="#FFCC00" style="border: 1px solid #000000"><b>4. Q/A</b></td>
+		<td align="left" colspan="4" style="text-indent: 20px; border: 1px solid #000000">Name:</td>
+		<td align="center" rowspan="12" width="5px;" style="border: 2px solid #000000"></td>
+		<td align="center" bgcolor="#FFCC00" width="610px;" style="border: 2px solid #000000"><b>Quality Assurance Notes:</b></td>
+	</tr>
+	<tr>
+		<td align="left" colspan="2" width="270px;"  bgcolor="#CC99FF">Standard Inspection Item</td>
+		<td align="center"  width="40px;" bgcolor="#CC99FF">Yes</td>
+		<td align="center" width="40px;" bgcolor="#CC99FF">No</td>
+		<td align="center" width="40px;" bgcolor="#CC99FF">N/A</td>
+		<td rowspan="4" style="border: 2px solid #000000"></td>
+	</tr>
+	<tr>
+		<td align="left" colspan="2" style="border-bottom: 1px solid #000000" width="970px;">4.1 Fit</td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+	</tr>
+	<tr>
+		<td align="left" colspan="2" style="border-bottom: 1px solid #000000">4.2 Finish</td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+
+	</tr>
+
+	<tr>
+		<td align="left" colspan="2" style="border-bottom: 2px solid #000000">4.3 Function</td>
+		<td align="center" style="border-bottom: 2px solid #000000"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center" style="border-bottom: 2px solid #000000"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center" style="border-bottom: 2px solid #000000"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+	</tr>
+	
+	</tbody>
+	</table>
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
+ <table width="1215px;" style="font-size:12px; font-family: ARIAL; border-right: 2px solid black;  border-left: 2px solid black;  border-top: none;  border-bottom: 2px solid black">
+<thead>
+	<tr bgcolor="#FFFF00">
+			<td colspan="10" style="border: 2px solid #000000; font-size: 16px; border-top: none"><center><b>PACKAGING</b></center></td>
+	</tr>
+</thead>
+<tbody>	
+	<tr>
+		<td align="center" width="150px;" bgcolor="#FFCC00" style="border: 1px solid #000000"><b>5. Packaging</b></td>
+		<td align="left" colspan="4" width="400px;" style="text-indent: 20px; border: 1px solid #000000">Name:</td>
+		<td align="center" rowspan="6" width="5px;" style="border: 2px solid #000000"></td>
+		<td align="left" width="450px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000"><b>Extra Inspection Item</b></td>
+		<td align="right" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">Yes</td>
+		<td align="center" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">No</td>
+		<td align="left" width="80px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">N/A</td>
+	</tr>
+	<tr>
+		<td align="left" colspan="2" width="570px;"  bgcolor="#CC99FF">Standard Inspection Item</td>
+		<td align="center"  width="40px;" bgcolor="#CC99FF">Yes</td>
+		<td align="center" width="40px;" bgcolor="#CC99FF">No</td>
+		<td align="center" width="40px;" bgcolor="#CC99FF">N/A</td>
+		<td align="left" style="border-bottom: 1px solid #000000">5.06 BoM And Prodect Specific Checklist are Completed?</td>
+		<td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+	</tr>
+	<tr>
+		<td align="left" colspan="2" style="border-bottom: 1px solid #000000">5.01 Have pictures of project been taken?</td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left" style="border-bottom: 1px solid #000000">5.07 All approved items have been clearly communicated to the Packaging Team?</td>
+		<td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+	</tr>
+	<tr>
+		<td align="left" colspan="2" style="border-bottom: 1px solid #000000">5.02 Is there a Toolbox packed for this project?</td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left" width="2px;" style="border-bottom: 1px solid #000000">5.08 Any outstanding issues are clearly communicated to the Packaging Team? </td>
+		<td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+	</tr>
+	<tr>
+		<td align="left" colspan="2" style="border-bottom: 1px solid #000000">5.03 Packaging checklist completed?</td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left" width="2px;" style="border-bottom: 1px solid #000000">5.09 Loose Parts have been Boxed and Sealed and are clearly marked with Part #?</td>
+		<td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+	</tr>
+	<tr>
+		<td align="left" colspan="2" style="border-bottom: 1px solid #000000">5.05 Are all exceptions signed off prior to shipment?</td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left" width="2px;" style="border-bottom: 1px solid #000000">5.10 Has the E-Arm checklist been provided?</td>
+		<td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+		<td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+	</tr>
+	<tr style="border: 2px solid #000">
+		<td align="center" colspan="10" bgcolor="#FFCC00"><b>Packaging Notes:</b></td>
+	</tr>
+	<tr style="border: 2px solid #000">
+		<td align="center" colspan="10" style="height: 40px;" ></td>
+	</tr>
+</tbody>
+</table>
+<table width=" 1155px;" style=" margin-top: 20px;">
+	<tr><td></td><td width="230px;" align="right"></td><td></td><td rowspan="2" align="right" width="300px;"><img src="<?=base_url();?>public/img/logo.png" width="200px;" height="20px;" /></td></tr>
+	 <tr><td width="140px;" align="right"><b> Project Name: </b></td></tr>
+	 <tr><td align="right"><b> Number: </b></td></tr>
+	 <tr><td align="right"><b> Product Type: </b></td></tr>
+	 <tr><td align="right"><b> Date:</b></td></tr>
+</table>
+<table width="1215px;" style="font-size:12px; font-family: ARIAL;">
+		<tr>
+			<td align="center" colspan="3"  style="border: 2px solid #000" bgcolor="#FFCC00"><b>Project/Installer Notes:</b></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="3"  style="border: 2px solid #000" height="30px;"></td>
+		</tr>
+		<tr style="height: 10px;"></tr>
+		<tr>
+			<td align="left" width="530px;"><b>Handover from Integration to Packaging:</b></td>
+			<td align="left"><b>Integration rep:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			________________
+			</td>
+			<td align="center">Packaging <b>rep</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			________________
+			</td>
+		</tr>
+		<tr>
+			<td><b>Time and date Project Released to Packaging:</b></td>
+			<td colspan="2" align="left">_______________________________________________</td>
+		</tr>
+	</table>	
+				 
+				 
+			</div> <!-- end body -->
+		</div>
+	</div>
+</div>
+
+	
 					<!-- Regular Modal -->
 			<div id="addincompletes" class="modal" role="dialog" aria-hidden="true">
 				<div class="modal-dialog">

@@ -7,12 +7,15 @@ class Users extends CI_Controller
 		parent::__construct();
 		$this->load->model('users_model');
 		 $this->data = array(
-            'title' => 'Users Directory',
+            'title' => 'Projects List',
 			'projectclass' => '',
-			'usersclass' => 'active',
-			'userssubclass' => 'active',
+			'usersclass' => '',
+			'userssubclass' => '',
 			'reportsclass' => '',
-			'reports_issuetypeclass' => ''
+			'reports_issuetypeclass' => '',
+			'reports_grouprootclass' => '',
+			'reports_missingitemsclass' => '',
+			'reports_designissueclass' => ''
 			);
 	}
 	
