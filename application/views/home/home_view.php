@@ -89,7 +89,7 @@
 							
 							<div class="row">
 							</div>
-							 <div class="col-lg-6">
+							 <div class="col-lg-6 hidden">
                                 <!-- Partial Responsive Block -->
                                 <div class="block">
                                     <!-- Partial Responsive Title -->
@@ -126,7 +126,7 @@
                                 <!-- END Partial Responsive Block -->
                             </div>
 							
-							<div class="col-lg-6">
+							<div class="col-lg-6 hidden">
                                 <!-- Partial Responsive Block -->
                                 <div class="block">
                                     <!-- Partial Responsive Title -->
@@ -169,12 +169,12 @@
 
 					<div class="row">
                             <div class="col-sm-6 col-lg-6">
-                                <a href="issuetype" class="btn btn-lg btn-success">Overall Exceptions by Issue Type</a>
-								<a href="grouprootcause" class="btn btn-lg btn-success"> Overall Exceptions by group  responsible for Root Cause</a>
+                                <a href="issuetype" class="btn btn-lg btn-success" style="background-color:#454e59;border:#454e59;">Overall Exceptions by Issue Type</a>
+								<a href="grouprootcause" class="btn btn-lg btn-success" style="background-color:#454e59;border:#454e59;"> Overall Exceptions by group  responsible for Root Cause</a>
 								
 								
-								<a href="issuetypebymonth" class="btn btn-lg btn-success"> Issue Type Report by Month</a>
-								<a href="customreport" class="btn btn-lg btn-success">Custom Report</a>
+								<a href="issuetypebymonth" class="btn btn-lg btn-success" style="background-color:#454e59;border:#454e59;"> Issue Type Report by Month</a>
+								<a href="customreport" class="btn btn-lg btn-success" style="background-color:#454e59;border:#454e59;">Custom Report</a>
 								
                             </div>
 					</div>

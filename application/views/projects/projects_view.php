@@ -52,12 +52,11 @@
                         <div class="col-md-7">
                             <select id="projecttype" name="example-select" class="form-control" size="1">
 							<option value="0"></option>
-                                <option value="Axiom">Axiom</option>
-                                <option value="Counter Smart">Counter Smart</option>
+                                
+                                <option value="Counter">Counter</option>
                                 <option value="Custom">Custom</option>
-                                <option value="Defeciency">Defeciency</option>
+                                <option value="Deficiency">Deficiency</option>
 								<option value="Dispatch">Dispatch</option>
-								<option value="Diversity">Diversity</option>
 								<option value="FAA">FAA</option>
 								<option value="Good Will">Good Will</option>
 								<option value="Honeywell">Honeywell</option>
@@ -66,11 +65,15 @@
 								<option value="Parts Job">Parts Job</option>
 								<option value="Raytheon">Raytheon</option>
 								<option value="Response">Response</option>
-								<option value="S-Series">S-Series</option>
+								<option value="Strategy Air S-S">Strategy Air S-S</option>
 								<option value="Strategy Air">Strategy Air</option>
 								<option value="Strategy">Strategy</option>
-								<option value="Tracon">Tracon</option>
+								<option value="Strategy 08">Strategy 08</option>
+								<option value="Strategy SX">Strategy SX</option>
 								<option value="Warranty">Warranty</option>
+								<option value="Vantage">Vantage</option>
+								<option value="Prysm">Prysm</option>
+								<option value="Strategy ICFC">Strategy ICFC</option>
 								
 								
                             </select>
