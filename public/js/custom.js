@@ -1342,3 +1342,17 @@ function custom_report_chart(){
 	
 	window.location.href = "../../../../../"+from+"/"+to+"/"+rp_issuetype+"/"+level0+"/"+level1+"/"+level2;
 }
+
+function printproject()
+{
+	var DocumentContainer = document.getElementById('div1');
+	var WindowObject = window.open("", "PrintWindow",
+	"width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes");
+	WindowObject.document.writeln(DocumentContainer.innerHTML);
+	WindowObject.document.close();
+	setTimeout(function(){
+		WindowObject.focus();
+		WindowObject.print();
+		WindowObject.close();
+	},50);
+}

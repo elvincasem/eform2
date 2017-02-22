@@ -127,180 +127,140 @@
 		<div class="modal-content" style="width: 1250px; margin-left: -180px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<button onclick="printContent('div1')" class="btn btn-effect-ripple btn-danger"><i class="fa fa-print">Print Record</i></button>
+				<button onclick="printproject();" class="btn btn-effect-ripple btn-danger"><i class="fa fa-print">Print Record</i></button>
 			</div>
-			<script>function printContent(el){
-	                        var restorepage = document.body.innerHTML;
-	                        var printcontent = document.getElementById(el).innerHTML;
-	                        document.body.innerHTML = printcontent;
-	                        window.print();
-	                        document.body.innerHTML = restorepage;}
-                        </script>
+			
 			<div class="modal-body" id="div1" style="width: 980px;">
 				<table style="width:1155px;">
 				 <tr><td align="center" colspan="4"><b>FINAL INSPECTION AND SIGN-OFF FORM</b></td></tr>
-				 <tr><td></td><td width="230px;" align="right"><b>Sign-off Originator:</b></td><td></td><td rowspan="2" align="right" width="300px;"><img src="<?=base_url()?>public/img/logo.png" width="200px;" height="20px;" /></td></tr>
-				 <tr><td width="140px;" align="right"><b> Project Name: </b></td></tr>
-				 <tr><td align="right"><b> Number: </b></td></tr>
-				 <tr><td align="right"><b> Product Type: </b></td></tr>
-				 <tr><td align="right"><b> Date:</b></td></tr>
+				 <tr><td></td><td width="230px;" align="right"><b>Sign-off Originator: </b></td><td> &nbsp;&nbsp;&nbsp;<?php echo $project_details['originator'];?></td><td rowspan="2" align="right" width="300px;"><img src="<?=base_url()?>public/img/logo.png" width="200px;" height="20px;" /></td></tr>
+				 <tr><td width="140px;" align="right"><b> Project Name: </b></td><td> <?php  echo $project_details['projectname'];?></td></tr>
+				 <tr><td align="right"><b> Number: </b></td><td> <?php  echo $project_details['projectnumber'];?></td></tr>
+				 <tr><td align="right"><b> Product Type: </b></td><td> <?php  echo $project_details['projecttype'];?></td></tr>
+				 <tr><td align="right"><b> Date:</b></td><td> <?php  echo $project_details['formdate'];?></td></tr>
 				 <tr><td><b><u>INCOMPLETES</u></b></td></tr>
 				 </table>
 				 
 				 <div>
-												<table width="1215px;" style="font-family: ARIAL; border-right: 2px solid black">
-												<tbody>
-													<tr bgcolor="#CC99FF" style="border-top: 2px solid black; border-bottom: 1px solid black">
-											            <td align="center" width="30px;" style="border-left: 2px solid black; border-right: 1px solid black"><b>Item</b></td>
-											            <td align="center" colspan="6"><b style="font-size: 20px;">Details</b></td>
-											        </tr>
-                                                    <tr>
-												        <td align="center" rowspan="2" width="40px;" style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">1</b></td>
-                                                        <td align="center" width="120px;">Part Number:</td>
-                                                        <td align="right" width="120px;">Part Description:</td>
-                                                        <td colspan="3"></td>
-												        <td width="650px;" style="border-right: 1px solid black">Notes:</td>
+			<table width="1215px;" style="font-family: ARIAL; border-right: 2px solid black">
+			<tbody>
+				<tr bgcolor="#CC99FF" style="border-top: 2px solid black; border-bottom: 1px solid black">
+					<td align="center" width="30px;" style="border-left: 2px solid black; border-right: 1px solid black"><b>Item</b></td>
+					<td align="center" colspan="6"><b style="font-size: 20px;">Details</b></td>
+				</tr>
+				<?php 
+				$ctr = 1;
+				foreach ($project_incompletes as $rows => $link) {
+					
+					$pdetailsid = $link['pdetailsid'];
+					$partnumber = $link['partnumber'];
+					$description = $link['description'];
+					if($description=="In Process"){
+						$partdesc1 = "checked=checked";
+						$partdesc2 = "";
+					}else{
+						$partdesc1 = "";
+						$partdesc2 = "checked=checked";
+					}
+					
+					$notes = $link['notes'];
+					echo "<tr>
+					<td align='center' rowspan='2' width='40px;' style='border: 1px solid black; border-left: 2px solid black;'><b style='font-size: 25px;'>$ctr</b></td>
+					<td align='center' width='120px;'>Part Number:</td>
+					<td align='right' width='120px;'>Part Description:</td>
+					<td colspan='3'></td>
+					<td width='650px;' style='border-right: 1px solid black'>Notes:</td>
 
-                                                    </tr>
-                                                    <tr  style="border-bottom: 1px solid black">
-                                                        <td style="border-top: none; background-color: #FFFF00"></td>
-                                                        <td align="right">In Process</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="right" width="140px;">Requires Design</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td style="border-right: 1px solid black"></td>
+				</tr>
+				
+				<tr  style='border-bottom: 1px solid black'>
+					<td style='border-top: none; background-color: #FFFF00'>$partnumber</td>
+					<td align='right'>In Process</td>
+					<td align='center'><input type='checkbox' id='example-checkbox1' name='example-checkbox1' value='option1' $partdesc1></td>
+					<td align='right' width='140px;'>Requires Design</td>
+					<td align='center'><input type='checkbox' id='example-checkbox1' name='example-checkbox1' value='option2' $partdesc2></td>
+					<td style='border-right: 1px solid black'>$notes</td>
 
-                                                    </tr>
-                                                    <tr>
-												        <td align="center" rowspan="2"  style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">2</b></td>
-                                                        <td align="center" width="120px;">Part Number:</td>
-                                                        <td align="right" width="120px;">Part Description:</td>
-                                                        <td colspan="3"></td>
-												        <td  style="border-right: 1px solid black">Notes:</td>
-
-                                                    </tr>
-                                                    <tr  style="border-bottom: 1px solid black">
-                                                        <td style="border-top: none; background-color: #FFFF00"></td>
-                                                        <td align="right">In Process</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="right" width="140px;">Requires Design</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td style="border-right: 1px solid black"></td>
-
-                                                    </tr>
-                                                    <tr>
-												        <td align="center" rowspan="2"  style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">3</b></td>
-                                                        <td align="center" width="120px;">Part Number:</td>
-                                                        <td align="right" width="120px;">Part Description:</td>
-                                                        <td colspan="3"></td>
-												        <td  style="border-right: 1px solid black">Notes:</td>
-
-                                                    </tr>
-                                                    <tr  style="border-bottom: 1px solid black">
-                                                        <td style="border-top: none; background-color: #FFFF00"></td>
-                                                        <td align="right">In Process</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="right" width="140px;">Requires Design</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td style="border-right: 1px solid black"></td>
-
-                                                    </tr>
-                                                    <tr>
-												        <td align="center" rowspan="2"  style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">4</b></td>
-                                                        <td align="center" width="120px;">Part Number:</td>
-                                                        <td align="right" width="120px;">Part Description:</td>
-                                                        <td colspan="3"></td>
-												        <td  style="border-right: 1px solid black">Notes:</td>
-
-                                                    </tr>
-                                                    <tr  style="border-bottom: 1px solid black">
-                                                        <td style="border-top: none; background-color: #FFFF00"></td>
-                                                        <td align="right">In Process</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="right" width="140px;">Requires Design</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td style="border-right: 1px solid black"></td>
-
-                                                    </tr>
-                                                    <tr>
-												        <td align="center" rowspan="2"  style="border: 1px solid black; border-left: 2px solid black;"><b style="font-size: 25px;">5</b></td>
-                                                        <td align="center" width="120px;">Part Number:</td>
-                                                        <td align="right" width="120px;">Part Description:</td>
-                                                        <td colspan="3"></td>
-												        <td  style="border-right: 1px solid black">Notes:</td>
-
-                                                    </tr>
-                                                    <tr  style="border-bottom: 1px solid black">
-                                                        <td style="border-top: none; background-color: #FFFF00"></td>
-                                                        <td align="right">In Process</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="right" width="140px;">Requires Design</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td style="border-right: 1px solid black"></td>
-
-                                                    </tr>
+				</tr>";
+				
+				$ctr++;
+					
+					//echo"<tr class='odd gradeX'>";
+					//echo"<td>$pdetailsid</td>";
+					//echo"<td>$partnumber</td>";
+					//echo"<td>$description</td>";
+					//echo"<td>$notes</td>";
+					
+					//echo"<td class='center'> <button class='btn btn-danger notification' id='notification' onClick='deleteincomplete($pdetailsid)'><i class='fa fa-times'></i></button></td>";
+					//echo"</tr>";
+				}
+				?>
+				
+				
+				
+				
 
 
 
-											    </tbody>
+			</tbody>
 
-											</table>
-                                            <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                                            <table width="1215px;" style="font-family: ARIAL; border-right: 1px solid black">
-                                                <tbody style="border: 2px solid black">
-                                                    <tr >
-                                                        <td colspan="4" width="320px;" style="border-top: none; background-color: #FFFF00"><center>Authorized for Original Shipment<br />to be Shipped Incomplete:</center></td>
-                                                        <td  colspan="4" align="right" width="400px;" style="background-color: #FFFF00; border: 2px solid black; border-bottom: none"><center>Hardware boxes required:</center></td>
-                                                        <td colspan="8" align="center" width="200px;"  style="background-color: #FFFF00">Does the PM need to see and sign off the <i>Incompletes</i> ?</td>
+		</table>
+		<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+		<table width="1215px;" style="font-family: ARIAL; border-right: 1px solid black">
+			<tbody style="border: 2px solid black">
+				<tr >
+					<td colspan="4" width="320px;" style="border-top: none; background-color: #FFFF00"><center>Authorized for Original Shipment<br />to be Shipped Incomplete:</center></td>
+					<td  colspan="4" align="right" width="400px;" style="background-color: #FFFF00; border: 2px solid black; border-bottom: none"><center>Hardware boxes required:</center></td>
+					<td colspan="8" align="center" width="200px;"  style="background-color: #FFFF00">Does the PM need to see and sign off the <i>Incompletes</i> ?</td>
 
-                                                    </tr>
-                                                    <tr >
-                                                        <td width="80px;" align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align=center width="70px;">YES</td>
-                                                        <td ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left" style="border-right: 2px solid black">NO</td>
-                                                        <td width="70px;" style="border-top: none;" align="right"><input type="text"  name="text1" size="5px;" style="height: 20px; width: 40px;" /></td>
-                                                        <td align="center" >OF</td>
-                                                        <td  width="50px;"><input type="text" name="text2" size="5px;" style="height: 20px; width: 40px;" /></td>
-                                                        <td width="50px;"  style="border-right: 2px solid black;"></td>
-                                                        <td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center" width="50px">YES</td>
-                                                        <td align="center" width="30px" ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center" width="50px">NO</td>
-                                                        <td align="center">Solutions/CS Rep:</td>
-                                                        <td align="center" >________________________</td>
-                                                        <td align="center">Date:</td>
-                                                        <td align="right">__________________</td>
+				</tr>
+				<tr >
+					<td width="80px;" align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $authshipyes;?>></td>
+					<td align=center width="70px;">YES</td>
+					<td ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $authshipno;?>></td>
+					<td align="left" style="border-right: 2px solid black">NO</td>
+					<td width="70px;" style="border-top: none;" align="right"></td>
+					<td align="center" ><input type="text"  name="text1" size="5px;" style="height: 20px; width: 70px;" value="<?php echo $hardwarecount;?>"/></td>
+					<td  width="50px;"></td>
+					<td width="50px;"  style="border-right: 2px solid black;"></td>
+					<td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $pmseeyes;?>></td>
+					<td align="center" width="50px">YES</td>
+					<td align="center" width="30px" ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $pmseeno;?>></td>
+					<td align="center" width="50px">NO</td>
+					<td align="center">Solutions/CS Rep:</td>
+					<td align="center" ><u><?php echo $pmsolution;?></u></td>
+					<td align="center">Date:</td>
+					<td align="right"><u><?php echo $pmdate;?></u></td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="2" style="border-top: none; background-color: #FFFF00" align="right">Solutions/CS Rep:</td>
-                                                        <td colspan="2" style="border-right: 2px solid black; background-color: #FFFF00">________________</td>
-                                                        <td colspan="4" style="border-right: 2px solid black; background-color: #FFFF00"><center>Authorized to be packaged with <i>Exceptions</i> :</center></td>
-                                                        <td colspan="8" align="center" width="200px;"  style="background-color: #FFFF00">Does the PM need to see and sign off the <i>Exceptions</i> ?</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="border-top: none; background-color: #FFFF00" align="right">Solutions/CS Rep:</td>
+					<td colspan="2" style="border-right: 2px solid black; background-color: #FFFF00"><?php echo $authsolution;?></td>
+					<td colspan="4" style="border-right: 2px solid black; background-color: #FFFF00"><center>Authorized to be packaged with <i>Exceptions</i> :</center></td>
+					<td colspan="8" align="center" width="200px;"  style="background-color: #FFFF00">Does the PM need to see and sign off the <i>Exceptions</i> ?</td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="2" style="border-top: none;" align="right">Date:</td>
-                                                        <td colspan="2" style="border-right: 2px solid black">________________</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="border-top: none;" align="right">Date:</td>
+					<td colspan="2" style="border-right: 2px solid black"><u><?php echo $authdate;?></u></td>
 
-                                                        <td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center">YES</td>
-                                                        <td><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left" width="30px"  style="border-right: 2px solid black;">NO</td>
-                                                        <td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center" width="50px">YES</td>
-                                                        <td align="center" width="30px" ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center" width="50px" >NO</td>
-                                                        <td align="center" >Solutions/CS Rep:</td>
-                                                        <td align="center">________________________</td>
-                                                        <td align="center">Date:</td>
-                                                        <td align="right" >__________________</td>
+					<td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $authpackagedyes;?>></td>
+					<td align="center">YES</td>
+					<td><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $authpackagedno;?>></td>
+					<td align="left" width="30px"  style="border-right: 2px solid black;">NO</td>
+					<td align="center" width="30px"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"<?php echo $pmexceptionyes;?>></td>
+					<td align="center" width="50px">YES</td>
+					<td align="center" width="30px" ><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $pmexceptionno?>></td>
+					<td align="center" width="50px" >NO</td>
+					<td align="center" >Solutions/CS Rep:</td>
+					<td align="center"><u><?php echo $pmexsolution;?></u></td>
+					<td align="center">Date:</td>
+					<td align="right" ><u><?php echo $pmexdate;?></u></td>
 
-                                                    </tr>
+				</tr>
 
-                                                </tbody>
-                                            </table>
+			</tbody>
+		</table>
                                             </div>
 											
 					<u style="color: red; font-weight: bold; margin-left: 5px;">REGULAR PROJECT or EVANS F.A.T SIGN-OFF EXCEPTIONS</u><br>
@@ -309,7 +269,7 @@
   
   <tbody>
                                                     <tr bgcolor="#CC99FF">
-                                                        <td colspan="9"><center><b><b>Items to be Resolved Prior to Project Shipment</b></b></center></td>
+                                                        <td colspan="13"><center><b><b>Items to be Resolved Prior to Project Shipment</b></b></center></td>
                                                         <td rowspan="2" align="right"><center><b>Ship<br />Incomplete?<br />(YES/NO)</b></center></td>
                                                         <td rowspan="2" align="center"><b>Exception<br />completed and<br />approved by:</b></td>
                                                         <td rowspan="2" width="60px;" align="center"><b>Date</b></td>
@@ -324,78 +284,43 @@
                                                         <td align="center"><b>Issue Details</b></td>
                                                         <td align="center"><b>Correction /<br />Immediate Corrective<br />Action</b></td>
                                                         <td align="center"><b>Group<br />Responsible<br />for Immediate<br />action</b></td>
-                                                        <td align="center"><b>Group<br />Responsible to<br />fix Root Cause</b></td>
+                                                        <td align="center"><b>Group<br />Responsible<br />to fix <br />Root Cause</b></td>
+                                                        <td align="center"><b>Level 0</b></td>
+                                                        <td align="center"><b>Level 1</b></td>
+                                                        <td align="center"><b>Level 2</b></td>
+                                                        <td align="center"><b>Level 3</b></td>
                                                     </tr>
-													<tr>
-                                                        <td align="center">1</td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">2</td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">3</td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">4</td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">5</td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                        <td align="center"></td>
-                                                    </tr>
+													
+		<?php
+		$ctr2 =1;
+		foreach ($project_regular as $rows2 => $link2) {
+
+	echo"<tr class='odd gradeX'>";
+	echo"<td class='text-center'>".$ctr2."</td>";
+	echo"<td class='text-center'>".$link2['rp_issuetype']."</td>";
+	echo"<td class='text-center'>".$link2['rp_partdescription']."</td>";
+	echo"<td class='text-center'>".$link2['rp_qty']."</td>";
+	echo"<td class='text-center'>".$link2['rp_posno']."</td>";
+	echo"<td class='text-center'>".$link2['rp_issuedetails']."</td>";
+	echo"<td class='text-center'>".$link2['rp_correction']."</td>";
+	echo"<td class='text-center'>".$link2['rp_groupresponsible']."</td>";
+	echo"<td class='text-center'>".$link2['rp_cause']."</td>";
+	
+	echo"<td class='text-center'>".$link2['rp_level0']."</td>";
+	echo"<td class='text-center'>".$link2['rp_level1']."</td>";
+	echo"<td class='text-center'>".$link2['rp_level2']."</td>";
+	echo"<td class='text-center'>".$link2['rp_level3']."</td>";
+	echo"<td class='text-center'>".$link2['rp_ship']."</td>";
+	echo"<td class='text-center'>".$link2['rp_approvedby']."</td>";
+	echo"<td class='text-center'>".$link2['rp_date']."</td>";
+
+	
+	echo"</tr>";
+	$ctr2++;
+}
+													?>
+													
+                                                    
 				</tbody>
   </table>
 						<br /><br />
@@ -410,8 +335,8 @@
                                             <tbody>
 	<tr>
                                                         <td align="center" width="150px;" bgcolor="#FFCC00" style="border: 1px solid #000000"><b>1. FA/Integration</b></td>
-                                                        <td align="left" colspan="4" width="400px;" style="text-indent: 20px; border: 1px solid #000000">Name:</td>
-                                                        <td align="center" rowspan="12" width="5px;" style="border: 2px solid #000000"></td>
+                                                        <td align="left" colspan="4" width="400px;" style="text-indent: 20px; border: 1px solid #000000">Name: <?php echo $faintegration;?></td>
+                                                        <td align="center" rowspan="12" width="5px;" style="border: 2px solid #000000"> </td>
                                                         <td align="left" width="450px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000"><b>Product Staging</b></td>
                                                         <td align="right" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">Yes</td>
                                                         <td align="center" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">No</td>
@@ -423,79 +348,79 @@
                                                         <td align="center" width="40px;" bgcolor="#CC99FF">No</td>
                                                         <td align="center" width="40px;" bgcolor="#CC99FF">N/A</td>
                                                         <td align="left" style="border-bottom: 1px solid #000000">1.12 Product fully staged?</td>
-                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q112yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q112no;?>></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q112na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.01 Components Match the BoM?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left" style="border-bottom: 1px solid #000000">1.13 Product partially staged? Position nos.:____________________</td>
-                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q101yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q101no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q101na;?>></td>
+                                                        <td align="left" style="border-bottom: 1px solid #000000">1.13 Product partially staged? Position nos.:<u><?php echo $positionnos;?></u></td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q113yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q113no;?>></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q113na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.02 Hardware Box Completed?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q102yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q102no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q102na;?>></td>
                                                         <td align="center" width="2px;"></td>
-                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="right"></td>
+                                                        <td align="center"></td>
+                                                        <td align="left"></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.03 Electrical Assembly cheklist recieved?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q103yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q103no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q103na;?>></td>
                                                         <td align="center" rowspan="2" colspan="4" bgcolor="#FFCC00" style="border: 2px solid #000000"><b>Final Assembly Notes:</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.04 Metal Assembly cheklist and BoM recieved?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q104yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q104no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q104na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.05 Cladding Assembly cheklist and BoM recieved?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td colspan="4" rowspan="6"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q105yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q105no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q105na;?>></td>
+                                                        <td colspan="4" rowspan="6"><?php echo $assemblynotes;?></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.06 Product specific checklist completed?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q106yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q106no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q106na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.07 Exceptions per manufacturing checklists noted on the exceptions?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q107yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q107no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q107na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.08 Any Changes to BoM at Sign Off?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q108yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q108no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q108na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">1.09 Shipping Packet included on door at module 1?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q109yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q109no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q109na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2">1.10 All Specials on Finish Schedule Completed??</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q110yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q110no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q110na;?>></td>
                                                     </tr>
                                                 </tbody>
 </table>
@@ -509,7 +434,7 @@
 			<tbody>
 				 <tr>
                                                         <td align="center" width="150px;" bgcolor="#FFCC00" style="border: 1px solid #000000"><b>2. Solutions/<br />Client Services</b></td>
-                                                        <td align="left" colspan="4" width="400px;" style="text-indent: 20px; border: 1px solid #000000">Name:</td>
+                                                        <td align="left" colspan="4" width="400px;" style="text-indent: 20px; border: 1px solid #000000">Name: <?php echo $servicesname;?></td>
                                                         <td align="center" rowspan="12" width="5px;" style="border: 2px solid #000000"></td>
                                                         <td align="left" width="450px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000"><b>Extra Inspection Item</b></td>
                                                         <td align="right" width="40px;" bgcolor="#CC99FF" style="border-bottom: 2px solid #000000">Yes</td>
@@ -521,62 +446,62 @@
                                                         <td align="center"  width="40px;" bgcolor="#CC99FF">Yes</td>
                                                         <td align="center" width="40px;" bgcolor="#CC99FF">No</td>
                                                         <td align="center" width="40px;" bgcolor="#CC99FF">N/A</td>
-                                                        <td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF">x.x *insert description of item to be checked*</td>
-                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF"><?php echo $extra1;?></td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq1yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq1no;?>></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq1na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.1 Console/Millwork: Colors match Finish Schedule</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF">x.x *insert description of item to be checked*</td>
-                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q21yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q21no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q21na;?>></td>
+                                                        <td align="left" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF"><?php echo $extra2;?></td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq2yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq2no;?>></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq2na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.2 Console: Client equipment will fit into console. Measurement taken</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left" width="2px;" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF">x.x *insert description of item to be checked*</td>
-                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q22yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q22no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q22na;?>></td>
+                                                        <td align="left" width="2px;" style="border-bottom: 1px solid #000000" bgcolor="#00CCFF"><?php echo $extra3;?></td>
+                                                        <td align="right"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq3yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq3no;?>></td>
+                                                        <td align="left"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $eq3na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.3 Buyouts: All Buyout scope is correct (slatwall mount vs. desktop mount)</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q23yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q23no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q23na;?>></td>
                                                         <td align="center" rowspan="2" colspan="4" bgcolor="#FFCC00" style="border: 2px solid #000000"><b>Solutions/Client Services Notes:</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.4 Buyouts:  All Buyouts have been packaged together or installed on console correctly.</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q24yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q24no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q24na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.5 Buyouts:  All Buyouts free from damages, and have been checked for quality</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td colspan="4" rowspan="4" style=" border-bottom: 2px solid #000"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q25yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q25no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q25na;?>></td>
+                                                        <td colspan="4" rowspan="4" style=" border-bottom: 2px solid #000"><?php echo $servicesnotes;?></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.6 Customer Equipment: Is there any customer equipment to be returned?</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q26yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q26no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q26na;?>></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2" style="border-bottom: 1px solid #000000">2.7 TKS Products to be consolidated with console shipment (Canada / International)</td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
-                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1"></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q27yes;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q27no;?>></td>
+                                                        <td align="center"><input type="checkbox" id="example-checkbox1" name="example-checkbox1" value="option1" <?php echo $q27na;?>></td>
                                                     </tr>
                                                     <tr style="border-bottom: 2px solid #000">
                                                         <td align="left" colspan="5" >*Parts, Warranties, Deficiencies and Goodwill - Client Services will sign-off the section of this form.</td>
@@ -907,7 +832,7 @@
 												
 												
 												echo"<tr class='odd gradeX'>";
-												echo"<td>$pdetailsid</td>";
+												//echo"<td>$pdetailsid</td>";
 												echo"<td>$partnumber</td>";
 												echo"<td>$description</td>";
 												echo"<td>$notes</td>";
