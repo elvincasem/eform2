@@ -6,6 +6,7 @@ class Projects extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('projects_model');
+		$this->load->helper('date');
 		//$this->load->model('permitsrecognition_model');
 		 $this->data = array(
             'title' => 'Projects',

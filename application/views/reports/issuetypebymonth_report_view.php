@@ -35,7 +35,7 @@
                                             <label class="col-md-3 control-label" for="example-daterange1">Issue Type</label>
                                             <div class="col-md-3">
                                                 <select id="rp_issuetype" name="example-select2" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
-                                                   
+                                                   <?php echo "<option value='".$rp_issuetype."'>$rp_issuetype</option>" ?>
 													<option value="Change Order">Change Order</option>
 													<option value="Damaged Part">Damaged Part</option>
 													<option value="Defective Part">Defective Part</option>
@@ -85,7 +85,7 @@
                                 <div class="block">
                                     <!-- Partial Responsive Title -->
                                     <div class="block-title">
-                                        <h2>Missing Items Total Exceptions by Month</h2>
+                                        <h2><?php echo $rp_issuetype;?> Total Exceptions by Month</h2>
                                     </div>
                                     <!-- END Partial Responsive Title -->
 

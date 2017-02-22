@@ -14,7 +14,7 @@ class Report_model extends CI_Model
 	public function issuetypereport($from,$to)
 	{
 
-			$result = $this->db->query("SELECT rp_issuetype,SUM(rp_qty) AS totalissue FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' GROUP BY rp_issuetype order by totalissue desc");
+			$result = $this->db->query("SELECT rp_issuetype,COUNT(rp_issuetype) AS totalissue FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' GROUP BY rp_issuetype order by totalissue desc");
 			$resultarray = $result->result_array();
 			return $resultarray;
 		
@@ -23,7 +23,7 @@ class Report_model extends CI_Model
 	public function issuetypereport_charts($from,$to)
 	{
 
-			$result = $this->db->query("SELECT SUM(rp_qty) AS value, rp_issuetype AS label FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' GROUP BY rp_issuetype");
+			$result = $this->db->query("SELECT count(rp_issuetype) AS value, rp_issuetype AS label FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' GROUP BY rp_issuetype");
 			$resultarray = $result->result_array();
 			
 			return $resultarray;
@@ -33,7 +33,7 @@ class Report_model extends CI_Model
 	public function grouprootcausereport($from,$to)
 	{
 
-			$result = $this->db->query("SELECT rp_cause,sum(rp_qty) AS totalcause FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' GROUP BY rp_cause order by totalcause desc");
+			$result = $this->db->query("SELECT rp_cause,count(rp_issuetype) AS totalcause FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' GROUP BY rp_cause order by totalcause desc");
 			$resultarray = $result->result_array();
 			return $resultarray;
 		
@@ -42,7 +42,7 @@ class Report_model extends CI_Model
 	public function grouprootcause_charts($from,$to)
 	{
 
-			$result = $this->db->query("SELECT SUM(rp_qty) AS value, rp_cause AS label FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' GROUP BY rp_cause");
+			$result = $this->db->query("SELECT count(rp_cause) AS value, rp_cause AS label FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' GROUP BY rp_cause");
 			$resultarray = $result->result_array();
 			
 			return $resultarray;
@@ -51,7 +51,7 @@ class Report_model extends CI_Model
 	public function issuetypebymonthreport($rp_issuetype,$year)
 	{
 
-			$result = $this->db->query("SELECT MONTHNAME(rp_date) AS calendarmonth, SUM(rp_qty) AS totalissue FROM project_regular WHERE YEAR(rp_date) = '$year' AND rp_issuetype='$rp_issuetype' GROUP BY MONTH(rp_date)");
+			$result = $this->db->query("SELECT MONTHNAME(rp_date) AS calendarmonth, count(rp_issuetype) AS totalissue FROM project_regular WHERE YEAR(rp_date) = '$year' AND rp_issuetype='$rp_issuetype' GROUP BY MONTH(rp_date)");
 			$resultarray = $result->result_array();
 			return $resultarray;
 		
@@ -60,7 +60,7 @@ class Report_model extends CI_Model
 	public function issuetypebymonthreport_charts($rp_issuetype,$year)
 	{
 
-			$result = $this->db->query("SELECT SUM(rp_qty) AS value, MONTHNAME(rp_date) AS label FROM project_regular WHERE YEAR(rp_date) = '$year' AND rp_issuetype='$rp_issuetype' GROUP BY MONTH(rp_date)");
+			$result = $this->db->query("SELECT count(rp_issuetype) AS value, MONTHNAME(rp_date) AS label FROM project_regular WHERE YEAR(rp_date) = '$year' AND rp_issuetype='$rp_issuetype' GROUP BY MONTH(rp_date)");
 			$resultarray = $result->result_array();
 			
 			return $resultarray;
@@ -77,7 +77,7 @@ class Report_model extends CI_Model
 	public function designissuereport($year)
 	{
 
-			$result = $this->db->query("SELECT MONTHNAME(rp_date) AS calendarmonth, SUM(rp_qty) AS totalissue FROM project_regular WHERE YEAR(rp_date) = '$year' AND rp_issuetype='Design Issue' GROUP BY MONTH(rp_date)");
+			$result = $this->db->query("SELECT MONTHNAME(rp_date) AS calendarmonth, count(rp_issuetype) AS totalissue FROM project_regular WHERE YEAR(rp_date) = '$year' AND rp_issuetype='Design Issue' GROUP BY MONTH(rp_date)");
 			$resultarray = $result->result_array();
 			return $resultarray;
 		
@@ -86,7 +86,7 @@ class Report_model extends CI_Model
 	public function designissue_charts($year)
 	{
 
-			$result = $this->db->query("SELECT SUM(rp_qty) AS value, MONTHNAME(rp_date) AS label FROM project_regular WHERE YEAR(rp_date) = '$year' AND rp_issuetype='Design Issue' GROUP BY MONTH(rp_date)");
+			$result = $this->db->query("SELECT count(rp_issuetype) AS value, MONTHNAME(rp_date) AS label FROM project_regular WHERE YEAR(rp_date) = '$year' AND rp_issuetype='Design Issue' GROUP BY MONTH(rp_date)");
 			$resultarray = $result->result_array();
 			
 			return $resultarray;
@@ -111,7 +111,7 @@ class Report_model extends CI_Model
 		
 		
 		
-			$result = $this->db->query("SELECT MONTHNAME(rp_date) AS calendarmonth, SUM(rp_qty) AS totalissue FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' and rp_issuetype='$rp_issuetype' $addedcondition GROUP BY MONTH(rp_date)");
+			$result = $this->db->query("SELECT MONTHNAME(rp_date) AS calendarmonth, count(rp_issuetype) AS totalissue FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' and rp_issuetype='$rp_issuetype' $addedcondition GROUP BY MONTH(rp_date)");
 			$resultarray = $result->result_array();
 			return $resultarray;
 		
@@ -136,7 +136,7 @@ class Report_model extends CI_Model
 		
 		
 		
-			$result = $this->db->query("SELECT SUM(rp_qty) AS value, MONTHNAME(rp_date) AS label FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' and rp_issuetype='$rp_issuetype' $addedcondition GROUP BY MONTH(rp_date)");
+			$result = $this->db->query("SELECT count(rp_issuetype) AS value, MONTHNAME(rp_date) AS label FROM project_regular WHERE rp_date BETWEEN '$from' AND '$to' and rp_issuetype='$rp_issuetype' $addedcondition GROUP BY MONTH(rp_date)");
 			$resultarray = $result->result_array();
 			return $resultarray;
 		

@@ -144,7 +144,7 @@
                                 <div class="block">
                                     <!-- Partial Responsive Title -->
                                     <div class="block-title">
-                                        <h2>Missing Items Total Exceptions by Month</h2>
+                                        <h2>Total Exceptions by Month</h2>
                                     </div>
                                     <!-- END Partial Responsive Title -->
 

@@ -8,7 +8,7 @@ class Issuetypebymonth extends CI_Controller
 		parent::__construct();
 		$this->load->model('report_model');
 		  $this->data = array(
-            'title' => 'Projects List',
+            'title' => 'Report',
 			'projectclass' => '',
 			'usersclass' => '',
 			'userssubclass' => '',
